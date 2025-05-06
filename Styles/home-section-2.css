@@ -1,0 +1,72 @@
+#home-section-2 {
+    padding: 40px 20px;
+    background: #f9f9f9;
+    /* Optional background */
+}
+
+.home-section-2-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 20px 0;
+    cursor: grab;
+}
+
+.home-section-2-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.home-section-2-card {
+    flex: 0 0 auto;
+    width: 260px;
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.home-section-2-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.home-section-2-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.home-section-2-card p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+.home-section-2-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #000000aa;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 10px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.home-section-2-btn.left {
+    left: -10px;
+}
+
+.home-section-2-btn.right {
+    right: -10px;
+}
+
+.home-section-2-btn:hover {
+    background: #000;
+}

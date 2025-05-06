@@ -1,0 +1,11 @@
+.home-section-5-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.home-section-5-inner img{
+    width: 100%;
+    height: auto;
+    margin-bottom: 3rem;
+}

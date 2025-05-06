@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="./Styles/header.css">
+<div class="logo_nav_container">
+    <div class="burger" onclick="toggleMenu()">&#9776;</div>
+    <a href="./index.html">
+        <img src="Assets/Nichecape Logo.png" alt="Logo" class="logo">
+    </a>
+</div>
+
+<!-- Navigation Menu -->
+<div class="nav-container" id="navMenu" onclick="closeOnOutsideClick(event)">
+    <nav onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="toggleMenu()">×</span>
+        <a href="./">Home</a>
+        <a href="./about.html">About</a>
+
+        <!-- Dropdown -->
+        <div class="dropdown">
+            <div class="drop-wrapper">
+                <a href="./services.html" class="dropbtn">Services</a>
+                <img class="dropdown-toggle" id="toggleDropdown"
+                    src="Assets/Vector 7.png">
+            </div>
+            <div class="dropdown-content" id="dropdownContent">
+                <a href="./large-format-printing.html">Freight Forwarding Company in Dubai</a>
+                <a href="./acrylic-fabrication.html">Subcontinent Global Connectivity (SGC)</a>
+                <a href="./uv-printing.html">Warehousing & Buyer Consolidation</a>
+                <a href="./signages.html">Custom House Brokerage</a>
+                <a href="./display-stands-gondala-ends.html">Afghan Transit and Multimodal Transportation</a>
+                <a href="./custom-tshirt-printing.html">Land Transport</a>
+                <a href="./corporate-gifts.html">Specialised Services</a>
+            </div>
+        </div>
+        <a href="./blog.html">Blog</a>
+        <a href="./corporate-gifts.html">Contact Us</a>
+    </nav>
+</div>
+<style>
+.burger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #fff;
+}
+</style>
