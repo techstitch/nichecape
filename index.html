@@ -61,20 +61,61 @@
       <img src="Assets/7e598e4b5f.jpg">
       <div class="home-section-1-content-div">
         <h2>Your Logistics Partner in the UAE & Beyond</h2>
-        <p><!--Reliable --- Scalable --- Always On Time. <br>-->
-          <span>✅ Air & Sea Freight</span>
-          <span>✅ Land Transportation</span><br>
-          <span>✅ Customs Clearance</span>
-          <span>✅ Warehousing & Packaging</span>
-        </p>
         <div class="home-section-1-cta-container">
-          <a href>Request a Quote</a>
           <a href>Contact Us</a>
         </div>
       </div>
-      <img src="Assets/Group 1 (1).png" class="home-section-1-img-2">
-
+      <!--<img src="Assets/Group 1 (1).png" class="home-section-1-img-2">-->
     </section>
+    <section class="page-width ticker" aria-label="Niche Shipping Highlights">
+      <div class="ticker-track">
+        <div class="ticker-content">
+          <span>Reliable</span>
+          <span>Scalable</span>
+          <span>Precise</span>
+          <span>Secure</span>
+          <span>Global</span>
+          <span>Efficient</span>
+          <span>Trusted</span>
+          <span>Seamless</span>
+          <span>Responsive</span>
+          <span>Optimized</span>
+          <span>Certified</span>
+          <span>Always On Time</span>
+        </div>
+        <div class="ticker-content">
+          <span>Reliable</span>
+          <span>Scalable</span>
+          <span>Precise</span>
+          <span>Secure</span>
+          <span>Global</span>
+          <span>Efficient</span>
+          <span>Trusted</span>
+          <span>Seamless</span>
+          <span>Responsive</span>
+          <span>Optimized</span>
+          <span>Certified</span>
+          <span>Always On Time</span>
+        </div>
+      </div>
+    </section>
+    <script>
+      const tickerTrack = document.querySelector('.ticker-track');
+      const tickerContent = document.querySelector('.ticker-content');
+      const clone = tickerContent.cloneNode(true);
+      tickerTrack.appendChild(clone);
+      const contentWidth = tickerContent.getBoundingClientRect().width;
+      gsap.to(tickerTrack, {
+        x: -contentWidth,
+        duration: 35,
+        ease: 'linear',
+        repeat: -1,
+        modifiers: {
+          x: gsap.utils.unitize(x => parseFloat(x) % contentWidth)
+        }
+      });
+    </script>
+
     <!--<section class="page-width" id="home-section-2">
       <link rel="stylesheet" href="Styles/home-section-2.css">
       <h2 class="section-heading">
@@ -155,7 +196,7 @@
             temperature-controlled zones, and distribution capabilities.</p>
           <a href="index.html">Explore</a>
         </div>
-        <div class="home-section-3-card">
+        <div class="home-section-3-card home-section-3-card-full_width">
           <div class="img-container">
             <img src="Assets/40.jpg"></div>
           <h2>Packaging Solutions</h2>
