@@ -1,0 +1,23 @@
+#about-section-4 {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+}
+
+.about-section-4-heading {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #BE1E28;
+}
+
+.about-section-4-content {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-align: center;
+}

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="Styles/main.css">
+    <link rel="stylesheet" href="Styles/header.css">
+    <link rel="stylesheet" href="Styles/footer.css">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"
+      async></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script
+      src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
+    <script
+      src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+    <link rel="icon" type="image/png" href="Assets/Logo.svg">
+  </head>
+  <body>
+    <header class="page-width" id="header">
+      <script>
+        // Inject header from external file
+        fetch('Snippets/header.html')
+          .then(res => res.text())
+          .then(data => {
+            const header = document.getElementById('header');
+            header.innerHTML = data;
+      
+            // Show the header by default on page load
+            header.classList.add('header-show');
+      
+            // Sticky on scroll-up logic
+            let lastScroll = window.pageYOffset;
+      
+            window.addEventListener("scroll", () => {
+              const currentScroll = window.pageYOffset;
+      
+              if (currentScroll < lastScroll) {
+                // scrolling up
+                header.classList.add("header-show");
+              } else {
+                // scrolling down
+                header.classList.remove("header-show");
+              }
+      
+              lastScroll = currentScroll;
+            });
+          });
+      </script>
+
+    </header>
+    <section class="page-width" id="home-section-1">
+      <link rel="stylesheet" href="Styles/home-section-1.css">
+      <img src="Assets/services-1.jpg">
+      <div class="home-section-1-content-div">
+        <h2>Global Logistics & Freight Solutions Tailored for Your
+          Business</h2>
+        <p>At Niche Shipping Services, we simplify supply chains with
+          tailored logistics solutions across air, sea, land, and
+          warehousing. With deep industry expertise and a strong
+          presence in the UAE and GCC, we’re committed to fast
+          delivery, full compliance, and end-to-end visibility.
+        </p>
+        <div class="home-section-1-cta-container">
+          <a href>Get in Touch</a>
+        </div>
+      </div>
+      <!--<img src="Assets/Group 1 (1).png" class="home-section-1-img-2">-->
+    </section>
+    <section class="services-section-2">
+      <link rel="stylesheet" href="Styles/services-section-2.css" />
+      <div class="page-width container">
+        <h2 class="services-heading">Our Core Services</h2>
+        <div class="services-card-wrapper">
+          <div class="service-card" data-speed="0.6">
+            <div class="card-image"
+              style="background-image: url('/Assets/air-sea-freight.jpg');"></div>
+            <div class="card-content">
+              <h3>Air & Sea Freight</h3>
+              <p>Fast, reliable, and flexible shipping solutions
+                globally. Real-time tracking and expert handling
+                for all cargo types.</p>
+              <a href="air-sea-freight.html">Read More</a>
+            </div>
+          </div>
+          <div class="service-card" data-speed="0.4">
+            <div class="card-image"
+              style="background-image: url('/Assets/land-transport.jpg');"></div>
+            <div class="card-content">
+              <h3>Land Transportation</h3>
+              <p>Cross-border trucking and heavy-duty cargo
+                transport across UAE and GCC with GPS-enabled
+                fleets.</p>
+              <a href="land-transportation.html">Read More</a>
+            </div>
+          </div>
+          <div class="service-card" data-speed="0.5">
+            <div class="card-image"
+              style="background-image: url('/Assets/customs-clearance.jpg');"></div>
+            <div class="card-content">
+              <h3>Customs Clearance</h3>
+              <p>End-to-end customs documentation, BOL management,
+                and regulatory compliance across UAE ports.</p>
+              <a href="customs-clearance.html">Read More</a>
+            </div>
+          </div>
+          <div class="service-card" data-speed="0.7">
+            <div class="card-image"
+              style="background-image: url('/Assets/warehousing.jpg');"></div>
+            <div class="card-content">
+              <h3>Warehousing & Packaging</h3>
+              <p>Secure storage, efficient distribution, and
+                export-grade packaging customized to your
+                cargo.</p>
+              <a href="warehousing-packaging.html">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+  const cards = document.querySelectorAll(".service-card");
+  const slider = document.querySelector(".services-card-wrapper");
+
+  let isDragging = false;
+  let startX = 0;
+  let startY = 0;
+  let scrollLeft = 0;
+
+  // Mouse drag
+  slider.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    slider.classList.add("dragging");
+    startX = e.pageX;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  slider.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX;
+    const walk = (x - startX) * 1.5;
+    slider.scrollLeft = scrollLeft - walk;
+  });
+
+  slider.addEventListener("mouseup", () => {
+    isDragging = false;
+    slider.classList.remove("dragging");
+  });
+
+  slider.addEventListener("mouseleave", () => {
+    isDragging = false;
+    slider.classList.remove("dragging");
+  });
+
+  // Touch drag
+  slider.addEventListener("touchstart", (e) => {
+    if (e.touches.length !== 1) return;
+    isDragging = true;
+    startX = e.touches[0].pageX;
+    startY = e.touches[0].pageY;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  slider.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    const touch = e.touches[0];
+    const deltaX = touch.pageX - startX;
+    const deltaY = touch.pageY - startY;
+
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      e.preventDefault(); // horizontal scroll only
+      slider.scrollLeft = scrollLeft - deltaX * 1.5;
+    }
+  });
+
+  slider.addEventListener("touchend", () => {
+    isDragging = false;
+  });
+
+  // GSAP hover 3D
+cards.forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const rotateX = ((y - rect.height / 2) / rect.height) * 30;
+    const rotateY = ((x - rect.width / 2) / rect.width) * 30;
+
+    gsap.to(card, {
+      duration: 0.2,
+      rotateX: -rotateX,
+      rotateY: rotateY,
+      scale: 1,
+      boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
+      transformPerspective: 1000,
+      transformOrigin: "center",
+      ease: "power1.out",
+    });
+  });
+
+  card.addEventListener("mouseleave", () => {
+    gsap.to(card, {
+      duration: 0.25,
+      rotateX: 0,
+      rotateY: 0,
+      scale: 1,
+      boxShadow: "0 10px 20px rgba(0,0,0,0.15)",
+      ease: "power1.out",
+    });
+  });
+});
+    </script>
+    <section class="page-width" id="home-section-6">
+      <link rel="stylesheet" href="Styles/home-section-6.css">
+      <div class="home-section-6-container">
+        <div class="home-section-6-left">
+          <h2 class="home-section-6-heading">Why Choose Niche Shipping
+            Services?
+          </h2>
+          <p class="home-section-6-subheading">
+            Experience seamless logistics with a partner that
+            prioritizes
+            clarity, control, and connectivity across your entire
+            supply
+            chain.
+          </p>
+          <ul class="home-section-6-tabs">
+            <li class="tab active" data-tab="0">One Point of Contact
+              Across
+              the MENA Region</li>
+            <li class="tab" data-tab="1">Transparent Operations with
+              Real-Time
+              Tracking</li>
+            <li class="tab" data-tab="2">Latest ERP for Full Supply
+              Chain
+              Visibility</li>
+            <li class="tab" data-tab="3">Door-to-Door Shipping UAE &
+              GCC</li>
+            <li class="tab" data-tab="4">Dedicated Fleet and
+              Warehouse
+              Infrastructure</li>
+          </ul>
+        </div>
+
+        <div class="home-section-6-right">
+          <div class="carousel">
+            <div class="carousel-slide active" data-slide="0">
+              <img src="Assets/why1.jpg">
+              <div class="slide-content">
+                <h3>One Point of Contact Across the MENA
+                  Region</h3>
+                <p>We simplify your regional logistics through a
+                  single,
+                  dedicated point of contact who understands
+                  your business
+                  inside out. From Egypt to the UAE, enjoy
+                  consistent
+                  communication and personalized service
+                  across every stage of
+                  the shipment process—saving time, reducing
+                  miscommunication,
+                  and accelerating decision-making.</p>
+              </div>
+            </div>
+            <div class="carousel-slide" data-slide="1">
+              <img src="Assets/why2.jpg">
+              <div class="slide-content">
+                <h3>Transparent Operations with Real-Time
+                  Tracking</h3>
+                <p>Our advanced tracking systems give you
+                  complete visibility
+                  into your shipments, every step of the way.
+                  Monitor
+                  location, status, and delivery estimates in
+                  real time—so
+                  you're never in the dark and always in
+                  control. Transparency
+                  is not just a feature, it's our promise.
+                </p>
+              </div>
+            </div>
+            <div class="carousel-slide" data-slide="2">
+              <img src="Assets/why3.jpg">
+              <div class="slide-content">
+                <h3>Latest ERP for Full Supply Chain
+                  Visibility</h3>
+                <p>Harness the power of modern enterprise
+                  technology with our
+                  cutting-edge ERP system. It integrates every
+                  logistics
+                  touchpoint—from order placement to final
+                  delivery—into one
+                  seamless platform. This enables smarter
+                  forecasting, fewer
+                  errors, and a smoother customer experience.
+                </p>
+              </div>
+            </div>
+            <div class="carousel-slide" data-slide="3">
+              <img src="Assets/why4.jpg">
+              <div class="slide-content">
+                <h3>Door-to-Door Shipping UAE & GCC</h3>
+                <p>With deep roots in the UAE and strong
+                  coverage across the
+                  GCC, we offer efficient door-to-door
+                  shipping solutions
+                  tailored to your business needs. Whether
+                  you're delivering
+                  to a warehouse or a retail store, our teams
+                  ensure timely
+                  pickups, customs clearance, and smooth
+                  last-mile deliveries.
+                </p>
+              </div>
+            </div>
+            <div class="carousel-slide" data-slide="4">
+              <img src="Assets/why5.jpg">
+              <div class="slide-content">
+                <h3>Dedicated Fleet and Warehouse
+                  Infrastructure</h3>
+                <p>Our in-house fleet and strategically located
+                  warehouses
+                  provide the reliability and control your
+                  supply chain
+                  demands. From temperature-sensitive goods to
+                  high-volume
+                  inventory, our infrastructure is built to
+                  handle it
+                  all—securely, promptly, and professionally.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+        const tabs = document.querySelectorAll('.home-section-6-tabs .tab');
+        const slides = document.querySelectorAll('.carousel-slide');
+        let currentIndex = 0;
+        let autoSwitchTimer;
+      
+        function activateTab(index) {
+          tabs.forEach(t => t.classList.remove('active'));
+          slides.forEach(s => s.classList.remove('active'));
+      
+          tabs[index].classList.add('active');
+          const slide = slides[index];
+      
+          // GSAP animation
+          gsap.fromTo(slide, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.6 });
+      
+          slide.classList.add('active');
+          currentIndex = index;
+        }
+      
+        function autoSwitchTabs() {
+          currentIndex = (currentIndex + 1) % tabs.length;
+          activateTab(currentIndex);
+        }
+      
+        function resetTimer() {
+          clearInterval(autoSwitchTimer);
+          autoSwitchTimer = setInterval(autoSwitchTabs, 5000);
+        }
+      
+        tabs.forEach((tab, index) => {
+          tab.addEventListener('click', () => {
+            activateTab(index);
+            resetTimer(); // Reset timer on manual switch
+          });
+        });
+      
+        // Start auto-switch
+        autoSwitchTimer = setInterval(autoSwitchTabs, 5000);
+      
+        // Initialize first tab
+        activateTab(0);
+      </script>
+    <footer id="footer">
+      <script>
+            fetch('Snippets/footer.html')
+              .then(res => res.text())
+              .then(data => {
+                document.getElementById('footer').innerHTML = data;
+        
+                // Keep checking for the button until it appears
+                const interval = setInterval(() => {
+                  const btn = document.querySelector(".whatsapp-floating-button");
+                  if (btn) {
+                    clearInterval(interval);
+        
+                    // Animate after 3 seconds
+                    gsap.delayedCall(3, () => {
+                      gsap.fromTo(btn, { autoAlpha: 0, scale: 0 }, { duration: 1, autoAlpha: 1, scale: 1, ease: "back.out(1.7)" });
+        
+                      gsap.to(btn, {
+                        y: -10,
+                        duration: 1.5,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "power1.inOut"
+                      });
+                    });
+                  }
+                }, 100); // check every 100ms
+              });
+          </script>
+    </footer>
+    <!--Header Menu Dropdown Script-->
+    <script>
+            const observer = new MutationObserver(() => {
+            const toggleBtn = document.getElementById('toggleDropdown');
+            const dropdown = document.getElementById('dropdownContent');
+            
+            if (toggleBtn && dropdown) {
+              const dropContainer = toggleBtn.closest('.dropdown');
+            
+              toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('show');
+                dropContainer.classList.toggle('open');
+              });
+          
+              document.addEventListener('click', (e) => {
+                if (!dropContainer.contains(e.target)) {
+                  dropdown.classList.remove('show');
+                  dropContainer.classList.remove('open');
+                }
+              });
+          
+              // Once everything is set up, disconnect observer
+              observer.disconnect();
+            }
+            });
+        
+            observer.observe(document.body, { childList: true, subtree: true });
+        </script>
+    <!--Burger menu toggle-->
+    <script>
+          function toggleMenu() {
+            const tryToggle = () => {
+              const nav = document.getElementById("navMenu");
+              if (nav) {
+                nav.classList.toggle("active");
+        
+                // Prevent body scroll when menu is open
+                document.body.style.overflow = nav.classList.contains("active") ? "hidden" : "";
+              } else {
+                setTimeout(tryToggle, 100);
+              }
+            };
+            tryToggle();
+          }
+        
+          function closeOnOutsideClick(event) {
+            const nav = document.getElementById("navMenu");
+            if (nav && nav.classList.contains("active")) {
+              nav.classList.remove("active");
+              document.body.style.overflow = "";
+            }
+          }
+        </script>
+  </body>
+</html>

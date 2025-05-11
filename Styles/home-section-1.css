@@ -24,6 +24,13 @@
     transform: translate(-50%, -50%);
 }
 
+.home-section-1-content-div p {
+    text-align: center;
+    color: #fff;
+    font-size: .9rem;
+    font-weight: 300;
+}
+
 #home-section-1::after {
     content: '';
     position: absolute;

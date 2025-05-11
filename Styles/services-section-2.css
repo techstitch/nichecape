@@ -1,0 +1,122 @@
+.services-section-2 {
+    background: #000;
+    color: #fff;
+    padding: 3rem 0;
+    overflow-x: hidden;
+}
+
+.services-section-2 .container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.services-heading {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 600;
+
+    color: #BE1E28;
+    text-align: center;
+}
+
+.services-card-wrapper {
+    display: flex;
+    gap: 20px;
+    cursor: grab;
+    user-select: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px;
+    scroll-behavior: smooth;
+    overflow: hidden;
+    /* Hides the scrollbar */
+    -ms-overflow-style: none;
+    /* For Internet Explorer */
+    scrollbar-width: none;
+    /* For Firefox */
+}
+
+.services-card-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.service-card,
+.card-image {
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+
+.services-card-wrapper.dragging {
+    cursor: grabbing;
+}
+
+.service-card {
+    position: relative;
+    min-width: 300px;
+    max-width: 340px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+    scroll-snap-align: start;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.service-card:hover {
+    transform: perspective(1000px) rotateY(4deg) scale(1.02);
+}
+
+.card-image {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover .card-image {
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 25px;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #000;
+    margin: 0;
+    font-family: 'ClashDisplay', sans-serif;
+    font-weight: 600;
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.card-content a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    background: #be1e28;
+    padding: 10px 18px;
+    border-radius: 500px;
+    width: fit-content;
+    font-size: .9rem;
+    transition: all 0.3s ease;
+}
+
+.card-content a:hover {
+    background-color: #000;
+    scale: 1.05;
+    transition: all 0.3s ease;
+}

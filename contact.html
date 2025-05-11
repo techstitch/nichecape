@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Get in Touch</title>
+        <link rel="stylesheet" href="Styles/main.css">
+        <link rel="stylesheet" href="Styles/header.css">
+        <link rel="stylesheet" href="Styles/footer.css">
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"
+            async></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+        <script
+            src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
+        <script
+            src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+        <link rel="icon" type="image/png" href="Assets/Logo.svg">
+    </head>
+    <body>
+        <header class="page-width" id="header">
+            <script>
+        // Inject header from external file
+        fetch('Snippets/header.html')
+          .then(res => res.text())
+          .then(data => {
+            const header = document.getElementById('header');
+            header.innerHTML = data;
+      
+            // Show the header by default on page load
+            header.classList.add('header-show');
+      
+            // Sticky on scroll-up logic
+            let lastScroll = window.pageYOffset;
+      
+            window.addEventListener("scroll", () => {
+              const currentScroll = window.pageYOffset;
+      
+              if (currentScroll < lastScroll) {
+                // scrolling up
+                header.classList.add("header-show");
+              } else {
+                // scrolling down
+                header.classList.remove("header-show");
+              }
+      
+              lastScroll = currentScroll;
+            });
+          });
+      </script>
+
+        </header>
+        <section class="page-width" id="home-section-1">
+            <link rel="stylesheet" href="Styles/home-section-1.css">
+            <img src="Assets/contact-1.jpg">
+            <div class="home-section-1-content-div">
+                <h2>Get in Touch & Start Your Shipment Today</h2>
+                <p>Whether you're shipping a container, moving industrial cargo,
+                    or need a warehousing partner in the UAE—our logistics
+                    experts are here to help.
+                </p>
+            </div>
+        </section>
+        <section class="page-width ticker"
+            aria-label="Niche Shipping Highlights">
+            <div class="ticker-track">
+                <div class="ticker-content">
+                    <span>Reliable</span>
+                    <span>Scalable</span>
+                    <span>Precise</span>
+                    <span>Secure</span>
+                    <span>Global</span>
+                    <span>Efficient</span>
+                    <span>Trusted</span>
+                    <span>Optimized</span>
+                    <span>Certified</span>
+                    <span>Always On Time</span>
+                </div>
+                <div class="ticker-content">
+                    <span>Reliable</span>
+                    <span>Scalable</span>
+                    <span>Precise</span>
+                    <span>Secure</span>
+                    <span>Global</span>
+                    <span>Efficient</span>
+                    <span>Trusted</span>
+                    <span>Optimized</span>
+                    <span>Certified</span>
+                    <span>Always On Time</span>
+                </div>
+            </div>
+        </section>
+        <script>
+            const tickerTrack = document.querySelector('.ticker-track');
+            const tickerContent = document.querySelector('.ticker-content');
+            const clone = tickerContent.cloneNode(true);
+            tickerTrack.appendChild(clone);
+            const contentWidth = tickerContent.getBoundingClientRect().width;
+            gsap.to(tickerTrack, {
+              x: -contentWidth,
+              duration: 35,
+              ease: 'linear',
+              repeat: -1,
+              modifiers: {
+                x: gsap.utils.unitize(x => parseFloat(x) % contentWidth)
+              }
+            });
+        </script>
+        <section class="page-width contact-section-2">
+            <link rel="stylesheet" href="Styles/contact.css">
+            <p class="page-heading">Send a message</p>
+            <div class="contact-section-2-inner">
+                <form action="https://formspree.io/f/xanodwgz" method="POST"
+                    class="contact-form">
+                    <div class="contact-form-inner">
+                        <input type="text" name="name" placeholder="Name"
+                            required>
+                        <input type="email" name="email" placeholder="Email"
+                            required>
+                        <input type="number" name="phone" placeholder="Phone"
+                            required>
+                        <textarea name="message" rows="5"
+                            placeholder="Message"></textarea>
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+                <div class="contact-image-wrapper">
+                    <img src="Assets/contact-2.jpg">
+                </div>
+            </div>
+        </section>
+        <section class="page-width contact-section-3">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2973.962128728677!2d55.32538347233751!3d25.263202079691574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5dc25021f82d%3A0x6bb620877af3e05b!2sNiche%20Cape%20Shipping%20Services%20LLC!5e1!3m2!1sen!2sin!4v1746926448513!5m2!1sen!2sin"
+                width="600" height="450" style="border:0;" allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <ul class="contact-section-3-inner">
+                <li>
+                    <img src="Assets/location-pin_10023629.png">
+                    <p>11A St Al Khabaisi, Deira , Dubai , PO Box 81605</p>
+                </li>
+                <li>
+                    <img src="Assets/phone-call_455705 (2).png">
+                    <p>+971 (4) 297 8868</p>
+                    <p>+971 52 579 6470</p>
+                </li>
+                <li>
+                    <img src="Assets/email_542689.png">
+                    <p>info@nicheme.com</p>
+                </li>
+                <li>
+                    <img src="Assets/time_6068097.png">
+                    <p>Sun to Thu - 9 am to 6pm</p>
+                </li>
+            </ul>
+        </section>
+        <footer id="footer">
+            <script>
+            fetch('Snippets/footer.html')
+              .then(res => res.text())
+              .then(data => {
+                document.getElementById('footer').innerHTML = data;
+        
+                // Keep checking for the button until it appears
+                const interval = setInterval(() => {
+                  const btn = document.querySelector(".whatsapp-floating-button");
+                  if (btn) {
+                    clearInterval(interval);
+        
+                    // Animate after 3 seconds
+                    gsap.delayedCall(3, () => {
+                      gsap.fromTo(btn, { autoAlpha: 0, scale: 0 }, { duration: 1, autoAlpha: 1, scale: 1, ease: "back.out(1.7)" });
+        
+                      gsap.to(btn, {
+                        y: -10,
+                        duration: 1.5,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "power1.inOut"
+                      });
+                    });
+                  }
+                }, 100); // check every 100ms
+              });
+          </script>
+        </footer>
+        <!--Header Menu Dropdown Script-->
+        <script>
+            const observer = new MutationObserver(() => {
+            const toggleBtn = document.getElementById('toggleDropdown');
+            const dropdown = document.getElementById('dropdownContent');
+            
+            if (toggleBtn && dropdown) {
+              const dropContainer = toggleBtn.closest('.dropdown');
+            
+              toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('show');
+                dropContainer.classList.toggle('open');
+              });
+          
+              document.addEventListener('click', (e) => {
+                if (!dropContainer.contains(e.target)) {
+                  dropdown.classList.remove('show');
+                  dropContainer.classList.remove('open');
+                }
+              });
+          
+              // Once everything is set up, disconnect observer
+              observer.disconnect();
+            }
+            });
+        
+            observer.observe(document.body, { childList: true, subtree: true });
+        </script>
+        <!--Burger menu toggle-->
+        <script>
+          function toggleMenu() {
+            const tryToggle = () => {
+              const nav = document.getElementById("navMenu");
+              if (nav) {
+                nav.classList.toggle("active");
+        
+                // Prevent body scroll when menu is open
+                document.body.style.overflow = nav.classList.contains("active") ? "hidden" : "";
+              } else {
+                setTimeout(tryToggle, 100);
+              }
+            };
+            tryToggle();
+          }
+        
+          function closeOnOutsideClick(event) {
+            const nav = document.getElementById("navMenu");
+            if (nav && nav.classList.contains("active")) {
+              nav.classList.remove("active");
+              document.body.style.overflow = "";
+            }
+          }
+        </script>
+    </body>
+</html>

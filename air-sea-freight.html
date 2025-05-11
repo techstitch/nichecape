@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Air & Sea Freight</title>
+        <link rel="stylesheet" href="Styles/main.css">
+        <link rel="stylesheet" href="Styles/header.css">
+        <link rel="stylesheet" href="Styles/footer.css">
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"
+            async></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+        <script
+            src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
+        <script
+            src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+        <link rel="icon" type="image/png" href="Assets/Logo.svg">
+    </head>
+    <body>
+        <header class="page-width" id="header">
+            <script>
+        // Inject header from external file
+        fetch('Snippets/header.html')
+          .then(res => res.text())
+          .then(data => {
+            const header = document.getElementById('header');
+            header.innerHTML = data;
+      
+            // Show the header by default on page load
+            header.classList.add('header-show');
+      
+            // Sticky on scroll-up logic
+            let lastScroll = window.pageYOffset;
+      
+            window.addEventListener("scroll", () => {
+              const currentScroll = window.pageYOffset;
+      
+              if (currentScroll < lastScroll) {
+                // scrolling up
+                header.classList.add("header-show");
+              } else {
+                // scrolling down
+                header.classList.remove("header-show");
+              }
+      
+              lastScroll = currentScroll;
+            });
+          });
+      </script>
+
+        </header>
+        <section class="page-width" id="home-section-1">
+            <link rel="stylesheet" href="Styles/home-section-1.css">
+            <img src="Assets/air-sea-freight.jpg">
+            <div class="home-section-1-content-div">
+                <h2>Air & Sea Freight Services in UAE – Fast, Reliable, Global
+                </h2>
+                <p>At Niche Shipping Services, we provide efficient and
+                    cost-effective international freight forwarding services via
+                    air and sea. Our solutions are tailored for speed, safety,
+                    and flexibility—whether you're shipping general cargo,
+                    temperature-sensitive goods, or heavy machinery.
+                </p>
+                <div class="home-section-1-cta-container">
+                    <a href>Get in Touch</a>
+                </div>
+            </div>
+            <!--<img src="Assets/Group 1 (1).png" class="home-section-1-img-2">-->
+        </section>
+        <section class="page-width" id="services-content-section">
+            <link rel="stylesheet" href="Styles/services-content-section.css">
+            <h2>Reliable Freight Forwarding by Air and Sea</h2>
+            <p>At Niche Shipping Services, we offer integrated freight solutions
+                via air and sea to meet your shipping needs across the globe.
+                Our services include direct, express, and deferred air freight,
+                as well as Full Container Load (FCL) and Less than Container
+                Load (LCL) sea freight options. We handle everything from
+                general cargo and personal shipments to vehicles, dangerous
+                goods, and exhibition materials. Whether it’s global
+                airport-to-airport or port-to-port delivery, our partnerships
+                with leading air and ocean carriers ensure timely and secure
+                transportation. You’ll benefit from real-time tracking and
+                dependable coverage—making us one of the most trusted air
+                freight services in the UAE and international freight forwarders
+                in Dubai.
+            </p>
+        </section>
+        <section class="page-width" id="services-content-section">
+            <link rel="stylesheet" href="Styles/services-content-section.css">
+            <h2>Specialized Logistics for Complex Cargo</h2>
+            <p>We go beyond basic freight forwarding to support industries with
+                specialized logistics requirements. Our team is equipped to
+                manage temperature-sensitive goods using reefer containers and
+                air-cooled storage, while also handling break-bulk and project
+                cargo with precision. We provide full compliance for dangerous
+                goods and expert logistics for exhibitions and events. To ensure
+                smooth customs clearance and accountability, we assist with
+                essential documentation such as the Bill of Lading (BOL) and
+                Proof of Delivery (POD). Whether you’re seeking sea freight
+                forwarding in Dubai, LCL/FCL shipping in the UAE, or accurate
+                freight bill of lading services—our expertise ensures your cargo
+                moves seamlessly from origin to destination.
+            </p>
+        </section>
+        <a class="service-page-redirection" href="services.html">View All Services</a>
+        <footer id="footer">
+            <script>
+            fetch('Snippets/footer.html')
+              .then(res => res.text())
+              .then(data => {
+                document.getElementById('footer').innerHTML = data;
+        
+                // Keep checking for the button until it appears
+                const interval = setInterval(() => {
+                  const btn = document.querySelector(".whatsapp-floating-button");
+                  if (btn) {
+                    clearInterval(interval);
+        
+                    // Animate after 3 seconds
+                    gsap.delayedCall(3, () => {
+                      gsap.fromTo(btn, { autoAlpha: 0, scale: 0 }, { duration: 1, autoAlpha: 1, scale: 1, ease: "back.out(1.7)" });
+        
+                      gsap.to(btn, {
+                        y: -10,
+                        duration: 1.5,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "power1.inOut"
+                      });
+                    });
+                  }
+                }, 100); // check every 100ms
+              });
+          </script>
+        </footer>
+        <!--Header Menu Dropdown Script-->
+        <script>
+      const observer = new MutationObserver(() => {
+      const toggleBtn = document.getElementById('toggleDropdown');
+      const dropdown = document.getElementById('dropdownContent');
+
+      if (toggleBtn && dropdown) {
+        const dropContainer = toggleBtn.closest('.dropdown');
+
+        toggleBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dropdown.classList.toggle('show');
+          dropContainer.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!dropContainer.contains(e.target)) {
+            dropdown.classList.remove('show');
+            dropContainer.classList.remove('open');
+          }
+        });
+
+        // Once everything is set up, disconnect observer
+        observer.disconnect();
+      }
+      });
+    
+      observer.observe(document.body, { childList: true, subtree: true });
+        </script>
+        <!--Burger menu toggle-->
+        <script>
+          function toggleMenu() {
+            const tryToggle = () => {
+              const nav = document.getElementById("navMenu");
+              if (nav) {
+                nav.classList.toggle("active");
+        
+                // Prevent body scroll when menu is open
+                document.body.style.overflow = nav.classList.contains("active") ? "hidden" : "";
+              } else {
+                setTimeout(tryToggle, 100);
+              }
+            };
+            tryToggle();
+          }
+        
+          function closeOnOutsideClick(event) {
+            const nav = document.getElementById("navMenu");
+            if (nav && nav.classList.contains("active")) {
+              nav.classList.remove("active");
+              document.body.style.overflow = "";
+            }
+          }
+    </script>
+    </body>
+</html>

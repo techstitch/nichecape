@@ -1,0 +1,74 @@
+.about-section-8 {
+    padding-bottom: 4rem;
+    overflow: hidden;
+}
+
+.about-section-8-stack {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+}
+
+.about-section-8-heading {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #BE1E28;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+.about-section-8-card h3 {
+    transition: all 0.3s ease-out;
+    color: #000;
+    font-family: 'ClashDisplay', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.about-section-8-card {
+    flex: 0 0 26%;
+    padding: 2rem;
+    border: 1px solid #BE1E28;
+    border-radius: 2rem;
+    background: transparent;
+    color: white;
+    transform: translateY(120px) scale(0.9);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.about-section-8-card:hover {
+    border: none;
+    background-color: #BE1E28;
+    scale: 1.03 !important;
+    transition: all 0.3s ease;
+}
+
+.about-section-8-card:hover h3,
+.about-section-8-card:hover p {
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.about-section-8-card:nth-child(1) {
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.about-section-8-card:nth-child(2) {
+    top: 0;
+    left: 34%;
+    z-index: 2;
+}
+
+.about-section-8-card:nth-child(3) {
+    top: 0;
+    right: 0;
+    z-index: 1;
+}

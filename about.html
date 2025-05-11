@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="Styles/main.css">
+    <link rel="stylesheet" href="Styles/header.css">
+    <link rel="stylesheet" href="Styles/footer.css">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"
+      async></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script
+      src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
+    <script
+      src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+    <link rel="icon" type="image/png" href="Assets/Logo.svg">
+  </head>
+  <body>
+    <header class="page-width" id="header">
+      <script>
+        // Inject header from external file
+        fetch('Snippets/header.html')
+          .then(res => res.text())
+          .then(data => {
+            const header = document.getElementById('header');
+            header.innerHTML = data;
+      
+            // Show the header by default on page load
+            header.classList.add('header-show');
+      
+            // Sticky on scroll-up logic
+            let lastScroll = window.pageYOffset;
+      
+            window.addEventListener("scroll", () => {
+              const currentScroll = window.pageYOffset;
+      
+              if (currentScroll < lastScroll) {
+                // scrolling up
+                header.classList.add("header-show");
+              } else {
+                // scrolling down
+                header.classList.remove("header-show");
+              }
+      
+              lastScroll = currentScroll;
+            });
+          });
+      </script>
+
+    </header>
+    <section class="page-width" id="home-section-1">
+      <link rel="stylesheet" href="Styles/home-section-1.css">
+      <img src="Assets/ABOUT-1.jpg">
+      <div class="home-section-1-content-div">
+        <h2>Your Global Logistics Partner in Excellence</h2>
+        <p>Niche Shipping Services provides expert freight forwarding,
+          customs clearance, and warehousing solutions across the UAE
+          — trusted by clients in over 15 countries for reliable and
+          efficient logistics.
+        </p>
+        <div class="home-section-1-cta-container">
+          <a href>Get in Touch</a>
+        </div>
+      </div>
+      <!--<img src="Assets/Group 1 (1).png" class="home-section-1-img-2">-->
+    </section>
+    <section class="page-width ticker"
+      aria-label="Niche Shipping Highlights">
+      <div class="ticker-track">
+        <div class="ticker-content">
+          <span>Reliable</span>
+          <span>Scalable</span>
+          <span>Precise</span>
+          <span>Secure</span>
+          <span>Global</span>
+          <span>Efficient</span>
+          <span>Trusted</span>
+          <span>Optimized</span>
+          <span>Certified</span>
+          <span>Always On Time</span>
+        </div>
+        <div class="ticker-content">
+          <span>Reliable</span>
+          <span>Scalable</span>
+          <span>Precise</span>
+          <span>Secure</span>
+          <span>Global</span>
+          <span>Efficient</span>
+          <span>Trusted</span>
+          <span>Optimized</span>
+          <span>Certified</span>
+          <span>Always On Time</span>
+        </div>
+      </div>
+    </section>
+    <script>
+            const tickerTrack = document.querySelector('.ticker-track');
+            const tickerContent = document.querySelector('.ticker-content');
+            const clone = tickerContent.cloneNode(true);
+            tickerTrack.appendChild(clone);
+            const contentWidth = tickerContent.getBoundingClientRect().width;
+            gsap.to(tickerTrack, {
+              x: -contentWidth,
+              duration: 35,
+              ease: 'linear',
+              repeat: -1,
+              modifiers: {
+                x: gsap.utils.unitize(x => parseFloat(x) % contentWidth)
+              }
+            });
+    </script>
+    <section class="page-width" id="about-section-members">
+      <link rel="stylesheet" href="Styles/about-section-members.css">
+      <h2 class="about-section-member-heading">Trusted Member of
+      </h2>
+      <div class="members-images-container">
+        <img src="Assets/122.png">
+        <img src="Assets/123.png">
+        <img src="Assets/124.png">
+      </div>
+    </section>
+    <section class="page-width about-section-video" id="home-section-video">
+      <link rel="stylesheet" href="Styles/home-section-video.css">
+      <div class="video-wrapper">
+        <video autoplay muted loop playsinline
+          class="home-section-2-video"
+          id="videoModal" data-fancybox="video">
+          <source src="Assets/Niche Star Copy 01 (1).mp4"
+            type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.1/dist/jquery.fancybox.min.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.1/dist/jquery.fancybox.min.js"></script>
+
+      <script>
+                // Initialize FancyBox for video elements
+                $('[data-fancybox="video"]').fancybox({
+                    type: 'video',  // Ensure the content type is 'video'
+                    buttons: [
+                        "play",  // Play button
+                        "fullScreen",  // Fullscreen button
+                        "close",  // Close button
+                        "volume",  // Volume control button
+                        "download"  // Optional download button
+                    ],
+                    // Add this setting to prevent reloading of the video when closing the modal
+                    onClose: function () {
+                        var video = $('#videoModal')[0];
+                        video.pause();  // Pause the video when closing
+                        video.currentTime = 0;  // Reset the video time to the beginning
+            
+                        // Ensure the video is shown again after closing the modal
+                        $('#videoModal').css('display', 'block');
+                    },
+                    // Prevent reloading the video when opening the modal again
+                    afterLoad: function (current, previous, event) {
+                        var video = $(current.src)[0];
+                        if (video) {
+                            video.play();  // Play video automatically when modal is opened
+                        }
+                        // Add controls to the video when it's in the FancyBox modal
+                        $('#videoModal').prop('controls', true);  // Enable controls when the modal is opened
+                    },
+                    // Ensure that the video is visible after closing the modal
+                    afterClose: function () {
+                        $('#videoModal').css('display', 'block');  // Show the video again after closing the modal
+                        // Remove controls when returning to the page view
+                        $('#videoModal').prop('controls', false);  // Remove controls when the modal is closed
+                    }
+                });
+            </script>
+    </section>
+    <section class="page-width" id="about-section-4">
+      <link rel="stylesheet" href="Styles/about-section-4.css">
+      <h2 class="about-section-4-heading">Global Reach, Local Expertise
+      </h2>
+      <p class="about-section-4-content">Niche Shipping Services provides
+        expert freight forwarding, seamless customs clearance, and
+        secure warehousing solutions across the UAE. With a strong
+        presence in over 15 countries, we are a trusted logistics
+        partner known for reliability, efficiency, and tailored service
+        that meets the demands of modern global trade.
+
+      </p>
+    </section>
+    <section id="about-section-5" class="about-section-5">
+      <link rel="stylesheet" href="Styles/about-section-5.css">
+      <div class="about-section-5-wrapper">
+        <div class="about-section-5-slide">
+          <img src="Assets/about-why-1.jpg" alt="Global Reach" />
+          <div class="about-section-5-content">
+            <h2>What Sets Us Apart</h2>
+            <p>Global logistics reach with a local UAE touch. We
+              combine international expertise with local knowledge
+              to provide seamless, cost-effective solutions
+              tailored to your unique needs. Whether you're
+              importing or exporting, we ensure your shipments are
+              delivered efficiently and securely.</p>
+          </div>
+        </div>
+        <div class="about-section-5-slide">
+          <img src="Assets/about-why-2.jpg" alt="Partnerships" />
+          <div class="about-section-5-content">
+            <h2>Strategic Partnerships</h2>
+            <p>With top carriers & ports worldwide, our strong
+              relationships ensure that your shipments are handled
+              with the utmost care and speed. Our partnerships
+              guarantee access to optimal routes and competitive
+              pricing, ensuring timely and cost-effective delivery
+              solutions.</p>
+          </div>
+        </div>
+        <div class="about-section-5-slide">
+          <img src="Assets/about-why-3.jpg" alt="End-to-End" />
+          <div class="about-section-5-content">
+            <h2>End-to-End Solutions</h2>
+            <p>From first mile to last mile, we handle every aspect
+              of your logistics journey. Our integrated services
+              offer a streamlined approach, reducing complexity,
+              cutting costs, and ensuring that every step of the
+              process is carefully managed for efficiency and
+              reliability.</p>
+          </div>
+        </div>
+        <div class="about-section-5-slide">
+          <img src="Assets/about-why-4.jpg" alt="Transparency" />
+          <div class="about-section-5-content">
+            <h2>Full Transparency</h2>
+            <p>Live tracking & POD systems keep you informed at
+              every stage of your shipment. With our real-time
+              updates and transparent operations, we offer
+              complete visibility, ensuring you are always in the
+              loop with up-to-the-minute information on your
+              freight.</p>
+          </div>
+        </div>
+        <div class="about-section-5-slide">
+          <img src="Assets/about-why-5.jpg" alt="Expert Handling" />
+          <div class="about-section-5-content">
+            <h2>Multimodal Expertise</h2>
+            <p>Air, sea & land freight mastery. Our team is equipped
+              to handle diverse transportation needs, providing
+              tailored solutions that optimize speed and
+              cost-efficiency across multiple modes of transport
+              for both domestic and international shipping.</p>
+          </div>
+        </div>
+      </div>
+      <script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  const wrapper = document.querySelector(".about-section-5-wrapper");
+  const slides = gsap.utils.toArray(".about-section-5-slide");
+  const slideCount = slides.length;
+  const slideWidth = window.innerWidth; // width of a single slide
+  const totalScrollLength = slideWidth * (slideCount - 1); // Adjusted to cover all slides except the last one
+
+  // Horizontal scroll animation
+  const hScroll = gsap.to(wrapper, {
+    x: -totalScrollLength, // Move the wrapper to the left to cover all slides
+    ease: "power1.inOut",
+    scrollTrigger: {
+      id: "hscroll",
+      trigger: "#about-section-5",
+      start: "top top",
+      end: `+=${totalScrollLength}`, // Adjusted to cover only the total width of all slides except the last one
+      pin: true,
+      scrub: 1,
+      anticipatePin: 1,
+    }
+  });
+
+  // Text content animation per slide
+  slides.forEach((slide) => {
+    const content = slide.querySelector(".about-section-5-content");
+
+    gsap.fromTo(content, 
+      { autoAlpha: 0, y: 60, scale: 0.95 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        scale: 1,
+        duration: 1.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: slide,
+          containerAnimation: hScroll,
+          start: "left center",
+          end: "right center",
+          toggleActions: "play none none reverse",
+        }
+      }
+    );
+  });
+
+  // Parallax scale effect on images
+  slides.forEach((slide) => {
+    const img = slide.querySelector("img");
+
+    gsap.to(img, {
+      scale: 1.05,
+      ease: "none",
+      scrollTrigger: {
+        trigger: slide,
+        containerAnimation: hScroll,
+        scrub: true,
+        start: "left center",
+        end: "right center",
+      }
+    });
+  });
+            </script>
+    </section>
+    <section class="page-width" id="home-section-7">
+      <link rel="stylesheet" href="Styles/home-section-7.css">
+      <div class="home-section-7-container-1">
+        <div class="home-section-7-container-left">
+          <div class="home-section-7-container-heading-container">
+            <p class="home-section-7-container-heading">OUR
+              MISSION</p>
+          </div>
+          <p class="home-section-7-container-subheading">Driven by
+            Purpose,
+            Defined by Precision</p>
+          <p class="home-section-7-container-content">
+            Your goals are the cornerstone of our mission — we
+            strive to
+            provide intelligent, reliable, and timely logistics
+            solutions that
+            move your business forward with confidence and clarity.
+            <br><br>
+            From strategic planning to seamless execution, we focus
+            on
+            delivering value at every stage. Whether it's global
+            freight,
+            regional distribution, or supply chain coordination, our
+            mission
+            is to empower your operations with efficiency,
+            sustainability, and
+            unwavering support tailored to your unique needs.
+          </p>
+        </div>
+        <div class="section-7-image-container">
+          <img src="Assets/mission.jpg">
+        </div>
+      </div>
+      <div class="home-section-7-container-2">
+        <div class="section-7-image-container">
+          <img src="Assets/promise.jpg">
+        </div>
+        <div class="home-section-7-container-left">
+          <div class="home-section-7-container-heading-container">
+            <p class="home-section-7-container-heading">OUR
+              PROMISE</p>
+          </div>
+          <p class="home-section-7-container-subheading">Empowering
+            Logistics
+            with Purpose and Precision</p>
+          <p class="home-section-7-container-content">
+            Your needs are the focus of our promise — we dedicate
+            ourselves to
+            delivering dependable, adaptable, and forward-thinking
+            logistics
+            solutions that elevate your business and keep it moving
+            smoothly
+            across borders.
+            <br><br>
+            From freight forwarding and customs brokerage to
+            last-mile
+            delivery across the GCC, we work hand-in-hand with you
+            to ensure
+            each shipment is handled with care, efficiency, and a
+            relentless
+            commitment to excellence at every touchpoint.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="about-section-8" class="page-width about-section-8">
+      <link rel="stylesheet" href="Styles/about-section-8.css">
+      <h2 class="about-section-8-heading">Global Reach, Local Expertise
+      </h2>
+      <div class="about-section-8-stack">
+        <div class="about-section-8-card">
+          <h3>Compliant with UAE Logistics Regulations</h3>
+          <p>We are fully compliant with UAE logistics and trade
+            regulations, ensuring safe and efficient operations.</p>
+        </div>
+        <div class="about-section-8-card">
+          <h3>Expertise in Dangerous Goods Shipping</h3>
+          <p>Specializing in the safe transportation of dangerous
+            goods and temperature-sensitive cargo worldwide.</p>
+        </div>
+        <div class="about-section-8-card">
+          <h3>Centralized Billing and Local Support</h3>
+          <p>We offer centralized billing with local operational
+            support to streamline logistics and ensure smooth
+            business transactions.</p>
+        </div>
+      </div>
+
+    </section>
+    <script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  const cards = gsap.utils.toArray(".about-section-8-card");
+
+  cards.forEach((card, index) => {
+    gsap.to(card, {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#about-section-8",
+        start: "top center",
+        end: `+=150`, // smaller scroll distance for quicker transition
+        scrub: true
+      }
+    });
+  });
+        </script>
+    <footer id="footer">
+      <script>
+            fetch('Snippets/footer.html')
+              .then(res => res.text())
+              .then(data => {
+                document.getElementById('footer').innerHTML = data;
+        
+                // Keep checking for the button until it appears
+                const interval = setInterval(() => {
+                  const btn = document.querySelector(".whatsapp-floating-button");
+                  if (btn) {
+                    clearInterval(interval);
+        
+                    // Animate after 3 seconds
+                    gsap.delayedCall(3, () => {
+                      gsap.fromTo(btn, { autoAlpha: 0, scale: 0 }, { duration: 1, autoAlpha: 1, scale: 1, ease: "back.out(1.7)" });
+        
+                      gsap.to(btn, {
+                        y: -10,
+                        duration: 1.5,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "power1.inOut"
+                      });
+                    });
+                  }
+                }, 100); // check every 100ms
+              });
+          </script>
+    </footer>
+    <!--Header Menu Dropdown Script-->
+    <script>
+            const observer = new MutationObserver(() => {
+            const toggleBtn = document.getElementById('toggleDropdown');
+            const dropdown = document.getElementById('dropdownContent');
+            
+            if (toggleBtn && dropdown) {
+              const dropContainer = toggleBtn.closest('.dropdown');
+            
+              toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('show');
+                dropContainer.classList.toggle('open');
+              });
+          
+              document.addEventListener('click', (e) => {
+                if (!dropContainer.contains(e.target)) {
+                  dropdown.classList.remove('show');
+                  dropContainer.classList.remove('open');
+                }
+              });
+          
+              // Once everything is set up, disconnect observer
+              observer.disconnect();
+            }
+            });
+        
+            observer.observe(document.body, { childList: true, subtree: true });
+        </script>
+    <!--Burger menu toggle-->
+    <script>
+          function toggleMenu() {
+            const tryToggle = () => {
+              const nav = document.getElementById("navMenu");
+              if (nav) {
+                nav.classList.toggle("active");
+        
+                // Prevent body scroll when menu is open
+                document.body.style.overflow = nav.classList.contains("active") ? "hidden" : "";
+              } else {
+                setTimeout(tryToggle, 100);
+              }
+            };
+            tryToggle();
+          }
+        
+          function closeOnOutsideClick(event) {
+            const nav = document.getElementById("navMenu");
+            if (nav && nav.classList.contains("active")) {
+              nav.classList.remove("active");
+              document.body.style.overflow = "";
+            }
+          }
+        </script>
+  </body>
+</html>

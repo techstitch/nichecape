@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Future of Freight: Key Trends Reshaping Logistics in
+            2025</title>
+        <link rel="stylesheet" href="Styles/main.css">
+        <link rel="stylesheet" href="Styles/header.css">
+        <link rel="stylesheet" href="Styles/footer.css">
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"
+            async></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+        <script
+            src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
+        <script
+            src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+        <link rel="icon" type="image/png" href="Assets/Logo.svg">
+    </head>
+    <body>
+        <header class="page-width" id="header">
+            <script>
+        // Inject header from external file
+        fetch('Snippets/header.html')
+          .then(res => res.text())
+          .then(data => {
+            const header = document.getElementById('header');
+            header.innerHTML = data;
+      
+            // Show the header by default on page load
+            header.classList.add('header-show');
+      
+            // Sticky on scroll-up logic
+            let lastScroll = window.pageYOffset;
+      
+            window.addEventListener("scroll", () => {
+              const currentScroll = window.pageYOffset;
+      
+              if (currentScroll < lastScroll) {
+                // scrolling up
+                header.classList.add("header-show");
+              } else {
+                // scrolling down
+                header.classList.remove("header-show");
+              }
+      
+              lastScroll = currentScroll;
+            });
+          });
+      </script>
+
+        </header>
+        <section class="page-width" id="home-section-1">
+            <link rel="stylesheet" href="Styles/home-section-1.css">
+            <img src="Assets/blog-102.jpg">
+            <div class="home-section-1-content-div">
+                <h2>The Future of Freight: Key Trends Reshaping Logistics in
+                    2025</h2>
+                <p>Digital transformation, sustainability, and adaptability are
+                    rewriting the rules of logistics</p>
+                <div class="home-section-1-cta-container">
+                    <a href>Get in Touch</a>
+                </div>
+            </div>
+            <!--<img src="Assets/Group 1 (1).png" class="home-section-1-img-2">-->
+        </section>
+        <section class="page-width blog-content">
+            <link rel="stylesheet" href="Styles/blog.css">
+            <p>As global commerce evolves, freight forwarding is undergoing a
+                digital and operational transformation. From AI-driven
+                optimization to green logistics, the future belongs to companies
+                that embrace innovation. At Niche CAPE Logistics, we stay ahead
+                of the curve to help our clients navigate this changing
+                landscape with confidence and clarity.</p>
+
+            <p><strong>1. Real-Time Visibility is Now a Standard</strong><br>
+                Clients no longer settle for estimated delivery windows.
+                Real-time tracking and transparency are essential. Using
+                GPS-enabled fleets and integrated dashboards, we offer full
+                visibility from dispatch to delivery—enhancing trust and
+                streamlining planning.</p>
+
+            <p><strong>2. Automation & AI in Freight Management</strong><br>
+                Artificial Intelligence helps forecast demand, analyze routes,
+                and reduce deadhead mileage. Our logistics tools use predictive
+                data to optimize cost, time, and resources, making every
+                shipment smarter and more efficient.</p>
+
+            <p><strong>3. Greener Supply Chains</strong><br>
+                Eco-conscious logistics is on the rise. At Niche CAPE Logistics,
+                we adopt fuel-efficient routes, support electric vehicle
+                deployment where possible, and work with carriers committed to
+                reducing their carbon footprint.</p>
+
+            <p><strong>4. Flexible Capacity & On-Demand Shipping</strong><br>
+                Businesses demand agility—seasonal spikes, flash sales, and
+                supply chain shifts require scalable solutions. Our hybrid
+                freight models allow rapid expansion and dynamic capacity to
+                meet variable demands without disruption.</p>
+
+            <p>Freight forwarding is no longer just about moving cargo—it's
+                about moving with the times. With advanced technology,
+                sustainability initiatives, and data-driven precision, Niche
+                CAPE Logistics delivers next-generation freight solutions for
+                modern businesses.</p>
+        </section>
+        <footer id="footer">
+            <script>
+            fetch('Snippets/footer.html')
+              .then(res => res.text())
+              .then(data => {
+                document.getElementById('footer').innerHTML = data;
+        
+                // Keep checking for the button until it appears
+                const interval = setInterval(() => {
+                  const btn = document.querySelector(".whatsapp-floating-button");
+                  if (btn) {
+                    clearInterval(interval);
+        
+                    // Animate after 3 seconds
+                    gsap.delayedCall(3, () => {
+                      gsap.fromTo(btn, { autoAlpha: 0, scale: 0 }, { duration: 1, autoAlpha: 1, scale: 1, ease: "back.out(1.7)" });
+        
+                      gsap.to(btn, {
+                        y: -10,
+                        duration: 1.5,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "power1.inOut"
+                      });
+                    });
+                  }
+                }, 100); // check every 100ms
+              });
+          </script>
+        </footer>
+        <!--Header Menu Dropdown Script-->
+        <script>
+            const observer = new MutationObserver(() => {
+            const toggleBtn = document.getElementById('toggleDropdown');
+            const dropdown = document.getElementById('dropdownContent');
+            
+            if (toggleBtn && dropdown) {
+              const dropContainer = toggleBtn.closest('.dropdown');
+            
+              toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('show');
+                dropContainer.classList.toggle('open');
+              });
+          
+              document.addEventListener('click', (e) => {
+                if (!dropContainer.contains(e.target)) {
+                  dropdown.classList.remove('show');
+                  dropContainer.classList.remove('open');
+                }
+              });
+          
+              // Once everything is set up, disconnect observer
+              observer.disconnect();
+            }
+            });
+        
+            observer.observe(document.body, { childList: true, subtree: true });
+        </script>
+        <!--Burger menu toggle-->
+        <script>
+          function toggleMenu() {
+            const tryToggle = () => {
+              const nav = document.getElementById("navMenu");
+              if (nav) {
+                nav.classList.toggle("active");
+        
+                // Prevent body scroll when menu is open
+                document.body.style.overflow = nav.classList.contains("active") ? "hidden" : "";
+              } else {
+                setTimeout(tryToggle, 100);
+              }
+            };
+            tryToggle();
+          }
+        
+          function closeOnOutsideClick(event) {
+            const nav = document.getElementById("navMenu");
+            if (nav && nav.classList.contains("active")) {
+              nav.classList.remove("active");
+              document.body.style.overflow = "";
+            }
+          }
+        </script>
+    </body>
+</html>
