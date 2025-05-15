@@ -2,20 +2,24 @@
     height: 100vh;
     overflow: hidden;
     position: relative;
+    padding: 5rem 3rem !important;
+    background: #000;
+
 }
 
 .about-section-5-wrapper {
     display: flex;
-    height: 100vh;
-    width: 500vw;
-    /* 5 slides x 100vw */
+    height: calc(100vh - 10rem);
+    width: calc(500vw + 6rem);
+    gap: 7.1vw;
 }
 
 .about-section-5-slide {
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    width: 93vw;
+    height: 100%;
     flex-shrink: 0;
+    border-radius: 15px;
     overflow: hidden;
 }
 
@@ -41,7 +45,7 @@
     -webkit-backdrop-filter: blur(2px);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     color: white;
-    max-width: calc(100vw - 164px);
+    max-width: calc(100% - 164px);
     z-index: 10;
 }
 
