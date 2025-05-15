@@ -16,12 +16,13 @@
     text-align: center;
 }
 
-#services-content-section h2 {
+#services-content-section h2, .photo-gallery-section h2 {
     font-size: 2rem;
     font-weight: 600;
     margin: 0;
     text-align: center;
     color: #BE1E28;
+    padding-top: 0 !important;
 }
 
 .service-page-redirection {
@@ -33,7 +34,7 @@
     padding: 10px 18px;
     border-radius: 500px;
     color: #fff;
-    margin: 3rem auto;
+    margin: 0 auto 3rem;
     transition: all 0.3s ease;
     font-size: 1.2rem;
     font-weight: 500;

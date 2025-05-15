@@ -1,0 +1,36 @@
+.about-counters-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    align-items: center;
+    height: 150px;
+}
+
+.counter-box {
+    margin: 20px 0;
+    width: 40%;
+}
+
+.counter-box h2 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #333;
+}
+
+.counter {
+    color: #be1e28;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.about-counters-section hr {
+    margin: 0;
+    min-height: 100%;
+    width: 1px;
+    border: none;
+    background: #000;
+    display: flex;
+}

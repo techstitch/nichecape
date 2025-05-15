@@ -107,6 +107,60 @@
                 maximizing control at every touchpoint.
             </p>
         </section>
+        <section class="photo-gallery-section" id="photo-gallery-section">
+      <h2 class="about-section-8-heading">Capturing Our Global Footprint
+      </h2>
+      <link rel="stylesheet" href="Styles/photo-gallery-section.css">
+      <div class="swiper photo-gallery-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="Assets/About/About-Gallery-1.jpg" alt="Gallery 1" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Assets/About/About-Gallery-2.jpg" alt="Gallery 2" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Assets/About/About-Gallery-3.jpg" alt="Gallery 3" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Assets/About/About-Gallery-4.jpg" alt="Gallery 4" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Assets/About/About-Gallery-5.jpg" alt="Gallery 5" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Assets/About/About-Gallery-6.jpg" alt="Gallery 6" />
+          </div>
+        </div>
+
+        <!-- Optional navigation arrows -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsa p/3.12.2/Draggable.min.js">
+    </script>
+    <script>
+ const swiper = new Swiper(".photo-gallery-swiper", {
+    slidesPerView: "auto",      // Show as many as fit
+    spaceBetween: 20,           // 20px between slides
+    freeMode: true,             // Enables smooth scrolling
+    grabCursor: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+    </script>
         <a class="service-page-redirection" href="services.html">View All
             Services</a>
         <footer id="footer">

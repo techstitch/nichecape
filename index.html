@@ -62,7 +62,7 @@
       <div class="home-section-1-content-div">
         <h2>Your Global Logistics Partner in Excellence</h2>
         <div class="home-section-1-cta-container">
-                    <a href="contact.html">Get in Touch</a>
+          <a href="contact.html">Get in Touch</a>
 
         </div>
       </div>
@@ -218,6 +218,64 @@
                 });
             </script>
     </section>
+    <section class="page-width" id="about-section-4">
+      <link rel="stylesheet" href="Styles/about-section-4.css">
+      <h2 class="about-section-4-heading">Global Reach, Local Expertise
+      </h2>
+      <p class="about-section-4-content">Niche Shipping Services provides
+        expert freight forwarding, seamless customs clearance, and
+        secure warehousing solutions across the UAE. With a strong
+        presence in over 15 countries, we are a trusted logistics
+        partner known for reliability, efficiency, and tailored service
+        that meets the demands of modern global trade.
+
+      </p>
+    </section>
+        <section class="page-width about-counters-section"
+      id="about-counters-section">
+      <link rel="stylesheet" href="Styles/about-counters-section.css">
+      <div class="counter-box">
+        <h2><span class="counter" data-target="10000">0</span>+ <br> Success
+          Stories
+          in Global Logistics</h2>
+      </div>
+      <hr>
+      <div class="counter-box">
+        <h2>Group Presence <br><span class="counter" data-target="15">0</span>+
+          Countries</h2>
+      </div>
+    </section>
+    <script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  const counters = document.querySelectorAll('.counter');
+
+  counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+
+    ScrollTrigger.create({
+      trigger: counter,
+      start: 'top 80%',
+      once: true,
+      onEnter: () => {
+        gsap.fromTo(counter, {
+          innerText: 0
+        }, {
+          innerText: target,
+          duration: 2,
+          ease: 'power1.out',
+          snap: { innerText: 1 },
+          onUpdate: function () {
+            counter.innerText = Math.floor(counter.innerText);
+          },
+          onComplete: function () {
+            counter.innerText = target.toLocaleString(); // formatted number
+          }
+        });
+      }
+    });
+  });
+</script>
     <section class="page-width" id="home-section-4">
       <link rel="stylesheet" href="Styles/home-section-4.css">
       <img class="home-section-4-bg-img" src="Assets/0.jpg">

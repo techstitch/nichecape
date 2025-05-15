@@ -27,8 +27,8 @@
 .home-section-1-content-div p {
     text-align: center;
     color: #fff;
-    font-size: .9rem;
-    font-weight: 300;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 #home-section-1::after {

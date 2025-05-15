@@ -58,7 +58,7 @@
     </header>
     <section class="page-width" id="home-section-1">
       <link rel="stylesheet" href="Styles/home-section-1.css">
-      <img src="Assets/ABOUT-1.jpg">
+      <img src="Assets/About/About us-1.jpg">
       <div class="home-section-1-content-div">
         <h2>Delivering Trusted Logistics Solutions</h2>
         <p>Niche Shipping Services provides expert freight forwarding,
@@ -70,7 +70,6 @@
           <a href="contact.html">Get in Touch</a>
         </div>
       </div>
-      <!--<img src="Assets/Group 1 (1).png" class="home-section-1-img-2">-->
     </section>
     <section class="page-width ticker"
       aria-label="Niche Shipping Highlights">
@@ -132,7 +131,8 @@
         <video autoplay muted loop playsinline
           class="home-section-2-video"
           id="videoModal" data-fancybox="video">
-          <source src="Assets/stock-footage-smart-logistics-center-intelligent-warehouse-responsible-storage-logistics-technology.webm"
+          <source
+            src="Assets/stock-footage-smart-logistics-center-intelligent-warehouse-responsible-storage-logistics-technology.webm"
             type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -194,11 +194,56 @@
 
       </p>
     </section>
+    <section class="page-width about-counters-section"
+      id="about-counters-section">
+      <link rel="stylesheet" href="Styles/about-counters-section.css">
+      <div class="counter-box">
+        <h2><span class="counter" data-target="10000">0</span>+ <br> Success
+          Stories
+          in Global Logistics</h2>
+      </div>
+      <hr>
+      <div class="counter-box">
+        <h2>Group Presence <br><span class="counter" data-target="15">0</span>+
+          Countries</h2>
+      </div>
+    </section>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      const counters = document.querySelectorAll('.counter');
+
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+      
+        ScrollTrigger.create({
+          trigger: counter,
+          start: 'top 80%',
+          once: true,
+          onEnter: () => {
+            gsap.fromTo(counter, {
+              innerText: 0
+            }, {
+              innerText: target,
+              duration: 2,
+              ease: 'power1.out',
+              snap: { innerText: 1 },
+              onUpdate: function () {
+                counter.innerText = Math.floor(counter.innerText);
+              },
+              onComplete: function () {
+                counter.innerText = target.toLocaleString(); // formatted number
+              }
+            });
+          }
+        });
+      });
+    </script>
     <section id="about-section-5" class="about-section-5">
       <link rel="stylesheet" href="Styles/about-section-5.css">
       <div class="about-section-5-wrapper">
         <div class="about-section-5-slide">
-          <img src="Assets/about-why-1.jpg" alt="Global Reach" />
+          <img src="Assets/About/About us-2.jpg" alt="Global Reach" />
           <div class="about-section-5-content">
             <h2>What Sets Us Apart</h2>
             <p>Global logistics reach with a local UAE touch. We
@@ -210,7 +255,7 @@
           </div>
         </div>
         <div class="about-section-5-slide">
-          <img src="Assets/about-why-2.jpg" alt="Partnerships" />
+          <img src="Assets/About/About us-3.jpg" alt="Partnerships" />
           <div class="about-section-5-content">
             <h2>Strategic Partnerships</h2>
             <p>With top carriers & ports worldwide, our strong
@@ -222,7 +267,7 @@
           </div>
         </div>
         <div class="about-section-5-slide">
-          <img src="Assets/about-why-3.jpg" alt="End-to-End" />
+          <img src="Assets/About/About us-4.jpg" alt="End-to-End" />
           <div class="about-section-5-content">
             <h2>End-to-End Solutions</h2>
             <p>From first mile to last mile, we handle every aspect
@@ -234,7 +279,7 @@
           </div>
         </div>
         <div class="about-section-5-slide">
-          <img src="Assets/about-why-4.jpg" alt="Transparency" />
+          <img src="Assets/About/About us-5.jpg" alt="Transparency" />
           <div class="about-section-5-content">
             <h2>Full Transparency</h2>
             <p>Live tracking & POD systems keep you informed at
@@ -246,7 +291,7 @@
           </div>
         </div>
         <div class="about-section-5-slide">
-          <img src="Assets/about-why-5.jpg" alt="Expert Handling" />
+          <img src="Assets/About/About us-6.jpg" alt="Expert Handling" />
           <div class="about-section-5-content">
             <h2>Multimodal Expertise</h2>
             <p>Air, sea & land freight mastery. Our team is equipped
@@ -321,6 +366,137 @@
     });
   });
             </script>
+    </section>
+    <section class="page-width" id="home-section-4">
+      <link rel="stylesheet" href="Styles/home-section-4.css">
+      <img class="home-section-4-bg-img" src="Assets/0.jpg">
+      <div class="home-section-4-inner">
+        <div class="home-section-4-left-container">
+          <h2>Trusted by Global Businesses</h2>
+          <p>Delivering logistics success in over 15 countries with 1,000+
+            satisfied clients.</p>
+        </div>
+        <div class="home-section-4-right-container">
+          <img id="clients_switch_button"
+            src="Assets/uuid-d757d682-943d-49fd-b438-0061a5d758e1.svg">
+          <ul>
+            <li class="active">
+              <img src="Assets/101.png">
+            </li>
+            <li class="active">
+              <img src="Assets/102.png">
+            </li>
+            <li class="active">
+              <img src="Assets/103.png">
+            </li>
+            <li class="active">
+              <img src="Assets/104.jpg">
+            </li>
+            <li class="active">
+              <img src="Assets/105.png">
+            </li>
+            <li class="active">
+              <img src="Assets/106.png">
+            </li>
+            <li class="active">
+              <img src="Assets/107.png">
+            </li>
+            <li class="active">
+              <img src="Assets/108.png">
+            </li>
+            <li class="active">
+              <img src="Assets/109.png">
+            </li>
+            <li class="active">
+              <img src="Assets/110.png">
+            </li>
+            <li class="active">
+              <img src="Assets/112.png">
+            </li>
+            <li class="active">
+              <img src="Assets/111.jpg">
+            </li>
+            <li>
+              <img src="Assets/113.png">
+            </li>
+            <li>
+              <img src="Assets/114.png">
+            </li>
+            <li>
+              <img src="Assets/115.png">
+            </li>
+            <li>
+              <img src="Assets/116.png">
+            </li>
+            <li>
+              <img src="Assets/117.png">
+            </li>
+            <li>
+              <img src="Assets/118.png">
+            </li>
+            <li>
+              <img src="Assets/119.png">
+            </li>
+            <li>
+              <img src="Assets/120.png">
+            </li>
+            <li>
+              <img src="Assets/121.png">
+            </li>
+          </ul>
+        </div>
+      </div>
+      <script>
+          gsap.registerPlugin(ModifiersPlugin); 
+        
+          const switchButton = document.getElementById('clients_switch_button');
+          const listItems = document.querySelectorAll('#home-section-4 ul li');
+        
+          let showingFirstSet = true;
+          let isAnimating = false;
+          let rotationCount = 0;
+        
+          switchButton.addEventListener('click', async () => {
+            if (isAnimating) return;
+            isAnimating = true;
+        
+            rotationCount += 360;
+        
+            gsap.to(switchButton, {
+              rotation: rotationCount,
+              duration: 0.6,
+              ease: "power2.inOut"
+            });
+        
+            const visibleSet = showingFirstSet ? [...listItems].slice(0, 12) : [...listItems].slice(12);
+            const hiddenSet = showingFirstSet ? [...listItems].slice(12) : [...listItems].slice(0, 12);
+        
+            await gsap.to(visibleSet, {
+              y: -20,
+              opacity: 0,
+              stagger: 0.05,
+              duration: 0.3
+            });
+        
+            // Switch visible sets
+            visibleSet.forEach(item => item.classList.remove('active'));
+            hiddenSet.forEach(item => item.classList.add('active'));
+        
+            await gsap.fromTo(hiddenSet,
+              { y: 20, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                stagger: 0.1,
+                duration: 0.4,
+                ease: "power2.out"
+              }
+            );
+        
+            showingFirstSet = !showingFirstSet;
+            isAnimating = false;
+          });
+      </script>
     </section>
     <section class="page-width" id="home-section-7">
       <link rel="stylesheet" href="Styles/home-section-7.css">
@@ -409,28 +585,82 @@
             business transactions.</p>
         </div>
       </div>
-
     </section>
     <script>
-  gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(ScrollTrigger);
 
-  const cards = gsap.utils.toArray(".about-section-8-card");
+        const cards = gsap.utils.toArray(".about-section-8-card");
 
-  cards.forEach((card, index) => {
-    gsap.to(card, {
-      y: 0,
-      opacity: 1,
-      scale: 1,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: "#about-section-8",
-        start: "top center",
-        end: `+=150`, // smaller scroll distance for quicker transition
-        scrub: true
-      }
-    });
+        cards.forEach((card, index) => {
+          gsap.to(card, {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: "#about-section-8",
+              start: "top center",
+              end: `+=150`, // smaller scroll distance for quicker transition
+              scrub: true
+            }
+          });
+        });
+    </script>
+    <section class="photo-gallery-section" id="photo-gallery-section">
+      <h2 class="about-section-8-heading">Capturing Our Global Footprint
+      </h2>
+      <link rel="stylesheet" href="Styles/photo-gallery-section.css">
+      <div class="swiper photo-gallery-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="Assets/About/About-Gallery-1.jpg" alt="Gallery 1" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Assets/About/About-Gallery-2.jpg" alt="Gallery 2" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Assets/About/About-Gallery-3.jpg" alt="Gallery 3" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Assets/About/About-Gallery-4.jpg" alt="Gallery 4" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Assets/About/About-Gallery-5.jpg" alt="Gallery 5" />
+          </div>
+          <div class="swiper-slide">
+            <img src="Assets/About/About-Gallery-6.jpg" alt="Gallery 6" />
+          </div>
+        </div>
+
+        <!-- Optional navigation arrows -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsa p/3.12.2/Draggable.min.js">
+    </script>
+    <script>
+ const swiper = new Swiper(".photo-gallery-swiper", {
+    slidesPerView: "auto",      // Show as many as fit
+    spaceBetween: 20,           // 20px between slides
+    freeMode: true,             // Enables smooth scrolling
+    grabCursor: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
   });
-        </script>
+    </script>
+
     <footer id="footer">
       <script>
             fetch('Snippets/footer.html')
@@ -489,7 +719,7 @@
             });
         
             observer.observe(document.body, { childList: true, subtree: true });
-        </script>
+      </script>
     <!--Burger menu toggle-->
     <script>
           function toggleMenu() {
@@ -514,6 +744,6 @@
               document.body.style.overflow = "";
             }
           }
-        </script>
+    </script>
   </body>
 </html>
