@@ -82,3 +82,34 @@
     color: #fff;
     transition: all 0.3s ease-out;
 }
+
+@media(max-width: 756px) {
+    .home-section-3-card h2 {
+        font-size: 1.1rem;
+    }
+
+    .home-section-3-card p {
+        font-size: .9rem;
+    }
+
+    .home-section-3-card a {
+        font-size: .9rem;
+        padding: 6px 20px;
+        margin-top: 10px;
+    }
+
+    .home-section-3-card .img-container {
+        aspect-ratio: 5 / 3;
+    }
+
+    .home-section-3-card {
+        width: 100%;
+    }
+
+    .home-section-3-card-full_width .img-container {
+        aspect-ratio: 5 / 3 !important;
+    }
+    #home-section-3{
+        margin-bottom: 0;
+    }
+}

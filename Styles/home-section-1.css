@@ -9,10 +9,11 @@
 #home-section-1 img:first-of-type {
     position: absolute;
     width: 100vw;
-    margin-left: -5rem;
+    left: 0;
     height: 100%;
     object-fit: cover;
     max-width: 120rem;
+    top: 0;
 }
 
 .home-section-1-content-div {
@@ -118,4 +119,29 @@
     opacity: .2;
     position: absolute;
     transform: translateX(-50%);
+}
+
+@media(max-width:756px) {
+    #home-section-1 h2 {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    .home-section-1-cta-container a {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    #home-section-1 {
+        aspect-ratio: 4.7 / 6;
+    }
+
+    .home-section-1-content-div {
+        width: 95%;
+    }
+
+    .ticker-content span {
+        padding: 0 1rem;
+        font-size: .8rem;
+    }
 }

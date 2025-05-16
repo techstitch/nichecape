@@ -34,3 +34,23 @@
     background: #000;
     display: flex;
 }
+
+@media (max-width: 756px) {
+    .about-counters-section {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 0;
+        padding-bottom: 0;
+        height: fit-content;
+    }
+
+    .about-counters-section hr {
+        height: 1px;
+        width: 60%;
+    }
+    .counter-box{
+        width: 100%;
+    }
+    
+}
