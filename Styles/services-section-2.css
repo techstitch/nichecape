@@ -120,3 +120,40 @@
     scale: 1.05;
     transition: all 0.3s ease;
 }
+
+@media (max-width: 756px) {
+    .services-heading {
+        font-size: 1.5rem;
+    }
+
+    .services-section-2 {
+        padding: 2rem 0;
+    }
+
+    .service-card {
+        width: 250px;
+        min-width: 250px;
+        max-width: 250px;
+    }
+
+    .card-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .card-content p {
+        font-size: 0.8rem;
+    }
+    .service-card:hover .card-image{
+        transform: none;
+    }
+    .services-card-wrapper{
+        padding-top: 0;
+    }
+    .services-section-2 .container{
+        gap: 1.5rem;
+    }
+}

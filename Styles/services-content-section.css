@@ -16,7 +16,8 @@
     text-align: center;
 }
 
-#services-content-section h2, .photo-gallery-section h2 {
+#services-content-section h2,
+.photo-gallery-section h2 {
     font-size: 2rem;
     font-weight: 600;
     margin: 0;
@@ -44,4 +45,16 @@
     scale: 1.05;
     background-color: #000;
     transition: all 0.3s ease;
+}
+
+@media (max-width: 756px) {
+
+    #services-content-section h2,
+    .photo-gallery-section h2 {
+        font-size: 1.5rem;
+    }
+
+    #services-content-section p {
+        font-size: .9rem;
+    }
 }

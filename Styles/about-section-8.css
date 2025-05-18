@@ -30,6 +30,10 @@
     font-weight: 600;
 }
 
+.about-section-8-card p {
+    font-size: .9rem;
+}
+
 .about-section-8-card {
     flex: 0 0 26%;
     padding: 2rem;
@@ -76,6 +80,7 @@
 @media(max-width: 756px) {
     .about-section-8-heading {
         font-size: 1.5rem;
+        padding-bottom: 1rem;
     }
 
     .about-section-8-stack {
@@ -86,7 +91,8 @@
     }
 
     .about-section-8-card {
-        width: 53%;
-        padding: 10px 40px;
+        min-width: 60%;
+        padding: 0 30px;
+        flex: unset;
     }
 }

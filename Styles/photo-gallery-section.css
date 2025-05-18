@@ -4,8 +4,7 @@
 }
 
 .photo-gallery-swiper {
-    width: 90%;
-    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -23,8 +22,7 @@
 
 
 .swiper-slide img {
-    max-height: 250px;
-    /* Control height but allow width to scale */
+    max-height: 310px;
     height: auto;
     width: auto;
     border-radius: 10px;
@@ -42,4 +40,25 @@
 .photo-gallery-section .about-section-8-heading {
     padding-bottom: 0;
     padding-top: 3rem;
+}
+
+@media(max-width: 756px) {
+    .swiper-wrapper {
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    .photo-gallery-section .about-section-8-heading {
+        padding-top: 1rem;
+    }
+
+    .swiper-slide {
+        max-width: 80vw;
+        overflow: hidden;
+        border-radius: 15px;
+    }
+
+    .swiper-slide img {
+        object-fit: cover;
+    }
 }
