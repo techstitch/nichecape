@@ -72,3 +72,21 @@
     right: 0;
     z-index: 1;
 }
+
+@media(max-width: 756px) {
+    .about-section-8-heading {
+        font-size: 1.5rem;
+    }
+
+    .about-section-8-stack {
+        justify-content: start;
+        align-items: start;
+        overflow-x: scroll;
+        gap: 20px;
+    }
+
+    .about-section-8-card {
+        width: 53%;
+        padding: 10px 40px;
+    }
+}

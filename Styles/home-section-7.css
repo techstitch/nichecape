@@ -121,7 +121,7 @@
 
     .home-section-7-container-content {
         margin-bottom: 0;
-
+        font-size: .9rem;
     }
 
     .home-section-7-container-left {
@@ -136,7 +136,7 @@
     }
 
     .home-section-7-container-heading {
-        font-size: 1rem;
+        font-size: .9rem;
         padding: 0;
         border-bottom: 2px solid;
         line-height: 2rem;
@@ -147,7 +147,7 @@
     }
 
     .home-section-7-container-subheading {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         line-height: 2rem;
     }
 

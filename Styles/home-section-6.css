@@ -110,3 +110,21 @@
     font-size: .9rem;
     margin: 0;
 }
+
+@media(max-width:756px) {
+    .home-section-6-container {
+        flex-direction: column;
+    }
+
+    .carousel-slide {
+        height: 420px;
+    }
+
+    #home-section-6 {
+        width: calc(100% - 90px) !important;
+    }
+
+    .carousel {
+        border-radius: 15px;
+    }
+}

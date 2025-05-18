@@ -25,3 +25,9 @@
     font-weight: 600;
     color: #BE1E28;
 }
+
+@media(max-width: 756px) {
+    .about-section-member-heading {
+        font-size: 1.5rem;
+    }
+}

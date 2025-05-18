@@ -63,3 +63,49 @@
     font-weight: 300;
     color: #fff;
 }
+
+@media(max-width: 756px) {
+    #about-section-5 {
+        height: fit-content;
+        padding: 3rem 1.5rem !important;
+    }
+
+    .about-section-5-wrapper {
+        height: fit-content;
+    }
+
+    .about-section-5-slide {
+        width: 81vw;
+        height: 100%;
+        /* keep full height of wrapper */
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+    }
+
+    .about-section-5-slide img {
+        height: 300px;
+        width: 100%;
+        border-radius: 15px;
+        object-fit: cover;
+    }
+
+    .about-section-5-content {
+        width: 100%;
+        position: unset;
+        bottom: unset;
+        left: unset;
+        padding: 20px 0 0;
+        background: none;
+        backdrop-filter: none;
+        max-width: unset;
+    }
+
+    .about-section-5-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-section-5-content p {
+        font-size: 0.9rem;
+    }
+}

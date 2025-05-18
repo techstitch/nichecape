@@ -308,8 +308,9 @@
   const wrapper = document.querySelector(".about-section-5-wrapper");
   const slides = gsap.utils.toArray(".about-section-5-slide");
   const slideCount = slides.length;
-  const slideWidth = window.innerWidth; // width of a single slide
-  const totalScrollLength = slideWidth * (slideCount - 1); // Adjusted to cover all slides except the last one
+const slideWidth = slides[0].offsetWidth;
+const gap = parseFloat(getComputedStyle(wrapper).gap); // in pixels
+const totalScrollLength = (slideWidth + gap) * (slideCount - 1);
 
   // Horizontal scroll animation
   const hScroll = gsap.to(wrapper, {
@@ -528,7 +529,7 @@
           </p>
         </div>
         <div class="section-7-image-container">
-            <img src="Assets/Home/OUR MISSION.jpg">
+          <img src="Assets/Home/OUR MISSION.jpg">
         </div>
       </div>
       <div class="home-section-7-container-2">
@@ -569,20 +570,21 @@
       </h2>
       <div class="about-section-8-stack">
         <div class="about-section-8-card">
-          <h3>Compliant with UAE Logistics Regulations</h3>
-          <p>We are fully compliant with UAE logistics and trade
-            regulations, ensuring safe and efficient operations.</p>
+          <h3>Centralized Billing and Local Support</h3>
+          <p>We offer centralized billing with local operational
+            support to streamline logistics and ensure smooth
+            business transactions.</p>
         </div>
+
         <div class="about-section-8-card">
           <h3>Expertise in Dangerous Goods Shipping</h3>
           <p>Specializing in the safe transportation of dangerous
             goods and temperature-sensitive cargo worldwide.</p>
         </div>
         <div class="about-section-8-card">
-          <h3>Centralized Billing and Local Support</h3>
-          <p>We offer centralized billing with local operational
-            support to streamline logistics and ensure smooth
-            business transactions.</p>
+          <h3>Compliant with UAE Logistics Regulations</h3>
+          <p>We are fully compliant with UAE logistics and trade
+            regulations, ensuring safe and efficient operations.</p>
         </div>
       </div>
     </section>

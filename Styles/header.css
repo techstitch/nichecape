@@ -162,7 +162,8 @@
         position: unset;
         transform: none;
     }
-    .drop-wrapper{
+
+    .drop-wrapper {
         justify-content: start;
     }
 }
@@ -175,5 +176,9 @@
 
     #header .dropdown-content {
         left: -1px;
+    }
+
+    #header img {
+        width: 190px;
     }
 }

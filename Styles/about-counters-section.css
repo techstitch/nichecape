@@ -49,8 +49,16 @@
         height: 1px;
         width: 60%;
     }
-    .counter-box{
+
+    .counter-box {
         width: 100%;
     }
-    
+
+    .counter {
+        font-size: 1.5rem;
+    }
+
+    .counter-box h2 {
+        font-size: .9rem;
+    }
 }

@@ -86,30 +86,54 @@
 @media(max-width: 756px) {
     .home-section-3-card h2 {
         font-size: 1.1rem;
+        color: #fff;
+        padding-left: 1rem;
     }
 
     .home-section-3-card p {
         font-size: .9rem;
+        color: #fff;
+        padding-left: 1rem;
     }
 
     .home-section-3-card a {
         font-size: .9rem;
         padding: 6px 20px;
         margin-top: 10px;
+        margin-left: 1rem;
+        margin-bottom: 1rem;
     }
 
     .home-section-3-card .img-container {
-        aspect-ratio: 5 / 3;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .home-section-3-card .img-container::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, black, transparent);
+        z-index: 1;
+        border-radius: 15px;
     }
 
     .home-section-3-card {
         width: 100%;
+        height: 300px;
+        justify-content: end;
+        position: relative;
     }
 
     .home-section-3-card-full_width .img-container {
         aspect-ratio: 5 / 3 !important;
     }
-    #home-section-3{
+
+    #home-section-3 {
         margin-bottom: 0;
     }
 }

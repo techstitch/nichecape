@@ -128,12 +128,13 @@
     }
 
     .home-section-1-cta-container a {
-        font-size: 1rem;
+        font-size: .9rem;
         font-weight: 400;
     }
 
     #home-section-1 {
         aspect-ratio: 4.7 / 6;
+        margin-top: 4rem;
     }
 
     .home-section-1-content-div {
@@ -143,5 +144,8 @@
     .ticker-content span {
         padding: 0 1rem;
         font-size: .8rem;
+    }
+    .home-section-1-content-div p{
+        font-size: .9rem;
     }
 }
