@@ -250,7 +250,7 @@
         });
       });
     </script>
-  <section id="about-section-5" class="about-section-5">
+  <!--<section id="about-section-5" class="about-section-5">
     <link rel="stylesheet" href="Styles/about-section-5.css">
     <div class="about-section-5-wrapper">
       <div class="about-section-5-slide">
@@ -378,7 +378,90 @@ const totalScrollLength = (slideWidth + gap) * (slideCount - 1);
     });
   });
             </script>
-  </section>
+  </section>-->
+  <section id="about-section-5" class="about-section-5">
+  <link rel="stylesheet" href="Styles/about-section-5.css" />
+
+  <div class="about-section-5-slide">
+    <div class="about-section-5-bg" style="background-image: url('Assets/About/About us-2.jpg');"></div>
+    <div class="about-section-5-content">
+      <h2>What Sets Us Apart</h2>
+      <p>Global logistics reach with a local UAE touch. We combine international expertise with local knowledge to provide seamless, cost-effective solutions tailored to your unique needs.</p>
+    </div>
+  </div>
+
+  <div class="about-section-5-slide">
+    <div class="about-section-5-bg" style="background-image: url('Assets/About/About us-3.jpg');"></div>
+    <div class="about-section-5-content">
+      <h2>Strategic Partnerships</h2>
+      <p>With top carriers & ports worldwide, our strong relationships ensure that your shipments are handled with the utmost care and speed.</p>
+    </div>
+  </div>
+
+  <div class="about-section-5-slide">
+    <div class="about-section-5-bg" style="background-image: url('Assets/About/About us-4.jpg');"></div>
+    <div class="about-section-5-content">
+      <h2>End-to-End Solutions</h2>
+      <p>From first mile to last mile, we handle every aspect of your logistics journey. Our integrated services offer a streamlined approach to reduce complexity and cut costs.</p>
+    </div>
+  </div>
+
+  <div class="about-section-5-slide">
+    <div class="about-section-5-bg" style="background-image: url('Assets/About/About us-5.jpg');"></div>
+    <div class="about-section-5-content">
+      <h2>Full Transparency</h2>
+      <p>Live tracking & POD systems keep you informed at every stage of your shipment. Real-time updates give you full visibility into your freight.</p>
+    </div>
+  </div>
+
+  <div class="about-section-5-slide">
+    <div class="about-section-5-bg" style="background-image: url('Assets/About/About us-6.jpg');"></div>
+    <div class="about-section-5-content">
+      <h2>Multimodal Expertise</h2>
+      <p>Air, sea & land freight mastery. Our team delivers speed and cost-efficiency across multiple modes of transport for both domestic and international shipping.</p>
+    </div>
+  </div>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    let getRatio = el => window.innerHeight / (window.innerHeight + el.offsetHeight);
+
+    gsap.utils.toArray(".about-section-5-slide").forEach((section, i) => {
+      const bg = section.querySelector(".about-section-5-bg");
+
+      gsap.fromTo(bg, {
+        backgroundPosition: () => i ? `50% ${-window.innerHeight * getRatio(section)}px` : "50% 0px"
+      }, {
+        backgroundPosition: () => `50% ${window.innerHeight * (1 - getRatio(section))}px`,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: () => i ? "top bottom" : "top top",
+          end: "bottom top",
+          scrub: true,
+          invalidateOnRefresh: true
+        }
+      });
+
+      // Optional: fade and move in content
+      const content = section.querySelector(".about-section-5-content");
+      gsap.fromTo(content, {
+        autoAlpha: 0,
+        y: 40
+      }, {
+        autoAlpha: 1,
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: section,
+          start: "top center+=100",
+          toggleActions: "play none none reverse"
+        }
+      });
+    });
+  </script>
+</section>
   <section class="page-width" id="home-section-4">
     <link rel="stylesheet" href="Styles/home-section-4.css">
     <img class="home-section-4-bg-img" src="Assets/0.jpg">
