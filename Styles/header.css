@@ -23,7 +23,7 @@
 
 
 #header img {
-    width: 180px;
+    width: 210px;
     height: auto;
 }
 
@@ -149,7 +149,8 @@
     border-radius: 500px;
     transition: all ease-in 0.3s !important;
 }
-.header-highlighted-tab:hover{
+
+.header-highlighted-tab:hover {
     background-color: #FFF;
     scale: 1.03;
     transition: all ease-in 0.3s !important;
@@ -191,11 +192,17 @@
     }
 
     #header img {
-        width: 150px;
+        width: 160px;
     }
-    .header-highlighted-tab{
+
+    .header-highlighted-tab {
         background-color: unset !important;
         padding: .8rem 0 !important;
         color: #BE1E28 !important;
+    }
+
+    #header {
+        padding-top: .7rem;
+        padding-bottom: .7rem;
     }
 }

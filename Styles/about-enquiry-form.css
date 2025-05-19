@@ -17,7 +17,9 @@
 .contact-section-2 {
     margin-top: 1rem;
 }
-
+.enquiry-form-callout p{
+    text-align: center;
+}
 @media(max-width: 756px) {
     .home-section-form .contact-section-2-inner {
         flex-direction: column-reverse;
