@@ -1,6 +1,10 @@
 .photo-gallery-section {
     color: #fff;
     overflow: hidden;
+    background: #000;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
 }
 
 .photo-gallery-swiper {
@@ -14,23 +18,37 @@
 }
 
 .swiper-wrapper {
+    padding-top: 2rem;
     display: flex !important;
     align-items: center;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    will-change: transform; /* optimize for smooth transform */
+    will-change: transform;
+    transition-timing-function: linear !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    z-index: 10;
+    cursor: pointer;
+}
+
+.swiper-button-next img,
+.swiper-button-prev img {
+    pointer-events: none;
 }
 
 .swiper-slide {
-    min-width: 280px !important; /* minimum width for consistent scroll */
-    margin-right: 20px; /* consistent gap between slides */
+    min-width: 280px !important;
+    /* minimum width for consistent scroll */
+    margin-right: 20px;
+    /* consistent gap between slides */
     width: auto !important;
     flex-shrink: 0 !important;
 }
 
 .swiper-slide img {
     max-height: 310px;
-    width: 100%; /* fill slide width */
+    width: 100%;
+    /* fill slide width */
     height: auto;
     object-fit: cover;
     border-radius: 10px;
@@ -41,10 +59,20 @@
 .swiper-button-next,
 .swiper-button-prev {
     color: #BE1E28 !important;
-    scale: 0.8;
+    scale: 1.4;
     z-index: 10;
     opacity: 1 !important;
     pointer-events: auto;
+}
+
+.swiper-button-prev img,
+.swiper-button-next img {
+    width: 100%;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    display: none;
 }
 
 .photo-gallery-section .about-section-8-heading {
@@ -53,13 +81,13 @@
 }
 
 @media(max-width: 756px) {
-    .swiper-wrapper {
-        padding-top: 1rem;
-        padding-bottom: 2rem;
-    }
-
     .photo-gallery-section .about-section-8-heading {
         padding-top: 1rem;
+    }
+
+    .photo-gallery-section {
+        border-radius: 0;
+        padding: 3rem 1rem;
     }
 
     .swiper-slide {
@@ -69,8 +97,9 @@
     }
 
     .swiper-slide img {
-    height: 300px; /* Or any consistent height */
-    width: 100%;
-    object-fit: cover;
+        height: 300px;
+        /* Or any consistent height */
+        width: 100%;
+        object-fit: cover;
     }
 }

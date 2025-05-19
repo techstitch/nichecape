@@ -63,7 +63,7 @@
         <h2>Customs Clearance Services in UAE – Fast & Compliant
         </h2>
         <p>Navigating customs regulations can be complex—but our experts
-          make it seamless. At Niche Shipping Services, we provide
+          make it seamless. At Niche Cape Shipping Services, we provide
           end-to-end import and export clearance solutions designed to
           minimize delays and ensure full compliance with UAE and
           international trade laws. From documentation to coordination
@@ -80,7 +80,7 @@
     <section class="page-width" id="services-content-section">
       <link rel="stylesheet" href="Styles/services-content-section.css">
       <h2>Trusted Customs Brokerage for Smooth Cargo Movement</h2>
-      <p>At Niche Shipping Services, we offer professional customs
+      <p>At Niche Cape Shipping Services, we offer professional customs
         brokerage for all cargo types—commercial, personal, and
         project-based. Our team handles import/export clearance,
         electronic filing, and complete BOL documentation assistance
@@ -166,8 +166,9 @@
           </div>
         </div>
         <!-- Optional navigation arrows -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"><img src="Assets/Group 16.png"></div>
+        <div class="swiper-button-next"><img
+            src="Assets/Group 17 (1).png"></div>
       </div>
     </section>
     <link rel="stylesheet"
@@ -177,53 +178,87 @@
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsa p/3.12.2/Draggable.min.js">
-    </script>
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+
     <script>
-const desiredSpeedPxPerSec = 100; // Adjust this for desired scroll speed
+  let swiperInstance = null;
+  const desiredSpeedPxPerSec = 200;
 
-function initSwiperWithConsistentSpeed() {
-  const container = document.querySelector('.photo-gallery-swiper');
-  const containerWidth = container.clientWidth;
+  function initSwiperWithConsistentSpeed() {
+    const container = document.querySelector('.photo-gallery-swiper');
+    if (!container) {
+      console.warn('Swiper container not found.');
+      return;
+    }
 
-  // Calculate speed (time in ms to scroll the entire width)
-  const calculatedSpeed = (containerWidth / desiredSpeedPxPerSec) * 1000;
+    const containerWidth = container.clientWidth;
+    const calculatedSpeed = (containerWidth / desiredSpeedPxPerSec) * 1000;
 
-  const swiper = new Swiper(".photo-gallery-swiper", {
-    slidesPerView: "auto",
-    spaceBetween: 20,
-    loop: true,
-    freeMode: {
-      enabled: true,
-      momentumVelocityRatio: 0.6,
-      momentumBounce: false,
-    },
-    autoplay: {
-      delay: 0,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: false,
-    },
-    speed: calculatedSpeed,
-    grabCursor: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    watchSlidesProgress: true,
+    if (swiperInstance) {
+      console.log('Destroying existing Swiper instance...');
+      swiperInstance.destroy(true, true);
+    }
+
+    console.log('Creating new Swiper instance...');
+    swiperInstance = new Swiper(container, {
+      slidesPerView: 'auto',
+      spaceBetween: 20,
+      loop: true,
+      speed: calculatedSpeed,
+      autoplay: {
+        delay: 1,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: false,
+      },
+      grabCursor: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    console.log('Swiper initialized and autoplay started.');
+    swiperInstance.autoplay.start();
+
+    // Custom button logic — enforce temporary speed override
+    const nextBtn = document.querySelector('.swiper-button-next');
+    const prevBtn = document.querySelector('.swiper-button-prev');
+
+    if (nextBtn && prevBtn) {
+      console.log('Navigation buttons found — attaching click events.');
+
+      nextBtn.addEventListener('click', () => {
+        console.log('Next button clicked.');
+        swiperInstance.autoplay.stop(); // stop autoplay briefly
+        swiperInstance.slideNext(200);  // fast transition
+        setTimeout(() => swiperInstance.autoplay.start(), 500);
+      });
+
+      prevBtn.addEventListener('click', () => {
+        console.log('Prev button clicked.');
+        swiperInstance.autoplay.stop(); // stop autoplay briefly
+        swiperInstance.slidePrev(200);  // fast transition
+        setTimeout(() => swiperInstance.autoplay.start(), 500);
+      });
+    } else {
+      console.warn('Navigation buttons not found.');
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded — initializing Swiper.');
+    initSwiperWithConsistentSpeed();
   });
 
-  swiper.autoplay.start();
-}
-
-window.addEventListener('load', initSwiperWithConsistentSpeed);
-window.addEventListener('resize', () => {
-  // Optional: Reinitialize swiper or update speed on resize if needed
-  // You can debounce resize to avoid performance issues
-  initSwiperWithConsistentSpeed();
-});
-
-</script>
-    <a class="service-page-redirection" href="services.html">View All
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      console.log('Window resized — reinitializing Swiper.');
+      initSwiperWithConsistentSpeed();
+    }, 300);
+  });
+</script>    <a class="service-page-redirection" href="services.html">View All
       Services</a>
       <footer id="footer">
         <script>

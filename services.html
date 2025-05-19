@@ -62,7 +62,7 @@
       <div class="home-section-1-content-div">
         <h2>Global Logistics & Freight Solutions Tailored for Your
           Business</h2>
-        <p>At Niche Shipping Services, we simplify supply chains with
+        <p>At Niche Cape Shipping Services, we simplify supply chains with
           tailored logistics solutions across air, sea, land, and
           warehousing. With deep industry expertise and a strong
           presence in the UAE and GCC, we’re committed to fast
@@ -79,75 +79,91 @@
       <link rel="stylesheet" href="Styles/services-section-2.css" />
       <div class="page-width container">
         <h2 class="services-heading">Our Core Services</h2>
-        <div class="services-card-wrapper">
-          <div class="service-card" data-speed="0.6">
-            <div class="card-image"
-              style="background-image: url('./Assets/air-sea-freight/1.jpg');"></div>
-            <div class="card-content">
-              <h3>Air & Sea Freight</h3>
-              <p>Fast, reliable, and flexible shipping solutions
-                globally. Real-time tracking and expert handling
-                for all cargo types.</p>
-              <a href="air-sea-freight.html">Read More</a>
-            </div>
+        <div class="carousel-container">
+          <div class="services-card-wrapper">
+            <a href="air-sea-freight.html" class="service-card"
+              data-speed="0.6">
+              <div class="card-image"
+                style="background-image: url('./Assets/air-sea-freight/1.jpg');"></div>
+              <div class="card-content">
+                <h3>Air & Sea Freight</h3>
+                <p>Fast, reliable, and flexible shipping solutions
+                  globally. Real-time tracking and expert handling
+                  for all cargo types.</p>
+                <span>Read More</span>
+              </div>
+            </a>
+            <a href="land-transportation.html" class="service-card"
+              data-speed="0.4">
+              <div class="card-image"
+                style="background-image: url('./Assets/land-transportation/1.jpeg');"></div>
+              <div class="card-content">
+                <h3>Land Transportation</h3>
+                <p>Cross-border trucking and heavy-duty cargo
+                  transport across UAE and GCC with GPS-enabled
+                  fleets.</p>
+                <span>Read More</span>
+              </div>
+            </a>
+            <a href="customs-clearance.html" class="service-card"
+              data-speed="0.5">
+              <div class="card-image"
+                style="background-image: url('./Assets/customs-clearance/1.jpg');"></div>
+              <div class="card-content">
+                <h3>Customs Clearance</h3>
+                <p>End-to-end customs documentation, BOL management,
+                  and regulatory compliance across UAE ports.</p>
+                <span>Read More</span>
+              </div>
+            </a>
+            <a href="warehousing-packaging.html" class="service-card"
+              data-speed="0.7">
+              <div class="card-image"
+                style="background-image: url('./Assets/warehousing-packaging/1.jpg');"></div>
+              <div class="card-content">
+                <h3>Warehousing & Distribution</h3>
+                <p>Comprehensive storage solutions with real-time inventory
+                  tracking and timely distribution tailored to your supply chain
+                  needs.</p>
+                <span>Read More</span>
+              </div>
+            </a>
+            <a href="packaging-solutions.html" class="service-card"
+              data-speed="0.8">
+              <div class="card-image"
+                style="background-image: url('./Assets/packaging-solutions/1.jpg');"></div>
+              <div class="card-content">
+                <h3>Packaging Solutions</h3>
+                <p>Durable, export-compliant packaging solutions designed to
+                  protect your cargo during transit and handling across all
+                  modes
+                  of transport.</p>
+                <span>Read More</span>
+              </div>
+            </a>
           </div>
-          <div class="service-card" data-speed="0.4">
-            <div class="card-image"
-              style="background-image: url('./Assets/land-transportation/1.jpeg');"></div>
-            <div class="card-content">
-              <h3>Land Transportation</h3>
-              <p>Cross-border trucking and heavy-duty cargo
-                transport across UAE and GCC with GPS-enabled
-                fleets.</p>
-              <a href="land-transportation.html">Read More</a>
-            </div>
-          </div>
-          <div class="service-card" data-speed="0.5">
-            <div class="card-image"
-              style="background-image: url('./Assets/customs-clearance/1.jpg');"></div>
-            <div class="card-content">
-              <h3>Customs Clearance</h3>
-              <p>End-to-end customs documentation, BOL management,
-                and regulatory compliance across UAE ports.</p>
-              <a href="customs-clearance.html">Read More</a>
-            </div>
-          </div>
-          <div class="service-card" data-speed="0.7">
-            <div class="card-image"
-              style="background-image: url('./Assets/warehousing-packaging/1.jpg');"></div>
-            <div class="card-content">
-              <h3>Warehousing & Distribution</h3>
-              <p>Comprehensive storage solutions with real-time inventory
-                tracking and timely distribution tailored to your supply chain
-                needs.</p>
-              <a href="warehousing-packaging.html">Read More</a>
-            </div>
-          </div>
-          <div class="service-card" data-speed="0.8">
-            <div class="card-image"
-              style="background-image: url('./Assets/packaging-solutions/1.jpg');"></div>
-            <div class="card-content">
-              <h3>Packaging Solutions</h3>
-              <p>Durable, export-compliant packaging solutions designed to
-                protect your cargo during transit and handling across all modes
-                of transport.</p>
-              <a href="packaging-solutions.html">Read More</a>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
     <script>
-  const cards = document.querySelectorAll(".service-card");
   const slider = document.querySelector(".services-card-wrapper");
+  const cards = document.querySelectorAll(".service-card");
+
+  // Create arrows
+  const leftArrow = document.createElement("button");
+  const rightArrow = document.createElement("button");
+  leftArrow.innerHTML = "<img src='Assets/Group 16.png'>";
+  rightArrow.innerHTML = "<img src='Assets/Group 17 (1).png'>";
+  leftArrow.className = "carousel-arrow left-arrow";
+  rightArrow.className = "carousel-arrow right-arrow";
+  slider.parentElement.appendChild(leftArrow);
+  slider.parentElement.appendChild(rightArrow);
 
   let isDragging = false;
   let startX = 0;
-  let startY = 0;
   let scrollLeft = 0;
 
-  // Mouse drag
+  // --- Mouse Drag ---
   slider.addEventListener("mousedown", (e) => {
     isDragging = true;
     slider.classList.add("dragging");
@@ -158,86 +174,94 @@
   slider.addEventListener("mousemove", (e) => {
     if (!isDragging) return;
     e.preventDefault();
-    const x = e.pageX;
-    const walk = (x - startX) * 1.5;
+    const walk = (e.pageX - startX) * 1.5;
     slider.scrollLeft = scrollLeft - walk;
   });
 
-  slider.addEventListener("mouseup", () => {
-    isDragging = false;
-    slider.classList.remove("dragging");
-  });
+  ["mouseup", "mouseleave"].forEach(evt =>
+    slider.addEventListener(evt, () => {
+      isDragging = false;
+      slider.classList.remove("dragging");
+    })
+  );
 
-  slider.addEventListener("mouseleave", () => {
-    isDragging = false;
-    slider.classList.remove("dragging");
-  });
-
-  // Touch drag
+  // --- Touch Drag ---
   slider.addEventListener("touchstart", (e) => {
     if (e.touches.length !== 1) return;
     isDragging = true;
     startX = e.touches[0].pageX;
-    startY = e.touches[0].pageY;
     scrollLeft = slider.scrollLeft;
   });
 
   slider.addEventListener("touchmove", (e) => {
     if (!isDragging) return;
-    const touch = e.touches[0];
-    const deltaX = touch.pageX - startX;
-    const deltaY = touch.pageY - startY;
-
-    if (Math.abs(deltaX) > Math.abs(deltaY)) {
-      e.preventDefault(); // horizontal scroll only
-      slider.scrollLeft = scrollLeft - deltaX * 1.5;
-    }
+    const deltaX = e.touches[0].pageX - startX;
+    slider.scrollLeft = scrollLeft - deltaX * 1.5;
   });
 
   slider.addEventListener("touchend", () => {
     isDragging = false;
   });
 
-  // GSAP hover 3D
-cards.forEach((card) => {
-  card.addEventListener("mousemove", (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+  // --- Update Arrow State ---
+  const updateArrows = () => {
+    const maxScroll = slider.scrollWidth - slider.clientWidth;
+    leftArrow.disabled = slider.scrollLeft <= 10;
+    rightArrow.disabled = slider.scrollLeft >= maxScroll - 10;
+  };
 
-    const rotateX = ((y - rect.height / 2) / rect.height) * 30;
-    const rotateY = ((x - rect.width / 2) / rect.width) * 30;
-
-    gsap.to(card, {
-      duration: 0.2,
-      rotateX: -rotateX,
-      rotateY: rotateY,
-      scale: 1,
-      boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
-      transformPerspective: 1000,
-      transformOrigin: "center",
-      ease: "power1.out",
-    });
+  leftArrow.addEventListener("click", () => {
+    slider.scrollBy({ left: -slider.clientWidth, behavior: "smooth" });
+    setTimeout(updateArrows, 400);
   });
 
-  card.addEventListener("mouseleave", () => {
-    gsap.to(card, {
-      duration: 0.25,
-      rotateX: 0,
-      rotateY: 0,
-      scale: 1,
-      boxShadow: "0 10px 20px rgba(0,0,0,0.15)",
-      ease: "power1.out",
+  rightArrow.addEventListener("click", () => {
+    slider.scrollBy({ left: slider.clientWidth, behavior: "smooth" });
+    setTimeout(updateArrows, 400);
+  });
+
+  slider.addEventListener("scroll", updateArrows);
+  window.addEventListener("resize", updateArrows);
+  window.addEventListener("load", updateArrows);
+
+  // --- GSAP Hover 3D ---
+  cards.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const rotateX = ((y - rect.height / 2) / rect.height) * 30;
+      const rotateY = ((x - rect.width / 2) / rect.width) * 30;
+
+      gsap.to(card, {
+        duration: 0.2,
+        rotateX: -rotateX,
+        rotateY: rotateY,
+        scale: 1,
+        boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
+        transformPerspective: 1000,
+        transformOrigin: "center",
+        ease: "power1.out",
+      });
+    });
+
+    card.addEventListener("mouseleave", () => {
+      gsap.to(card, {
+        duration: 0.25,
+        rotateX: 0,
+        rotateY: 0,
+        scale: 1,
+        boxShadow: "0 10px 20px rgba(0,0,0,0.15)",
+        ease: "power1.out",
+      });
     });
   });
-});
-    </script>
+</script>
     <section class="page-width" id="home-section-6">
       <link rel="stylesheet" href="Styles/home-section-6.css">
       <div class="home-section-6-container">
         <div class="home-section-6-left">
-          <h2 class="home-section-6-heading">Why Choose Niche Shipping
-            Services?
+          <h2 class="home-section-6-heading">Why Choose Niche Cape Shipping Services?
           </h2>
           <p class="home-section-6-subheading">
             Experience seamless logistics with a partner that
@@ -400,8 +424,8 @@ cards.forEach((card) => {
         // Initialize first tab
         activateTab(0);
       </script>
-      <footer id="footer">
-        <script>
+    <footer id="footer">
+      <script>
           fetch('Snippets/footer.html')
             .then(res => res.text())
             .then(data => {
@@ -427,7 +451,7 @@ cards.forEach((card) => {
               }, 100); // check every 100ms
             });
         </script>
-      </footer>
+    </footer>
     <!--Header Menu Dropdown Script-->
     <script>
             const observer = new MutationObserver(() => {

@@ -24,17 +24,42 @@
     display: flex;
     gap: 20px;
     cursor: grab;
+    position: relative;
     user-select: none;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding: 20px;
+    padding: 20px 0;
     scroll-behavior: smooth;
     overflow: hidden;
-    /* Hides the scrollbar */
     -ms-overflow-style: none;
-    /* For Internet Explorer */
     scrollbar-width: none;
-    /* For Firefox */
+}
+
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.85);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+    color: #000;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+}
+
+.arrow:hover {
+    background: #fff;
 }
 
 .services-card-wrapper::-webkit-scrollbar {
@@ -103,7 +128,7 @@
     margin: 0;
 }
 
-.card-content a {
+.card-content span {
     text-decoration: none;
     color: #fff;
     font-weight: 600;
@@ -115,13 +140,59 @@
     transition: all 0.3s ease;
 }
 
-.card-content a:hover {
+.card-content span:hover {
     background-color: #000;
     scale: 1.05;
     transition: all 0.3s ease;
 }
 
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+    background: transparent;
+    padding: 0;
+    border: 0;
+    width: 50px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+.carousel-arrow img {
+    width: 100%;
+    border: solid 1px #fff;
+    border-radius: 50%;
+}
+
+.carousel-arrow.left-arrow {
+    left: -30px;
+}
+
+.carousel-arrow.right-arrow {
+    right: -30px;
+}
+
+.carousel-arrow:disabled {
+    opacity: 0;
+    pointer-events: none;
+}
+
 @media (max-width: 756px) {
+    .carousel-arrow {
+        width: 35px;
+        top: 40%;
+    }
+
+    .carousel-arrow.right-arrow {
+        right: -8px;
+    }
+
+    .carousel-arrow.left-arrow {
+        left: -8px;
+    }
+
     .services-heading {
         font-size: 1.5rem;
     }
@@ -147,13 +218,16 @@
     .card-content p {
         font-size: 0.8rem;
     }
-    .service-card:hover .card-image{
+
+    .service-card:hover .card-image {
         transform: none;
     }
-    .services-card-wrapper{
+
+    .services-card-wrapper {
         padding-top: 0;
     }
-    .services-section-2 .container{
+
+    .services-section-2 .container {
         gap: 1.5rem;
     }
 }

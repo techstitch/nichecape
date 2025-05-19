@@ -2,7 +2,7 @@
     display: flex;
     position: relative;
     aspect-ratio: 4.7 / 2;
-    margin-top: 5rem;
+    margin-top: 7.2rem;
     overflow: hidden;
 }
 
@@ -119,6 +119,18 @@
     opacity: .2;
     position: absolute;
     transform: translateX(-50%);
+}
+
+@media(max-width:1200px) {
+    #home-section-1 {
+        margin-top: 8.2rem;
+    }
+}
+
+@media(max-width:1000px) {
+    #home-section-1 {
+        margin-top: 5.7rem;
+    }
 }
 
 @media(max-width:756px) {
