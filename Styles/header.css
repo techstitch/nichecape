@@ -143,6 +143,18 @@
     align-items: center;
 }
 
+.header-highlighted-tab {
+    background-color: #BE1E28;
+    padding: 10px 18px !important;
+    border-radius: 500px;
+    transition: all ease-in 0.3s !important;
+}
+.header-highlighted-tab:hover{
+    background-color: #FFF;
+    scale: 1.03;
+    transition: all ease-in 0.3s !important;
+}
+
 @media(max-width:1000px) {
     #header img {
         width: 140px;
@@ -180,5 +192,10 @@
 
     #header img {
         width: 150px;
+    }
+    .header-highlighted-tab{
+        background-color: unset !important;
+        padding: .8rem 0 !important;
+        color: #BE1E28 !important;
     }
 }

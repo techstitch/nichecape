@@ -10,8 +10,26 @@
     display: none;
 }
 
+.enquiry-form-callout {
+    margin-top: 10rem;
+}
+
+.contact-section-2 {
+    margin-top: 1rem;
+}
+
 @media(max-width: 756px) {
     .home-section-form .contact-section-2-inner {
         flex-direction: column-reverse;
+    }
+
+    .enquiry-form-callout {
+        margin-top: 7rem;
+    }
+}
+
+@media(max-width: 470px) {
+    .enquiry-form-wrap {
+        flex-wrap: wrap !important;
     }
 }

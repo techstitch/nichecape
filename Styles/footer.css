@@ -116,7 +116,9 @@ footer .page-width {
 .footer-brand-details-container p {
     margin: 0;
 }
-
+.footer-highlighted-tab{
+    color: #BE1E28 !important;
+}
 @media(max-width:756px) {
     footer .page-width {
         flex-direction: unset;

@@ -88,6 +88,38 @@ button {
     text-align: center;
 }
 
+.enquiry-form-callout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.enquiry-form-callout p {
+    text-align: center;
+    font-size: 1.15rem;
+}
+
+.enquiry-form-callout a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-weight: 500;
+    background: #BE1E28;
+    color: #fff;
+    width: fit-content;
+    padding: 8px 25px;
+    border-radius: 50px;
+    margin-top: 15px;
+    transition: all 0.3s ease-out;
+}
+
+.enquiry-form-callout a:hover {
+    background: #000;
+    color: #fff;
+    transition: all 0.3s ease-out;
+    scale: 1.05;
+}
+
 @media(max-width:1000px) {
     .page-width {
         width: calc(100% - 10rem) !important;
@@ -152,6 +184,18 @@ button {
 }
 
 @media(max-width:756px) {
+    .enquiry-form-callout a {
+        font-size: .9rem;
+        padding: 6px 20px;
+        margin-top: 10px;
+        margin-left: 1rem;
+        margin-bottom: 0;
+    }
+
+    .enquiry-form-callout p {
+        font-size: .9rem;
+    }
+
     .page-width {
         padding: 0 1rem;
         width: calc(100% - 2rem) !important;
@@ -162,7 +206,8 @@ button {
         justify-content: space-between;
         width: 100%;
     }
-    .section-heading{
+
+    .section-heading {
         font-size: 1.5rem;
         margin: 2rem 0 1.2rem;
     }

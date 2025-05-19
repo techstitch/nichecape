@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Get the best Rate Match</title>
+        <link rel="stylesheet" href="Styles/main.css">
+        <link rel="stylesheet" href="Styles/header.css">
+        <link rel="stylesheet" href="Styles/footer.css">
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"
+            async></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+        <script
+            src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
+        <script
+            src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+        <link rel="icon" type="image/png" href="Assets/Logo.svg">
+    </head>
+    <body>
+        <header class="page-width" id="header">
+            <script>
+        // Inject header from external file
+        fetch('Snippets/header.html')
+          .then(res => res.text())
+          .then(data => {
+            const header = document.getElementById('header');
+            header.innerHTML = data;
+      
+            // Show the header by default on page load
+            header.classList.add('header-show');
+      
+            // Sticky on scroll-up logic
+            let lastScroll = window.pageYOffset;
+      
+            window.addEventListener("scroll", () => {
+              const currentScroll = window.pageYOffset;
+      
+              if (currentScroll < lastScroll) {
+                // scrolling up
+                header.classList.add("header-show");
+              } else {
+                // scrolling down
+                header.classList.remove("header-show");
+              }
+      
+              lastScroll = currentScroll;
+            });
+          });
+      </script>
+
+        </header>
+
+        <section class="page-width enquiry-form-callout">
+            <h2 class="about-section-4-heading">Let’s Meet Your Requirements and
+                Your Budget</h2>
+            <p>
+                Share your shipping details and current rate — we’ll work with
+                our
+                vendors to match or beat it.<br>
+                Our goal is simple: provide reliable logistics solutions that
+                fit your
+                needs without stretching your budget.
+            </p>
+        </section>
+
+        <section class="page-width contact-section-2 home-section-form">
+            <link rel="stylesheet" href="Styles/contact.css">
+            <link rel="stylesheet" href="Styles/about-enquiry-form.css">
+            <link rel="stylesheet" href="Styles/about-section-4.css">
+             <div class="contact-section-2-inner">
+                <form action="https://formspree.io/f/xrbqdgvp" method="POST"
+                    class="contact-form">
+                    <div class="contact-form-inner">
+                        <input type="text" name="name" placeholder="*Name"
+                            required>
+                        <div style="display: flex; gap: 10px; width: 100%;">
+                            <input type="email" name="email"
+                                placeholder="*Email" required>
+                            <input type="number" name="phone"
+                                placeholder="*Phone" required>
+                        </div>
+
+                        <div style="display: flex; gap: 10px; width: 100%;">
+                            <input type="text" name="goods"
+                                placeholder="*Type of Goods"
+                                required>
+                            <input type="text" name="weight"
+                                placeholder="*Weight (kg)"
+                                required>
+                        </div>
+                        <input type="text" name="company" placeholder="Company">
+
+                        <textarea name="message" rows="5"
+                            placeholder="*Tell us your requirement in detail"></textarea>
+                        <label>Dimensions (in cm):</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="number" name="length"
+                                placeholder="*Length"
+                                required>
+                            <input type="number" name="width"
+                                placeholder="*Width" required>
+                            <input type="number" name="height"
+                                placeholder="*Height"
+                                required>
+                        </div>
+
+                        <div style="display: flex; gap: 10px; width: 100%;">
+                            <input type="text" name="from"
+                                placeholder="*From (Pickup Location)" required>
+                            <input type="text" name="to"
+                                placeholder="*To (Delivery Location)"
+                                required>
+                        </div>
+
+                        <div class="enquiry-form-wrap" style="    display: flex
+;
+    column-gap: 10px;
+    width: 100%;
+    flex-wrap: nowrap;">
+                            <input type="date" name="transport_date"
+                                placeholder="*Transport Date" required>
+
+                            <select style="padding: 17px;
+  font-size: 1rem;
+  margin: 5px 0;
+  border-radius: 15px;
+  border: none;
+  background: #00000010;
+  color: #000;
+  font-weight: 600;" name="transport_mode" required>
+                                <option value>Select Transport Mode</option>
+                                <option value="Air">Air</option>
+                                <option value="Sea">Sea</option>
+                                <option value="Land">Land</option>
+                            </select>
+                        </div>
+
+                        <label>Your Expected Price:</label>
+                        <div style="display: flex; gap: 10px; width: 100%;">
+                            <input type="number" name="expected_price"
+                                placeholder="Enter Price" required>
+                            <select style="padding: 17px;
+  font-size: 1rem;
+  margin: 5px 0;
+  border-radius: 15px;
+  border: none;
+  background: #00000010;
+  color: #000;
+  font-weight: 600;" name="currency" required>
+                                <option value="AED">AED</option>
+                                <option value="USD">USD</option>
+                                <option value="Euro">Euro</option>
+                            </select>
+                        </div>
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+                <div class="contact-image-wrapper">
+                    <img src="Assets/b343132071.jpg">
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </section>
+        <footer id="footer">
+            <script>
+            fetch('Snippets/footer.html')
+              .then(res => res.text())
+              .then(data => {
+                document.getElementById('footer').innerHTML = data;
+        
+                // Keep checking for the button until it appears
+                const interval = setInterval(() => {
+                  const btn = document.querySelector(".whatsapp-floating-button");
+                  if (btn) {
+                    clearInterval(interval);
+        
+                    // Animate after 3 seconds
+                    gsap.delayedCall(3, () => {
+                      gsap.fromTo(btn, { autoAlpha: 0, scale: 0 }, { duration: 1, autoAlpha: 1, scale: 1, ease: "back.out(1.7)" });
+        
+                      gsap.to(btn, {
+                        y: -10,
+                        duration: 1.5,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "power1.inOut"
+                      });
+                    });
+                  }
+                }, 100); // check every 100ms
+              });
+          </script>
+        </footer>
+        <!--Header Menu Dropdown Script-->
+
+        <script>
+      const observer = new MutationObserver(() => {
+      const toggleBtn = document.getElementById('toggleDropdown');
+      const dropdown = document.getElementById('dropdownContent');
+
+      if (toggleBtn && dropdown) {
+        const dropContainer = toggleBtn.closest('.dropdown');
+
+        toggleBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dropdown.classList.toggle('show');
+          dropContainer.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!dropContainer.contains(e.target)) {
+            dropdown.classList.remove('show');
+            dropContainer.classList.remove('open');
+          }
+        });
+
+        // Once everything is set up, disconnect observer
+        observer.disconnect();
+      }
+      });
+    
+      observer.observe(document.body, { childList: true, subtree: true });
+      </script>
+        <!--Burger menu toggle-->
+        <script>
+          function toggleMenu() {
+            const tryToggle = () => {
+              const nav = document.getElementById("navMenu");
+              if (nav) {
+                nav.classList.toggle("active");
+        
+                // Prevent body scroll when menu is open
+                document.body.style.overflow = nav.classList.contains("active") ? "hidden" : "";
+              } else {
+                setTimeout(tryToggle, 100);
+              }
+            };
+            tryToggle();
+          }
+        
+          function closeOnOutsideClick(event) {
+            const nav = document.getElementById("navMenu");
+            if (nav && nav.classList.contains("active")) {
+              nav.classList.remove("active");
+              document.body.style.overflow = "";
+            }
+          }
+    </script>
+    </body>
+</html>

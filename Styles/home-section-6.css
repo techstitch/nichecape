@@ -122,6 +122,8 @@
 
     #home-section-6 {
         width: calc(100% - 90px) !important;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
     }
 
     .carousel {
