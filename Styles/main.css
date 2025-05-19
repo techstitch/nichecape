@@ -169,6 +169,22 @@ button {
     border-radius: 15px;
 }
 
+.whatsapp-floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 85px;
+    display: flex;
+    z-index: 99;
+    aspect-ratio: 1/1;
+    height: 85px;
+    opacity: 0;
+}
+
+.whatsapp-floating-button img {
+    width: 100%;
+}
+
 @media(max-width:1000px) {
     .page-width {
         width: calc(100% - 10rem) !important;

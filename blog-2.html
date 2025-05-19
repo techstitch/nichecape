@@ -113,36 +113,34 @@
         modern businesses.</p>
     </section>
     <a class="blog-page-redirection" href="blog.html">Read more Articles</a>
-    <footer id="footer">
-      <script>
-            fetch('Snippets/footer.html')
-              .then(res => res.text())
-              .then(data => {
-                document.getElementById('footer').innerHTML = data;
-        
-                // Keep checking for the button until it appears
-                const interval = setInterval(() => {
-                  const btn = document.querySelector(".whatsapp-floating-button");
-                  if (btn) {
-                    clearInterval(interval);
-        
-                    // Animate after 3 seconds
-                    gsap.delayedCall(3, () => {
-                      gsap.fromTo(btn, { autoAlpha: 0, scale: 0 }, { duration: 1, autoAlpha: 1, scale: 1, ease: "back.out(1.7)" });
-        
-                      gsap.to(btn, {
-                        y: -10,
-                        duration: 1.5,
-                        repeat: -1,
-                        yoyo: true,
-                        ease: "power1.inOut"
-                      });
-                    });
-                  }
-                }, 100); // check every 100ms
-              });
-          </script>
-    </footer>
+      <footer id="footer">
+        <script>
+          fetch('Snippets/footer.html')
+            .then(res => res.text())
+            .then(data => {
+              document.getElementById('footer').innerHTML = data;
+            
+              // Keep checking for the button until it appears
+              const interval = setInterval(() => {
+                const btn = document.querySelector(".whatsapp-floating-button");
+                if (btn) {
+                  clearInterval(interval);
+                
+                  // Animate immediately without delay
+                  gsap.fromTo(btn, { autoAlpha: 0, scale: 0 }, { duration: 1, autoAlpha: 1, scale: 1, ease: "back.out(1.7)" });
+                
+                  gsap.to(btn, {
+                    rotation: 360,
+                    duration: 20,
+                    repeat: -1,
+                    ease: "linear",
+                    transformOrigin: "50% 50%"
+                  });
+                }
+              }, 100); // check every 100ms
+            });
+        </script>
+      </footer>
     <!--Header Menu Dropdown Script-->
     <script>
             const observer = new MutationObserver(() => {

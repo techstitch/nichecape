@@ -6,27 +6,34 @@
 .photo-gallery-swiper {
     width: 100%;
     margin: 0 auto;
+    cursor: grab;
+}
+
+.photo-gallery-swiper:active {
+    cursor: grabbing;
 }
 
 .swiper-wrapper {
+    display: flex !important;
     align-items: center;
-    padding-bottom: 3rem;
     padding-top: 3rem;
+    padding-bottom: 3rem;
+    will-change: transform; /* optimize for smooth transform */
 }
 
 .swiper-slide {
+    min-width: 280px !important; /* minimum width for consistent scroll */
+    margin-right: 20px; /* consistent gap between slides */
     width: auto !important;
-    /* This lets each image take its natural width */
     flex-shrink: 0 !important;
 }
 
-
 .swiper-slide img {
     max-height: 310px;
+    width: 100%; /* fill slide width */
     height: auto;
-    width: auto;
+    object-fit: cover;
     border-radius: 10px;
-    object-fit: contain;
     display: block;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
@@ -34,12 +41,15 @@
 .swiper-button-next,
 .swiper-button-prev {
     color: #BE1E28 !important;
-    scale: .6;
+    scale: 0.8;
+    z-index: 10;
+    opacity: 1 !important;
+    pointer-events: auto;
 }
 
 .photo-gallery-section .about-section-8-heading {
-    padding-bottom: 0;
     padding-top: 3rem;
+    padding-bottom: 0;
 }
 
 @media(max-width: 756px) {
