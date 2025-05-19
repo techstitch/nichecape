@@ -96,6 +96,7 @@ button {
     position: relative;
     overflow: hidden;
     height: 500px;
+    margin-bottom: 3rem;
 }
 
 .enquiry-form-callout-content {
