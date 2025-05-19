@@ -1,0 +1,17 @@
+.home-section-form .contact-section-2-inner {
+    flex-direction: row-reverse;
+}
+
+.home-section-form .contact-section-2-inner img {
+    filter: none;
+}
+
+.contact-section-2-inner a {
+    display: none;
+}
+
+@media(max-width: 756px) {
+    .home-section-form .contact-section-2-inner {
+        flex-direction: column-reverse;
+    }
+}

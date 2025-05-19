@@ -57,9 +57,19 @@
 
     </header>
     <section class="page-width" id="home-section-1">
+      <style>
+  #home-section-1::after {
+    display: none !important;
+  }@media (max-width: 756px) {
+    #home-section-1 {
+        aspect-ratio: 4.7 / 7 !important;
+    }
+}
+</style>
+
       <link rel="stylesheet" href="Styles/home-section-1.css">
       <img src="Assets/About/About us-1.jpg">
-      <div class="home-section-1-content-div">
+      <!--<div class="home-section-1-content-div">
         <h2>Delivering Trusted Logistics Solutions</h2>
         <p>Niche Shipping Services provides expert freight forwarding,
           customs clearance, and warehousing solutions across the UAE
@@ -68,7 +78,7 @@
         </p>
         <div class="home-section-1-cta-container">
           <a href="contact.html">Get in Touch</a>
-        </div>
+        </div>-->
       </div>
     </section>
     <section class="page-width ticker"
