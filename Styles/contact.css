@@ -42,7 +42,9 @@
     width: 100%;
     font-family: 'ClashDisplay', sans-serif;
 }
-
+.contact-form-inner select{
+    font-family: 'ClashDisplay';
+}
 .contact-form-inner input,
 .contact-form-inner textarea {
     width: calc(100% - 30px);
