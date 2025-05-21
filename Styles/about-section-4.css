@@ -22,7 +22,13 @@
     font-weight: 300;
     text-align: center;
 }
+.about-section-4-content-bottom{
+    padding-bottom: 3rem;
+}
 @media (max-width: 756px) {
+    .about-section-4-content-bottom{
+    padding-bottom: 2rem;
+}
     .about-section-4-heading{
         font-size: 1.5rem;
     }
