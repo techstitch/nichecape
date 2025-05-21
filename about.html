@@ -492,39 +492,126 @@ const totalScrollLength = (slideWidth + gap) * (slideCount - 1);
             src="Assets/uuid-d757d682-943d-49fd-b438-0061a5d758e1.svg">
           <ul>
             <li class="active">
+              <img src="Assets/new logos/alcatel.png">
+            </li>
+            <li class="active">
+              <img src="Assets/new logos/americangarden.png">
+            </li>
+            <li class="active">
+              <img src="Assets/new logos/bic.png">
+            </li>
+            <li class="active">
+              <img src="Assets/new logos/clorox.png">
+            </li>
+            <li class="active">
+              <img src="Assets/new logos/colgate palmolive.png">
+            </li>
+            <li class="active">
+              <img src="Assets/new logos/dabur.png">
+            </li>
+            <li class="active">
+              <img src="Assets/new logos/extra.png">
+            </li>
+            <li class="active">
+              <img src="Assets/new logos/ferrero.png">
+            </li>
+            <li class="active">
+              <img src="Assets/new logos/general mills.png">
+            </li>
+            <li class="active">
+              <img src="Assets/new logos/grey.png">
+            </li>
+            <li class="active">
+              <img src="Assets/new logos/hp invent.png">
+            </li>
+            <li class="active">
+              <img src="Assets/new logos/iffco.png">
+            </li>
+            <li>
+              <img src="Assets/new logos/intel .png">
+            </li>
+            <li>
+              <img src="Assets/new logos/kraft heinz.png">
+            </li>
+            <li>
+              <img src="Assets/new logos/loreal.png">
+            </li>
+            <li>
+              <img src="Assets/new logos/marico.png">
+            </li>
+            <li>
+              <img src="Assets/new logos/mars.png">
+            </li>
+            <li>
+              <img src="Assets/new logos/nahdi.png">
+            </li>
+            <li>
+              <img src="Assets/new logos/nestle .png">
+            </li>
+            <li>
+              <img src="Assets/new logos/nissan.png">
+            </li>
+            <li>
+              <img src="Assets/new logos/P&G.png">
+            </li>
+            <li>
+              <img src="Assets/new logos/panda.png">
+            </li>
+            <li>
+              <img src="Assets/new logos/perfetto.png">
+            </li>
+            <li>
+              <img src="Assets/new logos/pfizer.png">
+            </li>
+            <li>
+              <img src="Assets/new logos/reckitt benckiser.png">
+            </li>
+            <li>
+              <img src="Assets/new logos/redbull.png">
+            </li>
+            <li>
+              <img src="Assets/new logos/selpak.png">
+            </li>
+            <li>
+              <img src="Assets/new logos/unilever.png">
+            </li>
+            <li>
+              <img src="Assets/new logos/zain.png">
+            </li>
+            <li>
               <img src="Assets/101.png">
             </li>
-            <li class="active">
+            <li>
               <img src="Assets/102.png">
             </li>
-            <li class="active">
+            <li>
               <img src="Assets/103.png">
             </li>
-            <li class="active">
+            <li>
               <img src="Assets/104.jpg">
             </li>
-            <li class="active">
+            <li>
               <img src="Assets/105.png">
             </li>
-            <li class="active">
+            <li>
               <img src="Assets/106.png">
             </li>
-            <li class="active">
+            <li>
               <img src="Assets/107.png">
             </li>
-            <li class="active">
+            <li>
               <img src="Assets/108.png">
             </li>
-            <li class="active">
+            <li>
               <img src="Assets/109.png">
             </li>
-            <li class="active">
+            <li>
               <img src="Assets/110.png">
             </li>
-            <li class="active">
+            <li>
               <img src="Assets/112.png">
             </li>
-            <li class="active">
+            <li>
               <img src="Assets/111.jpg">
             </li>
             <li>
@@ -557,53 +644,64 @@ const totalScrollLength = (slideWidth + gap) * (slideCount - 1);
       <script>
           gsap.registerPlugin(ModifiersPlugin); 
         
-          const switchButton = document.getElementById('clients_switch_button');
-          const listItems = document.querySelectorAll('#home-section-4 ul li');
-        
-          let showingFirstSet = true;
-          let isAnimating = false;
-          let rotationCount = 0;
-        
-          switchButton.addEventListener('click', async () => {
-            if (isAnimating) return;
-            isAnimating = true;
-        
-            rotationCount += 360;
-        
-            gsap.to(switchButton, {
-              rotation: rotationCount,
-              duration: 0.6,
-              ease: "power2.inOut"
-            });
-        
-            const visibleSet = showingFirstSet ? [...listItems].slice(0, 12) : [...listItems].slice(12);
-            const hiddenSet = showingFirstSet ? [...listItems].slice(12) : [...listItems].slice(0, 12);
-        
-            await gsap.to(visibleSet, {
-              y: -20,
-              opacity: 0,
-              stagger: 0.05,
-              duration: 0.3
-            });
-        
-            // Switch visible sets
-            visibleSet.forEach(item => item.classList.remove('active'));
-            hiddenSet.forEach(item => item.classList.add('active'));
-        
-            await gsap.fromTo(hiddenSet,
-              { y: 20, opacity: 0 },
-              {
-                y: 0,
-                opacity: 1,
-                stagger: 0.1,
-                duration: 0.4,
-                ease: "power2.out"
-              }
-            );
-        
-            showingFirstSet = !showingFirstSet;
-            isAnimating = false;
-          });
+const switchButton = document.getElementById('clients_switch_button');
+const listItems = document.querySelectorAll('#home-section-4 ul li');
+
+let isAnimating = false;
+let currentPage = 0;
+const itemsPerPage = 12;
+const totalPages = Math.ceil(listItems.length / itemsPerPage);
+
+switchButton.addEventListener('click', async () => {
+  if (isAnimating) return;
+  isAnimating = true;
+
+  // Rotate icon
+  gsap.to(switchButton, {
+    rotation: "+=360",
+    duration: 0.6,
+    ease: "power2.inOut"
+  });
+
+  // Calculate current and next batch
+  const start = currentPage * itemsPerPage;
+  const end = start + itemsPerPage;
+  const currentSet = [...listItems].slice(start, end);
+
+  currentPage = (currentPage + 1) % totalPages;
+
+  const nextStart = currentPage * itemsPerPage;
+  const nextEnd = nextStart + itemsPerPage;
+  const nextSet = [...listItems].slice(nextStart, nextEnd);
+
+  // Animate current set out
+  await gsap.to(currentSet, {
+    y: -20,
+    opacity: 0,
+    stagger: 0.05,
+    duration: 0.3
+  });
+
+  // Hide all
+  listItems.forEach(item => item.classList.remove('active'));
+
+  // Show next batch
+  nextSet.forEach(item => item.classList.add('active'));
+
+  // Animate next set in
+  await gsap.fromTo(nextSet,
+    { y: 20, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      stagger: 0.1,
+      duration: 0.4,
+      ease: "power2.out"
+    }
+  );
+
+  isAnimating = false;
+});
       </script>
     </section>
     <section class="page-width" id="home-section-7">
