@@ -305,6 +305,7 @@ button {
         gap: 20px;
         justify-content: space-between;
         width: 100%;
+        flex-direction: row-reverse;
     }
 
     .section-heading {
