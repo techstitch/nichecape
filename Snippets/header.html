@@ -2,36 +2,82 @@
 <div class="logo_nav_container">
     <div class="burger" onclick="toggleMenu()">&#9776;</div>
     <a href="./index.html">
-        <img src="Assets/niche cape shipping services with white text.png" alt="Logo" class="logo">
+        <img src="Assets/niche cape shipping services with white text.png"
+            alt="Logo" class="logo">
     </a>
 </div>
-
 <!-- Navigation Menu -->
 <div class="nav-container" id="navMenu" onclick="closeOnOutsideClick(event)">
     <nav onclick="event.stopPropagation()">
         <span class="close-btn" onclick="toggleMenu()">×</span>
-        <a href="./">Home</a>
-        <a href="./about">About</a>
+
+        <a href="./">
+            <span class="english">Home</span>
+            <span class="arabic" style="display: none;">الرئيسية</span>
+        </a>
+
+        <a href="./about">
+            <span class="english">About</span>
+            <span class="arabic" style="display: none;">من نحن</span>
+        </a>
 
         <!-- Dropdown -->
         <div class="dropdown">
             <div class="drop-wrapper">
-                <a href="./services" class="dropbtn">Services</a>
-                <img class="dropdown-toggle" id="toggleDropdown"
-                    src="Assets/Vector 7.png">
+                <a href="./services" class="dropbtn">
+                    <span class="english">Services</span>
+                    <span class="arabic" style="display: none;">خدماتنا</span>
+                </a>
+                <img class="dropdown-toggle" id="toggleDropdown" src="Assets/Vector 7.png">
             </div>
             <div class="dropdown-content" id="dropdownContent">
-                <a href="./air-sea-freight">Air & Sea Freight</a>
-                <a href="./land-transportation">Land Transportation</a>
-                <a href="./customs-clearance">Customs Clearance</a>
-                <a href="./warehousing-packaging">Warehousing & Distribution</a>
-                <a href="./packaging-solutions.html">Packaging Solutions</a>
+                <a href="./air-sea-freight">
+                    <span class="english">Air & Sea Freight</span>
+                    <span class="arabic" style="display: none;">الشحن الجوي والبحري</span>
+                </a>
+                <a href="./land-transportation">
+                    <span class="english">Land Transportation</span>
+                    <span class="arabic" style="display: none;">النقل البري</span>
+                </a>
+                <a href="./customs-clearance">
+                    <span class="english">Customs Clearance</span>
+                    <span class="arabic" style="display: none;">تخليص جمركي</span>
+                </a>
+                <a href="./warehousing-packaging">
+                    <span class="english">Warehousing & Distribution</span>
+                    <span class="arabic" style="display: none;">التخزين والتوزيع</span>
+                </a>
+                <a href="./packaging-solutions.html">
+                    <span class="english">Packaging Solutions</span>
+                    <span class="arabic" style="display: none;">حلول التغليف</span>
+                </a>
             </div>
         </div>
-        <a href="./blog">Blog</a>
-        <a href="./contact">Contact Us</a>
-        <a class="header-highlighted-tab" href="./enquiry">Match Rates</a>
+
+        <a href="./blog">
+            <span class="english">Blog</span>
+            <span class="arabic" style="display: none;">المدونة</span>
+        </a>
+
+        <a href="./contact">
+            <span class="english">Contact Us</span>
+            <span class="arabic" style="display: none;">اتصل بنا</span>
+        </a>
+
+        <a class="header-highlighted-tab" href="./enquiry">
+            <span class="english">Match Rates</span>
+            <span class="arabic" style="display: none;">احصل على الأسعار</span>
+        </a>
     </nav>
+</div>
+
+<div class="language-toggle-container">
+    <div class="switch">
+        <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
+        <label for="language-toggle"></label>
+        <span class="on">EN</span>
+        <span class="off">العربية</span>
+    </div>
 </div>
 <style>
 .burger {

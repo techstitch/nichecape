@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Get the best Rate Match</title>
-        <link rel="stylesheet" href="Styles/main.css">
-        <link rel="stylesheet" href="Styles/header.css">
-        <link rel="stylesheet" href="Styles/footer.css">
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"
-            async></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-        <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-        <script
-            src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
-        <link rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
-        <script
-            src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
-        <link rel="icon" type="image/png" href="Assets/Logo.svg">
-    </head>
-    <body>
-        <header class="page-width" id="header">
-            <script>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get the best Rate Match</title>
+    <link rel="stylesheet" href="Styles/main.css">
+    <link rel="stylesheet" href="Styles/header.css">
+    <link rel="stylesheet" href="Styles/footer.css">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"
+      async></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script
+      src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
+    <script
+      src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+    <link rel="icon" type="image/png" href="Assets/Logo.svg">
+  </head>
+  <body>
+    <header class="page-width" id="header">
+      <script>
         // Inject header from external file
         fetch('Snippets/header.html')
           .then(res => res.text())
@@ -55,121 +55,108 @@
           });
       </script>
 
-        </header>
+    </header>
 
-        <section class="page-width enquiry-form-callout">
-            <h2 class="about-section-4-heading">Let’s Meet Your Requirements and
-                Your Budget</h2>
-            <p>
-                Share your shipping details and current rate — we’ll work with
-                our
-                vendors to match or beat it.<br>
-                Our goal is simple: provide reliable logistics solutions that
-                fit your
-                needs without stretching your budget.
-            </p>
-        </section>
+    <section class="page-width enquiry-form-callout">
+      <h2 class="about-section-4-heading english">Let’s Meet Your Requirements
+        and Your Budget</h2>
+      <h2 class="about-section-4-heading arabic" style="display:none;">لنلبي
+        متطلباتك وميزانيتك</h2>
+      <p class="english">
+        Share your shipping details and current rate — we’ll work with our
+        vendors to match or beat it.<br>
+        Our goal is simple: provide reliable logistics solutions that fit your
+        needs without stretching your budget.
+      </p>
+      <p class="arabic" style="display:none;">
+        شارك تفاصيل شحنتك والسعر الحالي — سنعمل مع مورّدينا لمطابقته أو تقديم
+        سعر أفضل.<br>
+        هدفنا بسيط: توفير حلول لوجستية موثوقة تلبي احتياجاتك دون زيادة في
+        الميزانية.
+      </p>
+    </section>
 
-        <section class="page-width contact-section-2 home-section-form">
-            <link rel="stylesheet" href="Styles/contact.css">
-            <link rel="stylesheet" href="Styles/about-enquiry-form.css">
-            <link rel="stylesheet" href="Styles/about-section-4.css">
-             <div class="contact-section-2-inner">
-                <form action="https://formspree.io/f/xrbqdgvp" method="POST"
-                    class="contact-form">
-                    <div class="contact-form-inner">
-                        <input type="text" name="name" placeholder="*Name"
-                            required>
-                        <div style="display: flex; gap: 10px; width: 100%;">
-                            <input type="email" name="email"
-                                placeholder="*Email" required>
-                            <input type="number" name="phone"
-                                placeholder="*Phone" required>
-                        </div>
-
-                        <div style="display: flex; gap: 10px; width: 100%;">
-                            <input type="text" name="goods"
-                                placeholder="*Type of Goods"
-                                required>
-                            <input type="text" name="weight"
-                                placeholder="*Weight (kg)"
-                                required>
-                        </div>
-                        <input type="text" name="company" placeholder="Company">
-
-                        <textarea name="message" rows="5"
-                            placeholder="*Tell us your requirement in detail"></textarea>
-                        <label>Dimensions (in cm):</label>
-                        <div style="display: flex; gap: 10px;">
-                            <input type="number" name="length"
-                                placeholder="*Length"
-                                required>
-                            <input type="number" name="width"
-                                placeholder="*Width" required>
-                            <input type="number" name="height"
-                                placeholder="*Height"
-                                required>
-                        </div>
-
-                        <div style="display: flex; gap: 10px; width: 100%;">
-                            <input type="text" name="from"
-                                placeholder="*From (Pickup Location)" required>
-                            <input type="text" name="to"
-                                placeholder="*To (Delivery Location)"
-                                required>
-                        </div>
-
-                        <div class="enquiry-form-wrap" style="    display: flex
-;
-    column-gap: 10px;
-    width: 100%;
-    flex-wrap: nowrap;">
-                            <input type="date" name="transport_date"
-                                placeholder="*Transport Date" required>
-
-                            <select style="padding: 17px;
-  font-size: 1rem;
-  margin: 5px 0;
-  border-radius: 15px;
-  border: none;
-  background: #00000010;
-  color: #000;
-  font-weight: 600;" name="transport_mode" required>
-                                <option value>Select Transport Mode</option>
-                                <option value="Air">Air</option>
-                                <option value="Sea">Sea</option>
-                                <option value="Land">Land</option>
-                            </select>
-                        </div>
-
-                        <label>Your Expected Price:</label>
-                        <div style="display: flex; gap: 10px; width: 100%;">
-                            <input type="number" name="expected_price"
-                                placeholder="Enter Price" required>
-                            <select style="padding: 17px;
-  font-size: 1rem;
-  margin: 5px 0;
-  border-radius: 15px;
-  border: none;
-  background: #00000010;
-  color: #000;
-  font-weight: 600;" name="currency" required>
-                                <option value="AED">AED</option>
-                                <option value="USD">USD</option>
-                                <option value="Euro">Euro</option>
-                            </select>
-                        </div>
-                        <button type="submit">Submit</button>
-                    </div>
-                </form>
-                <div class="contact-image-wrapper">
-                    <img src="Assets/Replacements/6ec393bf0f (1).jpg">
-                    <a href="contact.html">Contact Us</a>
-                </div>
+    <section class="page-width contact-section-2 home-section-form">
+      <link rel="stylesheet" href="Styles/contact.css">
+      <link rel="stylesheet" href="Styles/about-enquiry-form.css">
+      <link rel="stylesheet" href="Styles/about-section-4.css">
+      <div class="contact-section-2-inner">
+        <form action="https://formspree.io/f/xrbqdgvp" method="POST"
+          class="contact-form">
+          <div class="contact-form-inner">
+            <input type="text" name="name" placeholder="*Name" required>
+            <div style="display: flex; gap: 10px; width: 100%;">
+              <input type="email" name="email" placeholder="*Email" required>
+              <input type="number" name="phone" placeholder="*Phone" required>
             </div>
-        </section>
-      <footer id="footer">
-        <script>
+
+            <div style="display: flex; gap: 10px; width: 100%;">
+              <input type="text" name="goods" placeholder="*Type of Goods"
+                required>
+              <input type="text" name="weight" placeholder="*Weight (kg)"
+                required>
+            </div>
+            <input type="text" name="company" placeholder="Company">
+
+            <textarea name="message" rows="5"
+              placeholder="*Tell us your requirement in detail"></textarea>
+            <label class="english">Dimensions (in cm):</label>
+            <label class="arabic" style="display:none;">الأبعاد (بالسم):</label>
+            <div style="display: flex; gap: 10px;">
+              <input type="number" name="length" placeholder="*Length" required>
+              <input type="number" name="width" placeholder="*Width" required>
+              <input type="number" name="height" placeholder="*Height" required>
+            </div>
+
+            <div style="display: flex; gap: 10px; width: 100%;">
+              <input type="text" name="from"
+                placeholder="*From (Pickup Location)" required>
+              <input type="text" name="to" placeholder="*To (Delivery Location)"
+                required>
+            </div>
+
+            <div class="enquiry-form-wrap"
+              style="display: flex; column-gap: 10px; width: 100%; flex-wrap: nowrap;">
+              <input type="date" name="transport_date"
+                placeholder="*Transport Date" required>
+
+              <select
+                style="padding: 17px; font-size: 1rem; margin: 5px 0; border-radius: 15px; border: none; background: #00000010; color: #000; font-weight: 600;"
+                name="transport_mode" required>
+                <option value>Select Transport Mode</option>
+                <option value="Air">Air</option>
+                <option value="Sea">Sea</option>
+                <option value="Land">Land</option>
+              </select>
+            </div>
+
+            <label class="english">Your Expected Price:</label>
+            <label class="arabic" style="display:none;">السعر المتوقع:</label>
+            <div style="display: flex; gap: 10px; width: 100%;">
+              <input type="number" name="expected_price"
+                placeholder="Enter Price" required>
+              <select
+                style="padding: 17px; font-size: 1rem; margin: 5px 0; border-radius: 15px; border: none; background: #00000010; color: #000; font-weight: 600;"
+                name="currency" required>
+                <option value="AED">AED</option>
+                <option value="USD">USD</option>
+                <option value="Euro">Euro</option>
+              </select>
+            </div>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+        <div class="contact-image-wrapper">
+          <img src="Assets/Replacements/6ec393bf0f (1).jpg">
+          <a href="contact.html" class="english">Contact Us</a>
+          <a href="contact.html" class="arabic" style="display:none;">اتصل
+            بنا</a>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer">
+      <script>
           fetch('Snippets/footer.html')
             .then(res => res.text())
             .then(data => {
@@ -195,10 +182,10 @@
               }, 100); // check every 100ms
             });
         </script>
-      </footer>
-        <!--Header Menu Dropdown Script-->
+    </footer>
+    <!--Header Menu Dropdown Script-->
 
-        <script>
+    <script>
       const observer = new MutationObserver(() => {
       const toggleBtn = document.getElementById('toggleDropdown');
       const dropdown = document.getElementById('dropdownContent');
@@ -226,8 +213,8 @@
     
       observer.observe(document.body, { childList: true, subtree: true });
       </script>
-        <!--Burger menu toggle-->
-        <script>
+    <!--Burger menu toggle-->
+    <script>
           function toggleMenu() {
             const tryToggle = () => {
               const nav = document.getElementById("navMenu");
@@ -251,5 +238,154 @@
             }
           }
     </script>
-    </body>
+<script>
+  function updateLanguage(isArabic) {
+    const englishElements = document.querySelectorAll('.english');
+    const arabicElements = document.querySelectorAll('.arabic');
+
+    // Toggle text elements visibility
+    englishElements.forEach(el => el.style.display = isArabic ? 'none' : '');
+    arabicElements.forEach(el => el.style.display = isArabic ? '' : 'none');
+
+    // Placeholder translations
+    const placeholders = {
+      en: {
+        name: "*Name",
+        email: "*Email",
+        phone: "*Phone",
+        goods: "*Type of Goods",
+        weight: "*Weight (kg)",
+        company: "Company",
+        message: "*Tell us your requirement in detail",
+        length: "*Length",
+        width: "*Width",
+        height: "*Height",
+        from: "*From (Pickup Location)",
+        to: "*To (Delivery Location)",
+        transport_date: "*Transport Date",
+        expected_price: "Enter Price"
+      },
+      ar: {
+        name: "*الاسم",
+        email: "*البريد الإلكتروني",
+        phone: "*رقم الهاتف",
+        goods: "*نوع البضائع",
+        weight: "*الوزن (كجم)",
+        company: "الشركة",
+        message: "*أخبرنا بتفاصيل متطلباتك",
+        length: "*الطول",
+        width: "*العرض",
+        height: "*الارتفاع",
+        from: "*من (مكان الاستلام)",
+        to: "*إلى (مكان التسليم)",
+        transport_date: "*تاريخ النقل",
+        expected_price: "أدخل السعر"
+      }
+    };
+
+    // Select option translations
+    const selectOptions = {
+      transport_mode: {
+        en: ["Select Transport Mode", "Air", "Sea", "Land"],
+        ar: ["اختر طريقة النقل", "جوّي", "بحري", "بري"]
+      },
+      currency: {
+        en: ["AED", "USD", "Euro"],
+        ar: ["درهم", "دولار", "يورو"]
+      }
+    };
+
+    // Button text
+    const buttonText = {
+      en: "Submit",
+      ar: "إرسال"
+    };
+
+    const form = document.querySelector('.contact-form');
+    if (form) {
+      // Update placeholders
+      form.querySelector('input[name="name"]').placeholder = isArabic ? placeholders.ar.name : placeholders.en.name;
+      form.querySelector('input[name="email"]').placeholder = isArabic ? placeholders.ar.email : placeholders.en.email;
+      form.querySelector('input[name="phone"]').placeholder = isArabic ? placeholders.ar.phone : placeholders.en.phone;
+      form.querySelector('input[name="goods"]').placeholder = isArabic ? placeholders.ar.goods : placeholders.en.goods;
+      form.querySelector('input[name="weight"]').placeholder = isArabic ? placeholders.ar.weight : placeholders.en.weight;
+      form.querySelector('input[name="company"]').placeholder = isArabic ? placeholders.ar.company : placeholders.en.company;
+      form.querySelector('textarea[name="message"]').placeholder = isArabic ? placeholders.ar.message : placeholders.en.message;
+      form.querySelector('input[name="length"]').placeholder = isArabic ? placeholders.ar.length : placeholders.en.length;
+      form.querySelector('input[name="width"]').placeholder = isArabic ? placeholders.ar.width : placeholders.en.width;
+      form.querySelector('input[name="height"]').placeholder = isArabic ? placeholders.ar.height : placeholders.en.height;
+      form.querySelector('input[name="from"]').placeholder = isArabic ? placeholders.ar.from : placeholders.en.from;
+      form.querySelector('input[name="to"]').placeholder = isArabic ? placeholders.ar.to : placeholders.en.to;
+      form.querySelector('input[name="transport_date"]').placeholder = isArabic ? placeholders.ar.transport_date : placeholders.en.transport_date;
+      form.querySelector('input[name="expected_price"]').placeholder = isArabic ? placeholders.ar.expected_price : placeholders.en.expected_price;
+
+      // Update select options - transport_mode
+      const transportModeSelect = form.querySelector('select[name="transport_mode"]');
+      if (transportModeSelect) {
+        const options = selectOptions.transport_mode[isArabic ? "ar" : "en"];
+        transportModeSelect.innerHTML = ""; // clear current options
+        options.forEach((optText, index) => {
+          const opt = document.createElement("option");
+          opt.value = index === 0 ? "" : optText; // first option value empty for placeholder
+          opt.textContent = optText;
+          transportModeSelect.appendChild(opt);
+        });
+      }
+
+      // Update select options - currency
+      const currencySelect = form.querySelector('select[name="currency"]');
+      if (currencySelect) {
+        const options = selectOptions.currency[isArabic ? "ar" : "en"];
+        currencySelect.innerHTML = ""; // clear current options
+        options.forEach(optText => {
+          const opt = document.createElement("option");
+          opt.value = optText;
+          opt.textContent = optText;
+          currencySelect.appendChild(opt);
+        });
+      }
+
+      // Update button text
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.textContent = isArabic ? buttonText.ar : buttonText.en;
+      }
+    }
+
+    // Store preference
+    localStorage.setItem('selectedLanguage', isArabic ? 'ar' : 'en');
+  }
+
+  function initializeLanguageToggle() {
+    const toggle = document.getElementById('language-toggle');
+    if (!toggle) {
+      console.warn('Language toggle element not found, retrying...');
+      return false;
+    }
+
+    const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+    const isArabic = savedLang === 'ar';
+
+    toggle.checked = isArabic;
+    updateLanguage(isArabic);
+
+    toggle.addEventListener('change', () => {
+      updateLanguage(toggle.checked);
+    });
+
+    return true;
+  }
+
+  function waitForToggleAndInit() {
+    if (!initializeLanguageToggle()) {
+      setTimeout(waitForToggleAndInit, 100);
+    }
+  }
+
+  waitForToggleAndInit();
+
+  document.addEventListener('DOMContentLoaded', initializeLanguageToggle);
+</script>
+
+  </body>
 </html>

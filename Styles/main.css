@@ -119,9 +119,11 @@ button {
     object-fit: cover;
 }
 
-.enquiry-form-callout-home p {
+.enquiry-form-callout-home span {
     font-size: 1.15rem;
     color: #fff;
+    font-family: 'ClashDisplay', sans-serif;
+
 }
 
 .enquiry-form-callout-home .about-section-4-heading {
@@ -185,6 +187,103 @@ button {
     width: 100%;
 }
 
+.language-toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 50px;
+    position: relative;
+}
+
+/* Toggle styling */
+.switch {
+    position: relative;
+    width: 110px;
+    height: 100%;
+}
+
+.check-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* The switch label (actual visual toggle) */
+.check-toggle+label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #be1e28;
+    border-radius: 500px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.check-toggle+label::before {
+    content: "";
+    width: 50px;
+    height: calc(100% - 10px);
+    background: #fff;
+    border-radius: 500px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    transition: left 0.3s ease;
+}
+
+/* Move toggle handle to the right when checked */
+.check-toggle:checked+label::before {
+    left: 52px;
+}
+
+/* Language labels */
+.switch>span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    text-align: center;
+    font-family: 'ClashDisplay', sans-serif;
+    font-size: .7rem;
+    text-transform: uppercase;
+    pointer-events: none;
+    color: #fff;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.switch>span:first-of-type {
+    padding-left: 2px;
+}
+
+.switch>span:last-of-type {
+    padding-right: 2px;
+}
+
+.switch>span.on {
+    left: 0;
+    color: #BE1E28;
+}
+
+.switch>span.off {
+    right: 0;
+    color: #fff;
+}
+
+.check-toggle:checked~.on {
+    color: #fff;
+}
+
+.check-toggle:checked~.off {
+    color: #BE1E28;
+}
+
+.close-btn {
+    display: none;
+}
+
 @media(max-width:1000px) {
     .page-width {
         width: calc(100% - 10rem) !important;
@@ -245,6 +344,7 @@ button {
         cursor: pointer;
         align-self: flex-end;
         color: #fff;
+        display: flex;
     }
 }
 
@@ -276,7 +376,7 @@ button {
         text-align: center;
     }
 
-    .enquiry-form-callout-home p {
+    .enquiry-form-callout-home span {
         text-align: center;
     }
 
@@ -292,7 +392,7 @@ button {
         margin-bottom: 0;
     }
 
-    .enquiry-form-callout-home p {
+    .enquiry-form-callout-home span {
         font-size: .9rem;
     }
 
@@ -311,5 +411,11 @@ button {
     .section-heading {
         font-size: 1.5rem;
         margin: 2rem 0 1.2rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .switch {
+        transform: scale(0.8);
     }
 }

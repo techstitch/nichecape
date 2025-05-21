@@ -70,9 +70,12 @@
       <link rel="stylesheet" href="Styles/home-section-1.css">
       <img src="Assets/Replacements/About Use Cover (1).jpg">
       <div class="home-section-1-content-div about-section-1-content-div">
-        <h2 class="animated-stroke"
-          data-text="Rooted in the UAE. Reaching the Globe.">Rooted in the UAE.
-          Reaching the Globe.</h2>
+        <h2 class="english">
+          Rooted in the UAE. Reaching the Globe.
+        </h2>
+        <h2 class="arabic" style="display:none;">
+          نابعة من الإمارات. تصل إلى أنحاء العالم.
+        </h2>
 
         <!--<p>Niche Shipping Services provides expert freight forwarding,
           customs clearance, and warehousing solutions across the UAE
@@ -84,55 +87,93 @@
         </div>-->
       </div>
     </section>
-    <section class="page-width ticker"
-      aria-label="Niche Shipping Highlights">
+    <section class="page-width ticker" aria-label="Niche Shipping Highlights">
       <div class="ticker-track">
-        <div class="ticker-content">
-          <span>Reliable</span>
-          <span>Scalable</span>
-          <span>Precise</span>
-          <span>Secure</span>
-          <span>Global</span>
-          <span>Efficient</span>
-          <span>Trusted</span>
-          <span>Optimized</span>
-          <span>Certified</span>
-          <span>Always On Time</span>
-        </div>
-        <div class="ticker-content">
-          <span>Reliable</span>
-          <span>Scalable</span>
-          <span>Precise</span>
-          <span>Secure</span>
-          <span>Global</span>
-          <span>Efficient</span>
-          <span>Trusted</span>
-          <span>Optimized</span>
-          <span>Certified</span>
-          <span>Always On Time</span>
-        </div>
+        <!-- ticker-content divs will be created dynamically in JS -->
       </div>
     </section>
     <script>
-            const tickerTrack = document.querySelector('.ticker-track');
-            const tickerContent = document.querySelector('.ticker-content');
-            const clone = tickerContent.cloneNode(true);
-            tickerTrack.appendChild(clone);
-            const contentWidth = tickerContent.getBoundingClientRect().width;
-            gsap.to(tickerTrack, {
-              x: -contentWidth,
-              duration: 35,
-              ease: 'linear',
-              repeat: -1,
-              modifiers: {
-                x: gsap.utils.unitize(x => parseFloat(x) % contentWidth)
-              }
-            });
-    </script>
+  const tickerWords = {
+    en: [
+      "Reliable", "Scalable", "Precise", "Secure", "Global", "Efficient", "Trusted", "Optimized", "Certified", "Always On Time",
+      "Reliable", "Scalable", "Precise", "Secure", "Global", "Efficient", "Trusted", "Optimized", "Certified", "Always On Time"
+    ],
+    ar: [
+      "موثوق", "قابل للتوسع", "دقيق", "آمن", "عالمي", "فعال", "موثوق به", "محسن", "معتمد", "دائمًا في الوقت المحدد",
+      "موثوق", "قابل للتوسع", "دقيق", "آمن", "عالمي", "فعال", "موثوق به", "محسن", "معتمد", "دائمًا في الوقت المحدد"
+    ]
+  };
+
+  const tickerTrack = document.querySelector('.ticker-track');
+  let tickerAnimation; // Store the GSAP animation reference
+
+  function renderTicker(language = 'en') {
+    // Clear existing ticker content and animation
+    tickerTrack.innerHTML = '';
+    if (tickerAnimation) {
+      tickerAnimation.kill();
+    }
+
+    // Create new ticker-content div
+    const tickerContent = document.createElement('div');
+    tickerContent.classList.add('ticker-content');
+    
+    // Set direction based on language
+    tickerContent.style.direction = language === 'ar' ? 'rtl' : 'ltr';
+
+    // Add spans for each word
+    tickerWords[language].forEach(word => {
+      const span = document.createElement('span');
+      span.textContent = word;
+      tickerContent.appendChild(span);
+    });
+
+    // Append original and clone for continuous scrolling
+    tickerTrack.appendChild(tickerContent);
+    tickerTrack.appendChild(tickerContent.cloneNode(true));
+
+    const contentWidth = tickerContent.getBoundingClientRect().width;
+
+    // Reset position before starting new animation
+    gsap.set(tickerTrack, { x: 0 });
+
+    // Create and store the new animation
+    tickerAnimation = gsap.to(tickerTrack, {
+      x: -contentWidth,
+      duration: 35,
+      ease: 'linear',
+      repeat: -1,
+      modifiers: {
+        x: gsap.utils.unitize(x => parseFloat(x) % contentWidth)
+      }
+    });
+  }
+document.addEventListener('DOMContentLoaded', function() {
+  const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+  renderTicker(savedLang);
+
+  const languageToggle = document.getElementById('language-toggle');
+  if (languageToggle) {
+    languageToggle.addEventListener('change', function() {
+      const isArabic = this.checked;
+      const lang = isArabic ? 'ar' : 'en';
+      localStorage.setItem('selectedLanguage', lang);
+      renderTicker(lang);
+    });
+  } else {
+    console.error('Language toggle element not found');
+  }
+});
+</script>
     <section class="page-width" id="about-section-members">
       <link rel="stylesheet" href="Styles/about-section-members.css">
-      <h2 class="about-section-member-heading">Trusted Member of
+      <h2 class="about-section-member-heading english">
+        Trusted Member of
       </h2>
+      <h2 class="about-section-member-heading arabic" style="display:none;">
+        عضو موثوق به في
+      </h2>
+
       <div class="members-images-container">
         <img src="Assets/123.png">
         <img src="Assets/124.png">
@@ -197,68 +238,131 @@
     </section>
     <section class="page-width" id="about-section-4">
       <link rel="stylesheet" href="Styles/about-section-4.css">
-      <h2 class="about-section-4-heading">Global Reach, Local Expertise
+      <h2 class="about-section-4-heading">
+        <span class="english">Global Reach, Local Expertise</span>
+        <span class="arabic" style="display:none;">الانتشار العالمي، الخبرة
+          المحلية</span>
       </h2>
-      <p class="about-section-4-content">Niche Cape Shipping Services, a
-        division of the renowned Niche Marketing Management with over 20 years
-        of market presence, delivers reliable logistics and warehousing
-        solutions across the globe. Headquartered in the UAE, we specialize in
-        freight forwarding, customs clearance, and secure warehousing, tailored
-        to meet the evolving demands of modern global trade.
-      </p>
-    </section>
+      <p class="about-section-4-content">
+        <span class="english">
+          Niche Cape Shipping Services, a division of the renowned Niche
+          Marketing Management with over 20 years of market presence, delivers
+          reliable logistics and warehousing solutions across the globe.
+          Headquartered in the UAE, we specialize in freight forwarding, customs
+          clearance, and secure warehousing, tailored to meet the evolving
+          demands of modern global trade.
+        </span>
+        <span class="arabic" style="display:none;">
+          خدمات نيتش كيب للشحن، قسم من شركة نيتش ماركتينج مانجمنت الشهيرة التي
+          تمتلك أكثر من 20 عامًا من الخبرة في السوق، تقدم حلول لوجستية وتخزين
+          موثوقة حول العالم. يقع مقرنا الرئيسي في الإمارات العربية المتحدة، ونحن
+          متخصصون في النقل الدولي، التخليص الجمركي، والتخزين الآمن، مصممة لتلبية
+          احتياجات التجارة العالمية الحديثة المتغيرة.
+        </span>
+      </p> </section>
     <section class="page-width about-counters-section"
       id="about-counters-section">
       <link rel="stylesheet" href="Styles/about-counters-section.css">
+
       <div class="counter-box">
-        <h2><span class="counter" data-target="1000">0</span>+ <br> Success
-          Stories
-          in Global Logistics</h2>
+        <h2>
+          <span class="english">
+            <span class="counter" data-target="1000">0</span>+ <br> Success
+            Stories in Global Logistics
+          </span>
+          <span class="arabic" style="display:none;">
+            <span class="counter" data-target="1000">0</span>+ <br> قصص نجاح في
+            اللوجستيات العالمية
+          </span>
+        </h2>
       </div>
+
       <hr>
+
       <div class="counter-box">
-        <h2>Group Presence <br><span class="counter" data-target="15">0</span>+
-          Countries</h2>
+        <h2>
+          <span class="english">Group Presence <br><span class="counter"
+              data-target="15">0</span>+ Countries</span>
+          <span class="arabic" style="display:none;">انتشار المجموعة <br><span
+              class="counter" data-target="15">0</span>+ دول</span>
+        </h2>
       </div>
-    </section>
-    <script>
-      gsap.registerPlugin(ScrollTrigger);
+    </section> <script>
+  gsap.registerPlugin(ScrollTrigger);
 
-      const counters = document.querySelectorAll('.counter');
+  // Get all counters
+  const englishCounters = document.querySelectorAll('.english .counter');
+  const arabicCounters = document.querySelectorAll('.arabic .counter');
 
-      counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-      
-        ScrollTrigger.create({
-          trigger: counter,
-          start: 'top 80%',
-          once: true,
-          onEnter: () => {
-            gsap.fromTo(counter, {
-              innerText: 0
-            }, {
+  function setupCounterAnimations(counters) {
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      counter.innerText = '0';
+
+      ScrollTrigger.create({
+        trigger: counter,
+        start: 'top 80%',
+        once: true,
+        onEnter: () => {
+          gsap.fromTo(counter,
+            { innerText: 0 },
+            {
               innerText: target,
               duration: 2,
               ease: 'power1.out',
               snap: { innerText: 1 },
-              onUpdate: function () {
+              onUpdate() {
                 counter.innerText = Math.floor(counter.innerText);
               },
-              onComplete: function () {
-                counter.innerText = target.toLocaleString(); // formatted number
+              onComplete() {
+                counter.innerText = target.toLocaleString();
               }
             });
-          }
-        });
+        }
       });
-    </script>
+    });
+  }
+
+  // Initialize both animations once
+  setupCounterAnimations(englishCounters);
+  setupCounterAnimations(arabicCounters);
+
+  // Function to toggle visibility of counters based on language
+  function toggleCounters(language) {
+    if (language === 'english') {
+      document.querySelector('.english').style.display = 'block';
+      document.querySelector('.arabic').style.display = 'none';
+    } else {
+      document.querySelector('.english').style.display = 'none';
+      document.querySelector('.arabic').style.display = 'block';
+    }
+    ScrollTrigger.refresh(); // Refresh to recalc trigger positions
+  }
+
+  // On load, check saved language or default English
+  const savedLang = localStorage.getItem('selectedLanguage') || 'english';
+  toggleCounters(savedLang);
+
+  // Listen for toggle change
+  document.getElementById('language-toggle').addEventListener('change', function () {
+    const lang = this.checked ? 'arabic' : 'english';
+    localStorage.setItem('selectedLanguage', lang);
+    toggleCounters(lang);
+  });
+</script>
     <p
-      class="page-width about-section-4-content about-section-4-content-bottom">Niche
-      Cape is trusted for its
-      efficiency, flexibility, and commitment to seamless logistics solutions.
-      Whether it’s air freight, sea freight, land transport, or distribution and
-      packaging, we ensure your supply chain moves smoothly from origin to
-      destination.
+      class="page-width about-section-4-content about-section-4-content-bottom">
+      <span class="english">
+        Niche Cape is trusted for its efficiency, flexibility, and commitment to
+        seamless logistics solutions. Whether it’s air freight, sea freight,
+        land transport, or distribution and packaging, we ensure your supply
+        chain moves smoothly from origin to destination.
+      </span>
+      <span class="arabic" style="display:none;">
+        نيتش كيب موثوق بها لكفاءتها ومرونتها والتزامها بحلول لوجستية سلسة. سواء
+        كان النقل الجوي أو البحري أو البري، أو التوزيع والتغليف، نضمن أن يتحرك
+        سلسلة التوريد الخاصة بك بسلاسة من المصدر إلى الوجهة.
+      </span>
     </p>
     <!--<section id="about-section-5" class="about-section-5">
     <link rel="stylesheet" href="Styles/about-section-5.css">
@@ -396,10 +500,18 @@ const totalScrollLength = (slideWidth + gap) * (slideCount - 1);
         <div class="about-section-5-bg"
           style="background-image: url('Assets/About/About us-2.jpg');"></div>
         <div class="about-section-5-content">
-          <h2>What Sets Us Apart</h2>
-          <p>Global logistics reach with a local UAE touch. We combine
+          <h2 class="english">What Sets Us Apart</h2>
+          <h2 class="arabic" style="display:none;">ما يميزنا</h2>
+          <p class="english">
+            Global logistics reach with a local UAE touch. We combine
             international expertise with local knowledge to provide seamless,
-            cost-effective solutions tailored to your unique needs.</p>
+            cost-effective solutions tailored to your unique needs.
+          </p>
+          <p class="arabic" style="display:none;">
+            وصول لوجستي عالمي بلمسة محلية من الإمارات. ندمج الخبرة الدولية مع
+            المعرفة المحلية لتقديم حلول سلسة وفعالة من حيث التكلفة مصممة خصيصًا
+            لاحتياجاتك الفريدة.
+          </p>
         </div>
       </div>
 
@@ -407,10 +519,16 @@ const totalScrollLength = (slideWidth + gap) * (slideCount - 1);
         <div class="about-section-5-bg"
           style="background-image: url('Assets/About/About us-3.jpg');"></div>
         <div class="about-section-5-content">
-          <h2>Strategic Partnerships</h2>
-          <p>With top carriers & ports worldwide, our strong relationships
-            ensure that your shipments are handled with the utmost care and
-            speed.</p>
+          <h2 class="english">Strategic Partnerships</h2>
+          <h2 class="arabic" style="display:none;">شراكات استراتيجية</h2>
+          <p class="english">
+            With top carriers & ports worldwide, our strong relationships ensure
+            that your shipments are handled with the utmost care and speed.
+          </p>
+          <p class="arabic" style="display:none;">
+            من خلال علاقاتنا القوية مع أفضل شركات النقل والموانئ حول العالم،
+            نضمن أن يتم التعامل مع شحناتك بأقصى درجات العناية والسرعة.
+          </p>
         </div>
       </div>
 
@@ -418,10 +536,18 @@ const totalScrollLength = (slideWidth + gap) * (slideCount - 1);
         <div class="about-section-5-bg"
           style="background-image: url('Assets/About/About us-4.jpg');"></div>
         <div class="about-section-5-content">
-          <h2>End-to-End Solutions</h2>
-          <p>From first mile to last mile, we handle every aspect of your
+          <h2 class="english">End-to-End Solutions</h2>
+          <h2 class="arabic" style="display:none;">حلول شاملة</h2>
+          <p class="english">
+            From first mile to last mile, we handle every aspect of your
             logistics journey. Our integrated services offer a streamlined
-            approach to reduce complexity and cut costs.</p>
+            approach to reduce complexity and cut costs.
+          </p>
+          <p class="arabic" style="display:none;">
+            من الميل الأول إلى الميل الأخير، نحن نتولى كل جانب من جوانب رحلتك
+            اللوجستية. خدماتنا المتكاملة توفر نهجاً مبسطاً لتقليل التعقيد وخفض
+            التكاليف.
+          </p>
         </div>
       </div>
 
@@ -429,10 +555,17 @@ const totalScrollLength = (slideWidth + gap) * (slideCount - 1);
         <div class="about-section-5-bg"
           style="background-image: url('Assets/About/About us-5.jpg');"></div>
         <div class="about-section-5-content">
-          <h2>Full Transparency</h2>
-          <p>Live tracking & POD systems keep you informed at every stage of
-            your shipment. Real-time updates give you full visibility into your
-            freight.</p>
+          <h2 class="english">Full Transparency</h2>
+          <h2 class="arabic" style="display:none;">شفافية كاملة</h2>
+          <p class="english">
+            Live tracking & POD systems keep you informed at every stage of your
+            shipment. Real-time updates give you full visibility into your
+            freight.
+          </p>
+          <p class="arabic" style="display:none;">
+            أنظمة التتبع المباشر وإثبات التسليم تبقيك على اطلاع في كل مرحلة من
+            مراحل شحنتك. التحديثات الفورية توفر لك رؤية كاملة لشحنتك.
+          </p>
         </div>
       </div>
 
@@ -440,10 +573,17 @@ const totalScrollLength = (slideWidth + gap) * (slideCount - 1);
         <div class="about-section-5-bg"
           style="background-image: url('Assets/About/About us-6.jpg');"></div>
         <div class="about-section-5-content">
-          <h2>Multimodal Expertise</h2>
-          <p>Air, sea & land freight mastery. Our team delivers speed and
+          <h2 class="english">Multimodal Expertise</h2>
+          <h2 class="arabic" style="display:none;">خبرة متعددة الوسائط</h2>
+          <p class="english">
+            Air, sea & land freight mastery. Our team delivers speed and
             cost-efficiency across multiple modes of transport for both domestic
-            and international shipping.</p>
+            and international shipping.
+          </p>
+          <p class="arabic" style="display:none;">
+            خبرة في الشحن الجوي والبحري والبري. يقدم فريقنا سرعة وكفاءة في
+            التكاليف عبر وسائط النقل المختلفة سواء للشحن المحلي أو الدولي.
+          </p>
         </div>
       </div>
 
@@ -469,7 +609,6 @@ const totalScrollLength = (slideWidth + gap) * (slideCount - 1);
         }
       });
 
-      // Optional: fade and move in content
       const content = section.querySelector(".about-section-5-content");
       gsap.fromTo(content, {
         autoAlpha: 0,
@@ -487,15 +626,23 @@ const totalScrollLength = (slideWidth + gap) * (slideCount - 1);
     });
   </script>
     </section>
+
     <section class="page-width" id="home-section-4">
       <link rel="stylesheet" href="Styles/home-section-4.css">
       <img class="home-section-4-bg-img" src="Assets/0.jpg">
       <div class="home-section-4-inner">
-        <div class="home-section-4-left-container">
+        <div class="home-section-4-left-container english">
           <h2>Trusted by Global Businesses</h2>
           <p>Delivering logistics success in over 15 countries with 1,000+
-            satisfied clients.</p>
+            success stories.</p>
         </div>
+
+        <div class="home-section-4-left-container arabic" style="display:none;">
+          <h2>موثوق به من قبل الشركات العالمية</h2>
+          <p>تحقيق نجاحات لوجستية في أكثر من 15 دولة مع أكثر من 1000 قصة
+            نجاح.</p>
+        </div>
+
         <div class="home-section-4-right-container">
           <img id="clients_switch_button"
             src="Assets/uuid-d757d682-943d-49fd-b438-0061a5d758e1.svg">
@@ -711,37 +858,47 @@ switchButton.addEventListener('click', async () => {
 
   isAnimating = false;
 });
-      </script>
+  </script>
     </section>
     <section class="page-width" id="home-section-7">
       <link rel="stylesheet" href="Styles/home-section-7.css">
       <div class="home-section-7-container-1">
         <div class="home-section-7-container-left">
           <div class="home-section-7-container-heading-container">
-            <p class="home-section-7-container-heading">OUR
-              MISSION</p>
+            <p class="home-section-7-container-heading">
+              <span class="english">OUR MISSION</span>
+              <span class="arabic" style="display:none;">مهمتنا</span>
+            </p>
           </div>
-          <p class="home-section-7-container-subheading">Driven by
-            Purpose,
-            Defined by Precision</p>
+          <p class="home-section-7-container-subheading">
+            <span class="english">Driven by Purpose, Defined by Precision</span>
+            <span class="arabic" style="display:none;">مدفوعة بالهدف، محددة
+              بالدقة</span>
+          </p>
           <p class="home-section-7-container-content">
-            Your goals are the cornerstone of our mission — we
-            strive to
-            provide intelligent, reliable, and timely logistics
-            solutions that
-            move your business forward with confidence and clarity.
-            <br><br>
-            From strategic planning to seamless execution, we focus
-            on
-            delivering value at every stage. Whether it's global
-            freight,
-            regional distribution, or supply chain coordination, our
-            mission
-            is to empower your operations with efficiency,
-            sustainability, and
-            unwavering support tailored to your unique needs.
+            <span class="english">
+              Your goals are the cornerstone of our mission — we strive to
+              provide intelligent, reliable, and timely logistics solutions that
+              move your business forward with confidence and clarity.
+              <br><br>
+              From strategic planning to seamless execution, we focus on
+              delivering value at every stage. Whether it's global freight,
+              regional distribution, or supply chain coordination, our mission
+              is to empower your operations with efficiency, sustainability, and
+              unwavering support tailored to your unique needs.
+            </span>
+            <span class="arabic" style="display:none;">
+              أهدافك هي حجر الأساس لمهمتنا - نسعى لتوفير حلول لوجستية ذكية
+              وموثوقة وفي الوقت المناسب تدفع عملك إلى الأمام بثقة ووضوح.
+              <br><br>
+              من التخطيط الاستراتيجي إلى التنفيذ السلس، نركز على تقديم القيمة في
+              كل مرحلة. سواء كان الشحن العالمي، التوزيع الإقليمي، أو تنسيق سلسلة
+              التوريد، مهمتنا هي تمكين عملياتك بالكفاءة والاستدامة والدعم الثابت
+              المصمم وفقًا لاحتياجاتك الفريدة.
+            </span>
           </p>
         </div>
+
         <div class="section-7-image-container">
           <img src="Assets/Home/OUR MISSION.jpg">
         </div>
@@ -752,56 +909,85 @@ switchButton.addEventListener('click', async () => {
         </div>
         <div class="home-section-7-container-left">
           <div class="home-section-7-container-heading-container">
-            <p class="home-section-7-container-heading">OUR
-              PROMISE</p>
+            <p class="home-section-7-container-heading">
+              <span class="english">OUR PROMISE</span>
+              <span class="arabic" style="display:none;">وعدنا</span>
+            </p>
           </div>
-          <p class="home-section-7-container-subheading">Empowering
-            Logistics
-            with Purpose and Precision</p>
+          <p class="home-section-7-container-subheading">
+            <span class="english">Empowering Logistics with Purpose and
+              Precision</span>
+            <span class="arabic" style="display:none;">تمكين اللوجستيات بالهدف
+              والدقة</span>
+          </p>
           <p class="home-section-7-container-content">
-            Your needs are the focus of our promise — we dedicate
-            ourselves to
-            delivering dependable, adaptable, and forward-thinking
-            logistics
-            solutions that elevate your business and keep it moving
-            smoothly
-            across borders.
-            <br><br>
-            From freight forwarding and customs brokerage to
-            last-mile
-            delivery across the GCC, we work hand-in-hand with you
-            to ensure
-            each shipment is handled with care, efficiency, and a
-            relentless
-            commitment to excellence at every touchpoint.
+            <span class="english">
+              Your needs are the focus of our promise — we dedicate ourselves to
+              delivering dependable, adaptable, and forward-thinking logistics
+              solutions that elevate your business and keep it moving smoothly
+              across borders.
+              <br><br>
+              From freight forwarding and customs brokerage to last-mile
+              delivery across the GCC, we work hand-in-hand with you to ensure
+              each shipment is handled with care, efficiency, and a relentless
+              commitment to excellence at every touchpoint.
+            </span>
+            <span class="arabic" style="display:none;">
+              احتياجاتك هي محور وعدنا — نكرس أنفسنا لتقديم حلول لوجستية موثوقة
+              وقابلة للتكيف ومبتكرة ترتقي بعملك وتحافظ على سيره بسلاسة عبر
+              الحدود.
+              <br><br>
+              من التخليص الجمركي وشحن البضائع إلى التوصيل الأخير عبر دول الخليج،
+              نعمل جنبًا إلى جنب معك لضمان التعامل مع كل شحنة بعناية وكفاءة
+              والتزام لا يكل بالتميز في كل نقطة اتصال.
+            </span>
           </p>
         </div>
-      </div>
-    </section>
-    <section id="about-section-8" class="page-width about-section-8">
-      <link rel="stylesheet" href="Styles/about-section-8.css">
-      <h2 class="about-section-8-heading">Global Reach, Local Expertise
-      </h2>
-      <div class="about-section-8-stack">
-        <div class="about-section-8-card">
-          <h3>Centralized Billing and Local Support</h3>
-          <p>We offer centralized billing with local operational
-            support to streamline logistics and ensure smooth
-            business transactions.</p>
-        </div>
 
-        <div class="about-section-8-card">
-          <h3>Expertise in Dangerous Goods Shipping</h3>
-          <p>Specializing in the safe transportation of dangerous
-            goods and temperature-sensitive cargo worldwide.</p>
-        </div>
-        <div class="about-section-8-card">
-          <h3>Compliant with UAE Logistics Regulations</h3>
-          <p>We are fully compliant with UAE logistics and trade
-            regulations, ensuring safe and efficient operations.</p>
-        </div>
       </div>
     </section>
+   <section id="about-section-8" class="page-width about-section-8">
+  <link rel="stylesheet" href="Styles/about-section-8.css">
+
+  <h2 class="about-section-8-heading english">Global Reach, Local Expertise</h2>
+  <h2 class="about-section-8-heading arabic" style="display:none;">نطاق عالمي، خبرة محلية</h2>
+
+  <div class="about-section-8-stack">
+    <div class="about-section-8-card">
+      <h3 class="english">Centralized Billing and Local Support</h3>
+      <h3 class="arabic" style="display:none;">فواتير مركزية ودعم محلي</h3>
+      <p class="english">
+        We offer centralized billing with local operational support to streamline logistics and ensure smooth business transactions.
+      </p>
+      <p class="arabic" style="display:none;">
+        نقدم فواتير مركزية مع دعم تشغيلي محلي لتبسيط الخدمات اللوجستية وضمان سلاسة المعاملات التجارية.
+      </p>
+    </div>
+
+    <div class="about-section-8-card">
+      <h3 class="english">Expertise in Dangerous Goods Shipping</h3>
+      <h3 class="arabic" style="display:none;">خبرة في شحن المواد الخطرة</h3>
+      <p class="english">
+        Specializing in the safe transportation of dangerous goods and temperature-sensitive cargo worldwide.
+      </p>
+      <p class="arabic" style="display:none;">
+        متخصصون في النقل الآمن للمواد الخطرة والبضائع الحساسة لدرجات الحرارة على مستوى العالم.
+      </p>
+    </div>
+
+    <div class="about-section-8-card">
+      <h3 class="english">Compliant with UAE Logistics Regulations</h3>
+      <h3 class="arabic" style="display:none;">متوافقون مع أنظمة النقل في الإمارات</h3>
+      <p class="english">
+        We are fully compliant with UAE logistics and trade regulations, ensuring safe and efficient operations.
+      </p>
+      <p class="arabic" style="display:none;">
+        نحن متوافقون تماماً مع أنظمة النقل والتجارة في الإمارات، مما يضمن عمليات آمنة وفعالة.
+      </p>
+    </div>
+  </div>
+</section>
+
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
@@ -824,7 +1010,8 @@ switchButton.addEventListener('click', async () => {
     </script>
     <section class="page-width photo-gallery-section"
       id="photo-gallery-section">
-      <h2 class="about-section-8-heading">Capturing Our Global Footprint</h2>
+<h2 class="about-section-8-heading english">Capturing Our Global Footprint</h2>
+<h2 class="about-section-8-heading arabic" style="display:none;">توثيق بصمتنا العالمية</h2>
       <link rel="stylesheet" href="Styles/photo-gallery-section.css" />
       <div class="swiper photo-gallery-swiper">
         <div class="swiper-wrapper">
@@ -994,5 +1181,49 @@ window.addEventListener('resize', () => {
             }
           }
     </script>
+    <!-- Language Toggle -->
+    <script>
+  function updateLanguage(isArabic) {
+    const englishElements = document.querySelectorAll('.english');
+    const arabicElements = document.querySelectorAll('.arabic');
+
+    englishElements.forEach(el => el.style.display = isArabic ? 'none' : '');
+    arabicElements.forEach(el => el.style.display = isArabic ? '' : 'none');
+
+    // Store preference
+    localStorage.setItem('selectedLanguage', isArabic ? 'ar' : 'en');
+  }
+
+function initializeLanguageToggle() {
+  const toggle = document.getElementById('language-toggle');
+  if (!toggle) {
+    console.warn('Language toggle element not found, retrying...');
+    return false;  // Not found yet
+  }
+
+  const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+  const isArabic = savedLang === 'ar';
+
+  toggle.checked = isArabic;
+  updateLanguage(isArabic);
+
+  toggle.addEventListener('change', () => {
+    updateLanguage(toggle.checked);
+  });
+
+  return true;  // Success
+}
+
+function waitForToggleAndInit() {
+  if (!initializeLanguageToggle()) {
+    setTimeout(waitForToggleAndInit, 100);  // try again after 100ms
+  }
+}
+
+waitForToggleAndInit();
+
+  // Make sure DOM is ready
+  document.addEventListener('DOMContentLoaded', initializeLanguageToggle);
+</script>
   </body>
 </html>

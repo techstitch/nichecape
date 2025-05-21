@@ -60,74 +60,147 @@
       <link rel="stylesheet" href="Styles/home-section-1.css">
       <img src="Assets/contact-1.jpg">
       <div class="home-section-1-content-div">
-        <h2>Get in Touch & Start Your Shipment Today</h2>
-        <p>Whether you're shipping a container, moving industrial cargo,
-          or need a warehousing partner in the UAE—our logistics
-          experts are here to help.
+        <h2>
+          <span class="english">Get in Touch & Start Your Shipment Today</span>
+          <span class="arabic" style="display:none;">تواصل معنا وابدأ شحنتك
+            اليوم</span>
+        </h2>
+        <p>
+          <span class="english">Whether you're shipping a container, moving
+            industrial cargo, or need a warehousing partner in the UAE—our
+            logistics experts are here to help.</span>
+          <span class="arabic" style="display:none;">سواء كنت تشحن حاوية، تنقل
+            بضائع صناعية، أو تحتاج إلى شريك تخزين في الإمارات—خبراء الخدمات
+            اللوجستية لدينا هنا لمساعدتك.</span>
         </p>
       </div>
     </section>
-    <section class="page-width ticker"
-      aria-label="Niche Shipping Highlights">
+
+    <section class="page-width ticker" aria-label="Niche Shipping Highlights">
       <div class="ticker-track">
-        <div class="ticker-content">
-          <span>Reliable</span>
-          <span>Scalable</span>
-          <span>Precise</span>
-          <span>Secure</span>
-          <span>Global</span>
-          <span>Efficient</span>
-          <span>Trusted</span>
-          <span>Optimized</span>
-          <span>Certified</span>
-          <span>Always On Time</span>
-        </div>
-        <div class="ticker-content">
-          <span>Reliable</span>
-          <span>Scalable</span>
-          <span>Precise</span>
-          <span>Secure</span>
-          <span>Global</span>
-          <span>Efficient</span>
-          <span>Trusted</span>
-          <span>Optimized</span>
-          <span>Certified</span>
-          <span>Always On Time</span>
-        </div>
+        <!-- ticker-content divs will be created dynamically in JS -->
       </div>
     </section>
     <script>
-            const tickerTrack = document.querySelector('.ticker-track');
-            const tickerContent = document.querySelector('.ticker-content');
-            const clone = tickerContent.cloneNode(true);
-            tickerTrack.appendChild(clone);
-            const contentWidth = tickerContent.getBoundingClientRect().width;
-            gsap.to(tickerTrack, {
-              x: -contentWidth,
-              duration: 35,
-              ease: 'linear',
-              repeat: -1,
-              modifiers: {
-                x: gsap.utils.unitize(x => parseFloat(x) % contentWidth)
-              }
-            });
-        </script>
+  const tickerWords = {
+    en: [
+      "Reliable", "Scalable", "Precise", "Secure", "Global", "Efficient", "Trusted", "Optimized", "Certified", "Always On Time",
+      "Reliable", "Scalable", "Precise", "Secure", "Global", "Efficient", "Trusted", "Optimized", "Certified", "Always On Time"
+    ],
+    ar: [
+      "موثوق", "قابل للتوسع", "دقيق", "آمن", "عالمي", "فعال", "موثوق به", "محسن", "معتمد", "دائمًا في الوقت المحدد",
+      "موثوق", "قابل للتوسع", "دقيق", "آمن", "عالمي", "فعال", "موثوق به", "محسن", "معتمد", "دائمًا في الوقت المحدد"
+    ]
+  };
+
+  let tickerAnimation; // GSAP animation reference
+
+  function renderTicker(language = 'en') {
+    const tickerTrack = document.querySelector('.ticker-track');
+    if (!tickerTrack) {
+      console.error('Ticker track element not found');
+      return;
+    }
+
+    // Clear existing ticker content and animation
+    tickerTrack.innerHTML = '';
+    if (tickerAnimation) {
+      tickerAnimation.kill();
+    }
+
+    // Create new ticker-content div
+    const tickerContent = document.createElement('div');
+    tickerContent.classList.add('ticker-content');
+    
+    // Set direction based on language
+    tickerContent.style.direction = language === 'ar' ? 'rtl' : 'ltr';
+
+    // Add spans for each word
+    tickerWords[language].forEach(word => {
+      const span = document.createElement('span');
+      span.textContent = word;
+      tickerContent.appendChild(span);
+    });
+
+    // Append original and clone for continuous scrolling
+    tickerTrack.appendChild(tickerContent);
+    tickerTrack.appendChild(tickerContent.cloneNode(true));
+
+    const contentWidth = tickerContent.getBoundingClientRect().width;
+
+    // Reset position before starting new animation
+    gsap.set(tickerTrack, { x: 0 });
+
+    // Create and store the new animation
+    tickerAnimation = gsap.to(tickerTrack, {
+      x: language === 'ar' ? contentWidth : -contentWidth,
+      duration: 35,
+      ease: 'linear',
+      repeat: -1,
+      modifiers: {
+        x: gsap.utils.unitize(x => {
+          const val = parseFloat(x);
+          return language === 'ar' 
+            ? val % contentWidth 
+            : val % contentWidth;
+        })
+      }
+    });
+  }
+
+  function waitForElementsAndInit() {
+    const tickerTrack = document.querySelector('.ticker-track');
+    const languageToggle = document.getElementById('language-toggle');
+
+    if (tickerTrack && languageToggle) {
+      // Elements found — initialize ticker and listener
+      const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+      renderTicker(savedLang);
+
+      languageToggle.addEventListener('change', function() {
+        const isArabic = this.checked;
+        const lang = isArabic ? 'ar' : 'en';
+        localStorage.setItem('selectedLanguage', lang);
+        renderTicker(lang);
+      });
+    } else {
+      // Retry on next animation frame
+      requestAnimationFrame(waitForElementsAndInit);
+    }
+  }
+
+  // Start checking after DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    waitForElementsAndInit();
+  });
+</script>
+
     <section class="page-width contact-section-2">
       <link rel="stylesheet" href="Styles/contact.css">
-      <p class="page-heading">Send a message</p>
+      <p class="page-heading">
+        <span class="english">Send a message</span>
+        <span class="arabic" style="display:none;">أرسل رسالة</span>
+      </p>
       <div class="contact-section-2-inner">
         <form action="https://formspree.io/f/xanodwgz" method="POST"
           class="contact-form">
           <div class="contact-form-inner">
-            <input type="text" name="name" placeholder="Name"
-              required>
-            <input type="email" name="email" placeholder="Email"
-              required>
-            <input type="number" name="phone" placeholder="Phone"
-              required>
+            <input type="text" name="name" required
+              placeholder="Name"
+              data-placeholder-ar="الاسم">
+            <input type="email" name="email" required
+              placeholder="Email"
+              data-placeholder-ar="البريد الإلكتروني">
+            <input type="number" name="phone" required
+              placeholder="Phone"
+              data-placeholder-ar="رقم الهاتف">
             <textarea name="message" rows="5"
-              placeholder="Message"></textarea>
-            <button type="submit">Submit</button>
+              placeholder="Message"
+              data-placeholder-ar="الرسالة"></textarea>
+            <button type="submit">
+              <span class="english">Submit</span>
+              <span class="arabic" style="display:none;">إرسال</span>
+            </button>
           </div>
         </form>
         <div class="contact-image-wrapper">
@@ -140,31 +213,49 @@
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2973.962128728677!2d55.32538347233751!3d25.263202079691574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5dc25021f82d%3A0x6bb620877af3e05b!2sNiche%20Cape%20Shipping%20Services%20LLC!5e0!3m2!1sen!2sin!4v1746926448513!5m2!1sen!2sin"
         width="600" height="450" style="border:0;" allowfullscreen
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       <ul class="contact-section-3-inner">
         <li>
           <img src="Assets/location-pin_10023629.png">
-          <p>11A St Al Khabaisi, Deira , Dubai , PO Box 81605</p>
+          <p>
+            <span class="english">11A St Al Khabaisi, Deira , Dubai , PO Box
+              81605</span>
+            <span class="arabic" style="display:none;">11A شارع الخبيصي، ديرة،
+              دبي، ص.ب 81605</span>
+          </p>
         </li>
         <li>
           <img src="Assets/phone-call_455705 (2).png">
-          <p>+971 (4) 297 8868</p>
+          <p>
+            <span class="english">+971 (4) 297 8868</span>
+            <span class="arabic" style="display:none;">+971 (4) 297 8868</span>
+          </p>
         </li>
         <li>
           <img src="Assets/Subtract.png">
-          <p>+971 052 579 6470</p>
+          <p>
+            <span class="english">+971 052 579 6470</span>
+            <span class="arabic" style="display:none;">+971 052 579 6470</span>
+          </p>
         </li>
         <li>
           <img src="Assets/email_542689.png">
-          <p>info@nicheme.com</p>
+          <p>
+            <span class="english">info@nicheme.com</span>
+            <span class="arabic" style="display:none;">info@nicheme.com</span>
+          </p>
         </li>
         <li>
           <img src="Assets/time_6068097.png">
-          <p>Mon to Fri - 9 am to 6pm</p>
+          <p>
+            <span class="english">Mon to Fri - 9 am to 6pm</span>
+            <span class="arabic" style="display:none;">من الاثنين إلى الجمعة -
+              من 9 صباحاً إلى 6 مساءً</span>
+          </p>
         </li>
       </ul>
     </section>
+
     <footer id="footer">
       <script>
           fetch('Snippets/footer.html')
@@ -247,5 +338,74 @@
             }
           }
         </script>
+    <!-- Language Toggle -->
+<script>
+  function updateLanguage(isArabic) {
+    const englishElements = document.querySelectorAll('.english');
+    const arabicElements = document.querySelectorAll('.arabic');
+
+    englishElements.forEach(el => el.style.display = isArabic ? 'none' : '');
+    arabicElements.forEach(el => el.style.display = isArabic ? '' : 'none');
+
+    // Update placeholders in contact form
+    const placeholders = {
+      en: {
+        name: "Name",
+        email: "Email",
+        phone: "Phone",
+        message: "Message"
+      },
+      ar: {
+        name: "الاسم",
+        email: "البريد الإلكتروني",
+        phone: "رقم الهاتف",
+        message: "الرسالة"
+      }
+    };
+
+    const form = document.querySelector('.contact-form');
+    if (form) {
+      form.querySelector('input[name="name"]').placeholder = isArabic ? placeholders.ar.name : placeholders.en.name;
+      form.querySelector('input[name="email"]').placeholder = isArabic ? placeholders.ar.email : placeholders.en.email;
+      form.querySelector('input[name="phone"]').placeholder = isArabic ? placeholders.ar.phone : placeholders.en.phone;
+      form.querySelector('textarea[name="message"]').placeholder = isArabic ? placeholders.ar.message : placeholders.en.message;
+    }
+
+    // Store preference
+    localStorage.setItem('selectedLanguage', isArabic ? 'ar' : 'en');
+  }
+
+  function initializeLanguageToggle() {
+    const toggle = document.getElementById('language-toggle');
+    if (!toggle) {
+      console.warn('Language toggle element not found, retrying...');
+      return false;  // Not found yet
+    }
+
+    const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+    const isArabic = savedLang === 'ar';
+
+    toggle.checked = isArabic;
+    updateLanguage(isArabic);
+
+    toggle.addEventListener('change', () => {
+      updateLanguage(toggle.checked);
+    });
+
+    return true;  // Success
+  }
+
+  function waitForToggleAndInit() {
+    if (!initializeLanguageToggle()) {
+      setTimeout(waitForToggleAndInit, 100);  // try again after 100ms
+    }
+  }
+
+  waitForToggleAndInit();
+
+  // Make sure DOM is ready
+  document.addEventListener('DOMContentLoaded', initializeLanguageToggle);
+</script>
+
   </body>
 </html>

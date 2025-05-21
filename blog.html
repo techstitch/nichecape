@@ -56,68 +56,86 @@
       </script>
 
     </header>
-    <section class="page-width" id="home-section-1">
-      <link rel="stylesheet" href="Styles/home-section-1.css">
-      <img src="Assets/blog-1.jpg">
-      <div class="home-section-1-content-div">
-        <h2>Logistics Blog & Industry Updates</h2>
-        <p>Explore trends, tips, and expert insights on freight forwarding,
-          customs, warehousing, and supply chain solutions.
-        </p>
-        <div class="home-section-1-cta-container">
-                    <a href="contact.html">Get in Touch</a>
+<section class="page-width" id="home-section-1">
+  <link rel="stylesheet" href="Styles/home-section-1.css">
+  <img src="Assets/blog-1.jpg">
+  <div class="home-section-1-content-div">
+    <h2>
+      <span class="english">Logistics Blog & Industry Updates</span>
+      <span class="arabic" style="display:none;">مدونة اللوجستيات وآخر أخبار الصناعة</span>
+    </h2>
+    <p>
+      <span class="english">Explore trends, tips, and expert insights on freight forwarding, customs, warehousing, and supply chain solutions.</span>
+      <span class="arabic" style="display:none;">استكشف الاتجاهات والنصائح والرؤى المتخصصة حول الشحن، والجمارك، والتخزين، وحلول سلسلة التوريد.</span>
+    </p>
+    <div class="home-section-1-cta-container">
+      <a href="contact.html" class="english">Get in Touch</a>
+      <a href="contact.html" class="arabic" style="display:none;">تواصل معنا</a>
+    </div>
+  </div>
+</section>
 
+<section class="page-width" id="blog-section-1">
+  <link rel="stylesheet" href="Styles/blogs.css">
+  <ul>
+    <li>
+      <a href="blog-1.html">
+        <div>
+          <p>
+            <span class="english">Unlocking the Power of Logistics in 2025</span>
+            <span class="arabic" style="display:none;">اكتشاف قوة اللوجستيات في عام 2025</span>
+          </p>
+          <p class="page-heading">
+            <span class="english">Read more</span>
+            <span class="arabic" style="display:none;">اقرأ المزيد</span>
+          </p>
         </div>
-      </div>
-      <!--<img src="Assets/Group 1 (1).png" class="home-section-1-img-2">-->
-    </section>
-    <section class="page-width" id="blog-section-1">
-      <link rel="stylesheet" href="Styles/blogs.css">
-      <ul>
-        <li>
-          <a href="blog-1.html">
-            <div>
-              <p>Unlocking the Power of Logistics in 2025</p>
-              <p class="page-heading">Read more</p>
-            </div>
-            <div class="img-container">
-              <img
-                src="Assets/blog-101.jpg">
-            </div>
-          </a>
-        </li>
-        <hr>
-        <li>
-          <a href="blog-2.html">
-            <div>
-              <p>The Future of Freight: Key Trends Reshaping Logistics in 2025
-              </p>
-              <p class="page-heading">Read more</p>
-            </div>
-            <div class="img-container">
-              <img
-                src="Assets/blog-102.jpg">
-            </div>
-          </a>
-        </li>
-        <hr>
-        <li>
-          <a href="blog-3.html">
-            <div>
-              <p>How Smart Warehousing Transforms Supply Chain Performance
-              </p>
-              <p class="page-heading">Read more</p>
-            </div>
-            <div class="img-container">
-              <img
-                src="Assets/blog-103.jpg">
-            </div>
-          </a>
-        </li>
-      </ul>
-    </section>
-      <footer id="footer">
-        <script>
+        <div class="img-container">
+          <img src="Assets/blog-101.jpg">
+        </div>
+      </a>
+    </li>
+    <hr>
+    <li>
+      <a href="blog-2.html">
+        <div>
+          <p>
+            <span class="english">The Future of Freight: Key Trends Reshaping Logistics in 2025</span>
+            <span class="arabic" style="display:none;">مستقبل الشحن: الاتجاهات الرئيسية التي تعيد تشكيل اللوجستيات في عام 2025</span>
+          </p>
+          <p class="page-heading">
+            <span class="english">Read more</span>
+            <span class="arabic" style="display:none;">اقرأ المزيد</span>
+          </p>
+        </div>
+        <div class="img-container">
+          <img src="Assets/blog-102.jpg">
+        </div>
+      </a>
+    </li>
+    <hr>
+    <li>
+      <a href="blog-3.html">
+        <div>
+          <p>
+            <span class="english">How Smart Warehousing Transforms Supply Chain Performance</span>
+            <span class="arabic" style="display:none;">كيف يُحسّن التخزين الذكي أداء سلسلة التوريد</span>
+          </p>
+          <p class="page-heading">
+            <span class="english">Read more</span>
+            <span class="arabic" style="display:none;">اقرأ المزيد</span>
+          </p>
+        </div>
+        <div class="img-container">
+          <img src="Assets/blog-103.jpg">
+        </div>
+      </a>
+    </li>
+  </ul>
+</section>
+
+    <footer id="footer">
+      <script>
           fetch('Snippets/footer.html')
             .then(res => res.text())
             .then(data => {
@@ -143,7 +161,7 @@
               }, 100); // check every 100ms
             });
         </script>
-      </footer>
+    </footer>
     <!--Header Menu Dropdown Script-->
     <script>
             const observer = new MutationObserver(() => {
@@ -198,5 +216,49 @@
             }
           }
         </script>
+    <!-- Language Toggle -->
+    <script>
+  function updateLanguage(isArabic) {
+    const englishElements = document.querySelectorAll('.english');
+    const arabicElements = document.querySelectorAll('.arabic');
+
+    englishElements.forEach(el => el.style.display = isArabic ? 'none' : '');
+    arabicElements.forEach(el => el.style.display = isArabic ? '' : 'none');
+
+    // Store preference
+    localStorage.setItem('selectedLanguage', isArabic ? 'ar' : 'en');
+  }
+
+function initializeLanguageToggle() {
+  const toggle = document.getElementById('language-toggle');
+  if (!toggle) {
+    console.warn('Language toggle element not found, retrying...');
+    return false;  // Not found yet
+  }
+
+  const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+  const isArabic = savedLang === 'ar';
+
+  toggle.checked = isArabic;
+  updateLanguage(isArabic);
+
+  toggle.addEventListener('change', () => {
+    updateLanguage(toggle.checked);
+  });
+
+  return true;  // Success
+}
+
+function waitForToggleAndInit() {
+  if (!initializeLanguageToggle()) {
+    setTimeout(waitForToggleAndInit, 100);  // try again after 100ms
+  }
+}
+
+waitForToggleAndInit();
+
+  // Make sure DOM is ready
+  document.addEventListener('DOMContentLoaded', initializeLanguageToggle);
+</script>
   </body>
 </html>
