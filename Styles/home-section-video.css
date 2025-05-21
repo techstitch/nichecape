@@ -17,7 +17,7 @@
 .video-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 1920 / 540;
+    aspect-ratio: 1920 / 800;
     overflow: hidden;
     /* Clips the image */
 }
@@ -90,10 +90,6 @@
     margin-bottom: 1rem !important;
 }
 @media(max-width:756px) {
-    .video-wrapper {
-        aspect-ratio: 1920 / 1340;
-    }
-
     .video-wrapper-about {
         aspect-ratio: 2390 / 1340;
     }
