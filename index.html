@@ -417,7 +417,8 @@
         <link rel="stylesheet" href="Styles/home-section-6.css">
         <div class="home-section-6-container">
           <div class="home-section-6-left">
-            <h2 class="home-section-6-heading">Why Choose Niche Cape Shipping Services?
+            <h2 class="home-section-6-heading">Why Choose Niche Cape Shipping
+              Services?
             </h2>
             <p class="home-section-6-subheading">
               Experience seamless logistics with a partner that prioritizes
@@ -440,7 +441,8 @@
           <div class="home-section-6-right">
             <div class="carousel">
               <div class="carousel-slide active" data-slide="0">
-              <img src="Assets/Replacements/ChatGPT Image May 20, 2025, 05_43_05 PM.jpg">
+                <img
+                  src="Assets/Replacements/ChatGPT Image May 20, 2025, 05_43_05 PM.jpg">
                 <div class="slide-content">
                   <h3>One Point of Contact Across the MENA Region</h3>
                   <p>We simplify your regional logistics through a single,
@@ -601,7 +603,7 @@
         class="page-width enquiry-form-callout enquiry-form-callout-home">
         <img class="enquiry-form-desktop-image" src="Assets/a92b1b88ce (1).jpg">
         <img class="enquiry-form-mobile-image" src="Assets/a92b1b88ce.jpg">
-        <div class="enquiry-form-callout-content">
+        <div class="enquiry-form-callout-content animated-content">
           <h2 class="about-section-4-heading">Let’s Meet Your Requirements and
             Your Budget</h2>
           <p>
@@ -611,9 +613,75 @@
             your
             needs without stretching your budget.
           </p>
-          <a href="enquiry.html">Request a Rate Match</a>
+          <a href="enquiry.html" class="rate-match-link">Request a Rate
+            Match</a>
         </div>
       </section>
+      <script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Fade-in image (simple and elegant)
+  gsap.from(".enquiry-form-desktop-image", {
+    opacity: 0,
+    duration: 1.5,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".enquiry-form-callout",
+      start: "top 85%",
+    }
+  });
+
+  // Reusable fade in/out for content
+  function fadeInOutAllDirections(selector, delay = 0) {
+    gsap.set(selector, { opacity: 0, y: 60 });
+
+    ScrollTrigger.create({
+      trigger: selector,
+      start: "top 90%",
+      end: "bottom 10%",
+      onEnter: () => {
+        gsap.to(selector, {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power2.out",
+          delay: delay
+        });
+      },
+      onLeave: () => {
+        gsap.to(selector, {
+          opacity: 0,
+          y: 40,
+          duration: 0.8,
+          ease: "power2.in"
+        });
+      },
+      onEnterBack: () => {
+        gsap.to(selector, {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power2.out",
+          delay: delay
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(selector, {
+          opacity: 0,
+          y: 40,
+          duration: 0.8,
+          ease: "power2.in"
+        });
+      }
+    });
+  }
+
+  // Apply to text elements
+  fadeInOutAllDirections(".animated-content h2", 0);
+  fadeInOutAllDirections(".animated-content p", 0.2);
+  fadeInOutAllDirections(".rate-match-link", 0.4);
+</script>
+
       <footer id="footer">
         <script>
           fetch('Snippets/footer.html')
