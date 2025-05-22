@@ -76,13 +76,13 @@
 }
 
 .photo-gallery-section .about-section-8-heading {
-    padding-top: 3rem;
+    padding-top: 0rem;
     padding-bottom: 0;
 }
 
 @media(max-width: 756px) {
     .photo-gallery-section .about-section-8-heading {
-        padding-top: 1rem;
+        padding-top: 0rem;
     }
 
     .photo-gallery-section {
