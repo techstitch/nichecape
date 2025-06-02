@@ -182,8 +182,7 @@
         <span class="arabic" style="display:none;">أرسل رسالة</span>
       </p>
       <div class="contact-section-2-inner">
-        <form action="https://formspree.io/f/xanodwgz" method="POST"
-          class="contact-form">
+        <form id="contact-form" class="contact-form">
           <div class="contact-form-inner">
             <input type="text" name="name" required
               placeholder="Name"
@@ -203,6 +202,30 @@
             </button>
           </div>
         </form>
+
+        <!-- EmailJS SDK -->
+        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        <script>
+  (function(){
+    emailjs.init("0y-54eaYngDG_MT3-");
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm("service_p28r8cs", "template_xxxxxx", this)
+      .then(function(response) {
+        alert("Message sent successfully!");
+        console.log("SUCCESS", response.status, response.text);
+      }, function(error) {
+        alert("Failed to send message. Please try again.");
+        console.log("FAILED", error);
+      });
+
+    this.reset();
+  });
+</script>
+
         <div class="contact-image-wrapper">
           <img src="Assets/contact-2.jpg">
         </div>

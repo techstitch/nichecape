@@ -81,10 +81,10 @@
       <link rel="stylesheet" href="Styles/about-enquiry-form.css">
       <link rel="stylesheet" href="Styles/about-section-4.css">
       <div class="contact-section-2-inner">
-        <form action="https://formspree.io/f/xrbqdgvp" method="POST"
-          class="contact-form">
+        <form id="contact-form-2" class="contact-form">
           <div class="contact-form-inner">
             <input type="text" name="name" placeholder="*Name" required>
+
             <div style="display: flex; gap: 10px; width: 100%;">
               <input type="email" name="email" placeholder="*Email" required>
               <input type="number" name="phone" placeholder="*Phone" required>
@@ -96,12 +96,15 @@
               <input type="text" name="weight" placeholder="*Weight (kg)"
                 required>
             </div>
+
             <input type="text" name="company" placeholder="Company">
 
             <textarea name="message" rows="5"
               placeholder="*Tell us your requirement in detail"></textarea>
+
             <label class="english">Dimensions (in cm):</label>
             <label class="arabic" style="display:none;">الأبعاد (بالسم):</label>
+
             <div style="display: flex; gap: 10px;">
               <input type="number" name="length" placeholder="*Length" required>
               <input type="number" name="width" placeholder="*Width" required>
@@ -132,9 +135,11 @@
 
             <label class="english">Your Expected Price:</label>
             <label class="arabic" style="display:none;">السعر المتوقع:</label>
+
             <div style="display: flex; gap: 10px; width: 100%;">
               <input type="number" name="expected_price"
                 placeholder="Enter Price" required>
+
               <select
                 style="padding: 17px; font-size: 1rem; margin: 5px 0; border-radius: 15px; border: none; background: #00000010; color: #000; font-weight: 600;"
                 name="currency" required>
@@ -143,9 +148,34 @@
                 <option value="Euro">Euro</option>
               </select>
             </div>
+
             <button type="submit">Submit</button>
           </div>
         </form>
+
+        <!-- EmailJS SDK -->
+        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        <script>
+  (function(){
+    emailjs.init("0y-54eaYngDG_MT3-");
+  })();
+
+  document.getElementById("contact-form-2").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm("service_l9iqrpa", "template_xxxxxx", this)
+      .then(function(response) {
+        alert("Message sent successfully!");
+        console.log("SUCCESS", response.status, response.text);
+      }, function(error) {
+        alert("Failed to send message. Please try again.");
+        console.log("FAILED", error);
+      });
+
+    this.reset();
+  });
+</script>
+
         <div class="contact-image-wrapper">
           <img src="Assets/Replacements/6ec393bf0f (1).jpg">
           <a href="contact.html" class="english">Contact Us</a>
@@ -238,7 +268,7 @@
             }
           }
     </script>
-<script>
+    <script>
   function updateLanguage(isArabic) {
     const englishElements = document.querySelectorAll('.english');
     const arabicElements = document.querySelectorAll('.arabic');
