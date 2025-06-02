@@ -257,7 +257,9 @@ button {
 .arabic {
     display: none !important;
 }
-
+.english{
+    display: block !important;
+}
 .switch>span:first-of-type {
     padding-left: 2px;
 }
