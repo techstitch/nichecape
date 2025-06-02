@@ -254,6 +254,10 @@ button {
     font-weight: 500;
 }
 
+.arabic {
+    display: none !important;
+}
+
 .switch>span:first-of-type {
     padding-left: 2px;
 }
