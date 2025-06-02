@@ -25,36 +25,37 @@
   </head>
   <body>
     <header class="page-width" id="header">
-      <script>
-        // Inject header from external file
-        fetch('Snippets/header.html')
-          .then(res => res.text())
-          .then(data => {
-            const header = document.getElementById('header');
-            header.innerHTML = data;
-      
-            // Show the header by default on page load
-            header.classList.add('header-show');
-      
-            // Sticky on scroll-up logic
-            let lastScroll = window.pageYOffset;
-      
-            window.addEventListener("scroll", () => {
-              const currentScroll = window.pageYOffset;
-      
-              if (currentScroll < lastScroll) {
-                // scrolling up
-                header.classList.add("header-show");
-              } else {
-                // scrolling down
-                header.classList.remove("header-show");
-              }
-      
-              lastScroll = currentScroll;
-            });
-          });
-      </script>
+     <script>
+  // Inject header from external file
+  fetch('Snippets/header.html')
+    .then(res => res.text())
+    .then(data => {
+      const header = document.getElementById('header');
+      header.innerHTML = data;
 
+      // Show the header by default on page load
+      header.classList.add('header-show');
+
+      let lastScroll = window.pageYOffset;
+      const hideAfter = 100; // distance in px after which to hide on scroll down
+
+      window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll < lastScroll) {
+          // scrolling up
+          header.classList.add("header-show");
+        } else {
+          // scrolling down only hide after threshold
+          if (currentScroll > hideAfter) {
+            header.classList.remove("header-show");
+          }
+        }
+
+        lastScroll = currentScroll;
+      });
+    });
+</script>
     </header>
     <section class="page-width" id="home-section-1">
       <link rel="stylesheet" href="Styles/home-section-1.css">
